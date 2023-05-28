@@ -19,7 +19,7 @@ const AppRoutes = () => {
             <Route path="/profile/:id" element={<h1>PROFILE 🫂 🙃</h1>} />
             <Route path="/profile/:id/myplaces" element={<h1>PROFILE My Places 🫂 🙃</h1>} />
             <Route path="/profile/:id/myfavourites" element={<h1>TUS LUGARES FAVS 🫂 🙃</h1>} />
-            <Route path="/match" element={<h1> BOTON HACER MATCH 💦 🫂</h1>} />
+            <Route path="/match" element={<h1> BOTON HACER MATCH 💦 🫂 🚪</h1>} />
             <Route path="*" element={<h1>404 🤓</h1>} />
 
         </Routes>
