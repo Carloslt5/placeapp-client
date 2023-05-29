@@ -1,5 +1,5 @@
 import './App.css'
-import AppRoutes from './components/routes/AppRoutes'
+import AppRoutes from './routes/AppRoutes'
 import Footer from './components/Footer/Footer'
 import Navigation from './components/Navigation/Navigation'
 

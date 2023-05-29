@@ -10,7 +10,7 @@
 | `/places/create`              | Create new place           |              |
 | `/places/edit`                | Edit place                 |              |
 | `/community`                  | Users list page            |              |
-| `/profile/:id`                | Users profiles page        |              | // consultar con german
+| `/profile/:id`                | Users profiles page        |              | 
 | `/profile/:id/edit`           | Users edit profiles page   |              |
 | `/profile/:id/myplaces`       | Users profiles page        |              |
 | `/profile/:id/myfavourites`   | Users favourites places    |              |
