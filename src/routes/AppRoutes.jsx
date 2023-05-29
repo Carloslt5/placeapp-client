@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import LoginPage from '../pages/LoginPage/LoginPage'
 import SignupPage from '../pages/SignupPage/SignupPage'
 
 
@@ -9,7 +10,7 @@ const AppRoutes = () => {
         <Routes>
 
             <Route path="/" element={<h1>HOLA 🫂 🙃</h1>} />
-            <Route path="/login" element={<h1>LOGIN 🫂 🙃</h1>} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
 
             <Route path="/places" element={<h1>PLACES 🫂 🙃</h1>} />
