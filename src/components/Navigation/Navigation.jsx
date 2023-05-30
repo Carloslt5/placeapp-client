@@ -24,6 +24,9 @@ const Navigation = () => {
                         <Nav.Link as="span">
                             <Link to="/community">Community</Link>
                         </Nav.Link>
+                        <Nav.Link as="span">
+                            <Link to="/places/create">Create places</Link>
+                        </Nav.Link>
 
 
                         {

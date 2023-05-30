@@ -3,6 +3,7 @@ import LoginPage from '../pages/LoginPage/LoginPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import SignupPage from '../pages/SignupPage/SignupPage'
 import PrivateRoute from './PrivateRoutes'
+import CreatePlacePage from '../pages/CreatePlacePage/CreatePlacePage'
 
 
 const AppRoutes = () => {
@@ -17,7 +18,7 @@ const AppRoutes = () => {
 
             <Route path="/places" element={<h1>PLACES 🫂 🙃</h1>} />
             <Route path="/places/:id" element={<h1>PLACES DETAILS 🫂 🙃</h1>} />
-            <Route path="/places/create" element={<h1>FORM CREATE 🫂 🙃</h1>} />
+            <Route path="/places/create" element={<CreatePlacePage />} />
             <Route path="/places/edit" element={<h1>EDIT PLACE 🫂 🙃</h1>} />
             <Route path="/community" element={<h1>Community 🫂 🙃</h1>} />
 
