@@ -3,6 +3,7 @@ import './SignupForm.css'
 import { Button, Form } from "react-bootstrap"
 import { useNavigate } from 'react-router-dom'
 import authService from './../../services/auth.services'
+import uploadServices from './../../services/upload.services'
 
 const SignupForm = () => {
 
@@ -11,8 +12,10 @@ const SignupForm = () => {
         lastName: '',
         email: '',
         password: '',
-        // avatar: '',
+        avatar: '',
     })
+
+    const [loadingAvatar, setloadingAvatar] = useState(false)
 
     const navigate = useNavigate()
 
@@ -22,16 +25,37 @@ const SignupForm = () => {
     }
 
     const handleSubmit = e => {
+
         e.preventDefault()
 
         authService
             .signup(signupData)
-            .then(({ data }) => navigate('/'))
+            .then(({ data }) => navigate('/login'))
             .catch(err => console.log(err))
     }
 
 
     const { name, lastName, password, email } = signupData
+
+
+    const handleFileUpload = e => {
+
+        setloadingAvatar(true)
+
+        const formData = new FormData()
+        formData.append('imageData', e.target.files[0])
+
+        uploadServices
+            .uploadImage(formData)
+            .then(({ data }) => {
+                setSignupData({ ...signupData, avatar: data.cloudinary_url })
+                setloadingAvatar(false)
+            })
+            .catch(err => {
+                console.log(err)
+                setloadingAvatar(false)
+            })
+    }
 
 
     return (
@@ -57,14 +81,14 @@ const SignupForm = () => {
                     <Form.Label>Password:</Form.Label>
                     <Form.Control type="password" value={password} name='password' onChange={handleInputChange} />
                 </Form.Group>
-                {/* 
-                <Form.Group controlId="avatar">
-                    <Form.Label>Default file input example</Form.Label>
-                    <Form.Control type="file" value={avatar} name='avatar' onChange={handleInputChange} />
-                </Form.Group> */}
+
+                <Form.Group className="mb-3" controlId="image">
+                    <Form.Label>Imagen (URL)</Form.Label>
+                    <Form.Control type="file" onChange={handleFileUpload} />
+                </Form.Group>
 
                 <div className="d-grid mt-4">
-                    <Button variant="dark" type="submit">Signup</Button>
+                    <Button variant="dark" disabled={loadingAvatar} type="submit"> {loadingAvatar ? 'loading image...' : 'Signup'}</Button>
                 </div>
 
             </Form>

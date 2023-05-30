@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
 import LoginPage from '../pages/LoginPage/LoginPage'
+import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import SignupPage from '../pages/SignupPage/SignupPage'
+import PrivateRoute from './PrivateRoutes'
 
 
 const AppRoutes = () => {
@@ -19,7 +21,10 @@ const AppRoutes = () => {
             <Route path="/places/edit" element={<h1>EDIT PLACE 🫂 🙃</h1>} />
             <Route path="/community" element={<h1>Community 🫂 🙃</h1>} />
 
-            <Route path="/profile/:id" element={<h1>PROFILE 🫂 🙃</h1>} />
+            <Route path="/profile/:id" element={<PrivateRoute />}>
+                <Route path="" element={<ProfilePage />} />
+            </Route>
+
             <Route path="/profile/:id/myplaces" element={<h1>PROFILE My Places 🫂 🙃</h1>} />
             <Route path="/profile/:id/myfavourites" element={<h1>TUS LUGARES FAVS 🫂 🙃</h1>} />
             <Route path="/match" element={<h1> BOTON HACER MATCH 💦 🫂 🚪</h1>} />
