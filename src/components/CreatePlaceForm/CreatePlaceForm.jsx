@@ -1,7 +1,11 @@
 
+import './CreatePlaceForm.css'
 import { useState } from "react"
 import { Form, Button, Row, Col, Container } from "react-bootstrap"
 import placesService from './../../services/places.services'
+
+import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
+const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 const CreatePlaceForm = () => {
 
@@ -42,6 +46,51 @@ const CreatePlaceForm = () => {
             .catch(err => console.log(err))
     }
 
+    // ------------------------
+    const [address, setAddress] = useState()
+
+    const handleChange = (newAddress) => {
+        setAddress(newAddress);
+    };
+
+    const handleSelect = (selectedAddress) => {
+
+        setAddress(selectedAddress);
+
+        geocodeByAddress(selectedAddress)
+            .then((results) => {
+                const place_id = (results[0].place_id)
+                return placesService.getOnePlace(place_id)
+            })
+            .then(({ data }) => {
+                console.log("HORARIO-----", data.current_opening_hours.weekday_text)
+                setplacesData(placesData => ({
+                    ...placesData,
+                    placeId: data.place_id,
+                    name: data.name,
+                    description: data.editorial_summary.overview ? data.editorial_summary.overview : null,
+                    placeImg: '',
+                    photoReference: '',
+                    type: '',
+                    phone: data.international_phone_number,
+                    weekDay: data.current_opening_hours.weekday_text,
+                    city: data.address_components[2].long_name,
+                    address: data.formatted_address,
+                    latitude: data.geometry.location.lat,
+                    longitude: data.geometry.location.lng,
+                    userRating: '',
+                    userOpinion: '',
+                    owner: '',
+                    comments: '',
+                }));
+                console.log('resultado del then', placesData.city);
+            })
+            .catch(err => console.log(err))
+
+    };
+
+    // ------------------------
+
     return (
         <>
             <p>formulario</p>
@@ -49,17 +98,29 @@ const CreatePlaceForm = () => {
 
                 <Form onSubmit={handleSubmit}>
 
-
                     {/* //meter vaue con lo que nos devuelve la api */}
+                    <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect} apiKey={apiKey} className="mb-3" controlId="name">
+                        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                            <Form.Group>
 
-                    <Form.Group className="mb-3" controlId="name">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="name" />
-                    </Form.Group>
+                                <input  {...getInputProps({ placeholder: 'Ingresa un lugar' })} />
+
+                                <div>
+                                    {loading && <div>Cargando...</div>}
+                                    {suggestions.map((suggestion, index) => (
+                                        <div key={index} {...getSuggestionItemProps({ suggestion })}>
+                                            {suggestion.description}
+                                        </div>
+                                    ))}
+                                </div>
+                            </Form.Group>
+                        )}
+                    </PlacesAutocomplete>
+
 
                     <Form.Group className="mb-3" controlId="description">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="description" />
+                        <Form.Control type="text" onChange={handleInputChange} name="description" value={placesData.description} />
                     </Form.Group>
 
                     {/* aqui podra subir imagen propia el usuario */}
@@ -92,26 +153,26 @@ const CreatePlaceForm = () => {
 
                     <Form.Group className="mb-3" controlId="phone">
                         <Form.Label>Phone</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="phone" />
+                        <Form.Control type="text" onChange={handleInputChange} name="phone" value={placesData.phone} />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="weekDay">
                         <Form.Label>Week Day</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="weekDay" />
+                        <Form.Control type="text" onChange={handleInputChange} name="weekDay" value={placesData.weekDay} />
                     </Form.Group>
 
                     <Row>
                         <Col >
                             <Form.Group className="mb-3" controlId="address">
                                 <Form.Label>Address</Form.Label>
-                                <Form.Control type="text" onChange={handleInputChange} name="address" />
+                                <Form.Control type="text" onChange={handleInputChange} name="address" value={placesData.address} />
                             </Form.Group>
                         </Col>
 
                         <Col>
                             <Form.Group className="mb-3" controlId="city">
                                 <Form.Label>City</Form.Label>
-                                <Form.Control type="text" onChange={handleInputChange} name="city" />
+                                <Form.Control type="text" onChange={handleInputChange} name="city" value={placesData.city} />
                             </Form.Group>
                         </Col>
 
@@ -121,14 +182,14 @@ const CreatePlaceForm = () => {
                         <Col >
                             <Form.Group className="mb-3" controlId="latitude">
                                 <Form.Label>Latitude</Form.Label>
-                                <Form.Control type="text" onChange={handleInputChange} name="latitude" />
+                                <Form.Control type="text" onChange={handleInputChange} name="latitude" value={placesData.latitude} />
                             </Form.Group>
                         </Col>
 
                         <Col >
                             <Form.Group className="mb-3" controlId="longitude">
                                 <Form.Label>Longitude</Form.Label>
-                                <Form.Control type="text" onChange={handleInputChange} name="longitude" />
+                                <Form.Control type="text" onChange={handleInputChange} name="longitude" value={placesData.longitude} />
                             </Form.Group>
                         </Col>
 

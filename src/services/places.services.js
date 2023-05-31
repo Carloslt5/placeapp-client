@@ -34,6 +34,7 @@ class PlacesService {
         return this.api.delete(`${placeIdDelete}/delete`)
     }
 
+
 }
 
 const placesService = new PlacesService()
