@@ -1,12 +1,12 @@
 
-import './CreatePlaceForm.css'
-import { useState } from "react"
 import { Form, Button, Row, Col, Container } from "react-bootstrap"
-import placesService from './../../services/places.services'
-import { useContext } from 'react';
+import './CreatePlaceForm.css'
 import { AuthContext } from '../../contexts/auth.context';
-
+import { useContext } from 'react';
+import { useState } from "react"
+import placesService from './../../services/places.services'
 import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
+
 const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 const CreatePlaceForm = () => {
@@ -50,15 +50,12 @@ const CreatePlaceForm = () => {
             .catch(err => console.log(err))
     }
 
-    // ------------------------
+
     const [address, setAddress] = useState()
 
-    const handleChange = (newAddress) => {
-        setAddress(newAddress);
-    };
+    const handleChange = (newAddress) => setAddress(newAddress)
 
     const handleSelect = (selectedAddress) => {
-
         setAddress(selectedAddress);
 
         geocodeByAddress(selectedAddress)
@@ -67,12 +64,11 @@ const CreatePlaceForm = () => {
                 return placesService.getOnePlace(place_id)
             })
             .then(({ data }) => {
-                console.log("DATA QUE VIENE DEL BACKEND CON formattedPlace PARA CLIENTE", data)
 
                 setplacesData(placesData => ({
                     ...placesData,
                     placeId: data.placeId,
-                    name: data.name,
+                    name: address,
                     description: data.description,
                     placeImg: data.placeImg,
                     photoReference: data.photoReference,
@@ -94,8 +90,6 @@ const CreatePlaceForm = () => {
 
     };
 
-    // ------------------------
-
     return (
         <>
             <p>formulario</p>
@@ -104,7 +98,7 @@ const CreatePlaceForm = () => {
                 <Form onSubmit={handleSubmit}>
 
                     {/* //meter vaue con lo que nos devuelve la api */}
-                    <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect} apiKey={apiKey} className="mb-3" controlId="name">
+                    <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect} name='name' apiKey={apiKey} className="mb-3" controlId="name">
                         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                             <Form.Group>
 
