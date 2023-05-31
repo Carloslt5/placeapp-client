@@ -68,7 +68,7 @@ const CreatePlaceForm = () => {
                     ...placesData,
                     placeId: data.place_id,
                     name: data.name,
-                    description: data.editorial_summary.overview ? data.editorial_summary.overview : null,
+                    description: data.editorial_summary.overview,
                     placeImg: '',
                     photoReference: '',
                     type: '',
