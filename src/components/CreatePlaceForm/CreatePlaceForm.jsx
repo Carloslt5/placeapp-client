@@ -3,11 +3,15 @@ import './CreatePlaceForm.css'
 import { useState } from "react"
 import { Form, Button, Row, Col, Container } from "react-bootstrap"
 import placesService from './../../services/places.services'
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/auth.context';
 
 import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
 const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 const CreatePlaceForm = () => {
+
+    const { user } = useContext(AuthContext)
 
     const [placesData, setplacesData] = useState({
         placeId: '',
@@ -37,9 +41,9 @@ const CreatePlaceForm = () => {
         event.preventDefault()
 
         placesService
-            .createPlace()
-            .then(() => {
-                console.log('esto es la respuesta de create place')
+            .createPlace(placesData)
+            .then((place) => {
+                console.log('Sitio creado con exito!', place)
                 // closeModal()
                 // updateList()
             })
@@ -63,27 +67,28 @@ const CreatePlaceForm = () => {
                 return placesService.getOnePlace(place_id)
             })
             .then(({ data }) => {
-                console.log("HORARIO-----", data.current_opening_hours.weekday_text)
+                console.log("DATA QUE VIENE DEL BACKEND CON formattedPlace PARA CLIENTE", data)
+
                 setplacesData(placesData => ({
                     ...placesData,
-                    placeId: data.place_id,
+                    placeId: data.placeId,
                     name: data.name,
-                    description: data.editorial_summary.overview ? data.editorial_summary.overview : null,
-                    placeImg: '',
-                    photoReference: '',
-                    type: '',
-                    phone: data.international_phone_number,
-                    weekDay: data.current_opening_hours.weekday_text,
-                    city: data.address_components[2].long_name,
-                    address: data.formatted_address,
-                    latitude: data.geometry.location.lat,
-                    longitude: data.geometry.location.lng,
-                    userRating: '',
-                    userOpinion: '',
-                    owner: '',
-                    comments: '',
+                    description: data.description,
+                    placeImg: data.placeImg,
+                    photoReference: data.photoReference,
+                    type: data.type,
+                    phone: data.phone,
+                    weekDay: data.weekDay,
+                    city: data.city,
+                    address: data.address,
+                    latitude: data.latitude,
+                    longitude: data.longitude,
+                    userRating: data.userRating,
+                    userOpinion: data.userOpinion,
+                    owner: user._id,
+                    comments: data.comments
                 }));
-                console.log('resultado del then', placesData.city);
+
             })
             .catch(err => console.log(err))
 
