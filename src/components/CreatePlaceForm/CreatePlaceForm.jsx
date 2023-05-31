@@ -13,6 +13,8 @@ const CreatePlaceForm = () => {
 
     const { user } = useContext(AuthContext)
 
+    const [address, setAddress] = useState()
+
     const [placesData, setplacesData] = useState({
         placeId: '',
         name: '',
@@ -50,9 +52,6 @@ const CreatePlaceForm = () => {
             .catch(err => console.log(err))
     }
 
-
-    const [address, setAddress] = useState()
-
     const handleChange = (newAddress) => setAddress(newAddress)
 
     const handleSelect = (selectedAddress) => {
@@ -64,7 +63,6 @@ const CreatePlaceForm = () => {
                 return placesService.getOnePlace(place_id)
             })
             .then(({ data }) => {
-
                 setplacesData(placesData => ({
                     ...placesData,
                     placeId: data.placeId,
@@ -92,7 +90,6 @@ const CreatePlaceForm = () => {
 
     return (
         <>
-
             <Container>
 
                 <Form onSubmit={handleSubmit}>
@@ -121,21 +118,15 @@ const CreatePlaceForm = () => {
                         <Form.Control type="text" onChange={handleInputChange} name="description" value={placesData.description} />
                     </Form.Group>
 
-                    {/* aqui podra subir imagen propia el usuario */}
-                    {/* <Form.Group className="mb-3" controlId="image">
-                        <Form.Label>Imagen (URL)</Form.Label>
-                        <Form.Control type="file" onChange={handleFileUpload} />
-                    </Form.Group> */}
-
-                    <Form.Group className="mb-3" controlId="photoReference">
+                    <Form.Group className="mb-3" controlId="photoReference"  >
                         <Form.Label>Photo Reference</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="photoReference" />
+                        <Form.Control type="text" onChange={handleInputChange} name="photoReference" value={placesData.photoReference} />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="title">
                         <Form.Label>Type:</Form.Label>
 
-                        <Form.Select aria-label="Default select example" onChange={handleInputChange} name="type" >
+                        <Form.Select aria-label="Default select example" multiply onChange={handleInputChange} name="type" >
                             <option>Select type...</option>
                             <option value="Night">Night</option>
                             <option value="Parks and gardens">Parks and gardens</option>
