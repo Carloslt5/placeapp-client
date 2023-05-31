@@ -92,17 +92,16 @@ const CreatePlaceForm = () => {
 
     return (
         <>
-            <p>formulario</p>
+
             <Container>
 
                 <Form onSubmit={handleSubmit}>
 
-                    {/* //meter vaue con lo que nos devuelve la api */}
                     <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect} name='name' apiKey={apiKey} className="mb-3" controlId="name">
                         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                             <Form.Group>
 
-                                <input  {...getInputProps({ placeholder: 'Ingresa un lugar' })} />
+                                <input  {...getInputProps({ placeholder: 'Enter a location' })} />
 
                                 <div>
                                     {loading && <div>Cargando...</div>}
