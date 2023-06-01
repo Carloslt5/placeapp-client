@@ -4,6 +4,7 @@ import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import SignupPage from '../pages/SignupPage/SignupPage'
 import PrivateRoute from './PrivateRoutes'
 import CreatePlacePage from '../pages/CreatePlacePage/CreatePlacePage'
+import EditPage from '../pages/EditPage/EditPage'
 
 
 const AppRoutes = () => {
@@ -24,6 +25,7 @@ const AppRoutes = () => {
 
             <Route path="/profile/:id" element={<PrivateRoute />}>
                 <Route path="" element={<ProfilePage />} />
+                <Route path="/profile/:id/edit" element={<EditPage />} />
             </Route>
 
             <Route path="/profile/:id/myplaces" element={<h1>PROFILE My Places 🫂 🙃</h1>} />

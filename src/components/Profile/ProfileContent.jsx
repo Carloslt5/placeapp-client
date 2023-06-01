@@ -22,12 +22,6 @@ const ProfileContent = () => {
                         <Nav.Link href="#link">My favourites</Nav.Link>
                     </Nav.Item>
 
-                    <Nav.Item>
-                        <Nav.Link href="#disabled" disabled>
-                            Disabled
-                        </Nav.Link>
-                    </Nav.Item>
-
                 </Nav>
             </Card.Header>
 
@@ -41,17 +35,6 @@ const ProfileContent = () => {
 
         </Card>
 
-
-        // <h1>PROFILE COMPONENT</h1>
-        // <div style={{ backgroundColor: 'purple' }}>
-
-        //     <h1>Welcome , {user.name}</h1>
-        //     <h1>Welcome , {user.lastName}</h1>
-        //     <h1>Welcome , {user.role}</h1>
-        //     <img src={user.avatar} alt="" />
-        //     <h1>Welcome , {user.favouritesPlaces}</h1>
-
-        // </div>
 
     )
 }

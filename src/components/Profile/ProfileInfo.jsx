@@ -1,12 +1,14 @@
 import './ProfileInfo.css'
 import { Col, Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { useContext } from 'react'
 import { AuthContext } from '../../contexts/auth.context'
 
 
 
 
-const ProfileInfo = ({ userData: { name, lastName, email, avatar, role } }) => {
+const ProfileInfo = ({ userData: { _id, name, lastName, email, avatar, role } }) => {
+
 
     return (
 
@@ -15,10 +17,22 @@ const ProfileInfo = ({ userData: { name, lastName, email, avatar, role } }) => {
             <Card.Body>
                 <Card.Title>{name} {lastName}</Card.Title>
                 <Card.Text>
+
                     <p>email: {email}</p>
                     <p>role: {role}</p>
+
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+            </Card.Body>
+
+            <Card.Body>
+                <div className="d-grid gap-2">
+                    <Button variant="dark" href={`/profile/${_id}/edit`}>
+                        Edit
+                    </Button>
+                    <Button variant="danger">
+                        Delete
+                    </Button>
+                </div>
             </Card.Body>
         </Card>
     )
