@@ -3,6 +3,7 @@ import './ProfilePage.css'
 import ProfileInfo from '../../components/Profile/ProfileInfo';
 import ProfileContent from '../../components/Profile/ProfileContent';
 import usersService from './../../services/users.services'
+import placesService from './../../services/places.services'
 
 import { useContext } from 'react'
 import { AuthContext } from '../../contexts/auth.context'
@@ -14,9 +15,11 @@ const ProfilePage = () => {
     const { user } = useContext(AuthContext)
 
     const [userData, setUserData] = useState()
+    const [userPlacesData, setuserPlacesData] = useState()
 
     useEffect(() => {
         loadUser()
+        loadUserPlaces()
     }, [])
 
     const loadUser = () => {
@@ -27,13 +30,27 @@ const ProfilePage = () => {
     }
 
 
+
+    //Aqui busco los places creados por un usuario
+    const loadUserPlaces = () => {
+        placesService
+            .getUserPlaces(user._id)
+            .then(({ data }) => setuserPlacesData(data))
+            .catch(err => console.log(err))
+    }
+
+
+
+
+
+
     return (
         <>
             <Container>
                 {
                     !userData
                         ?
-                        <p>Cargando.....</p>
+                        <h2>Cargando.....</h2>
                         :
                         <Row>
                             <Col xs={12} md={4}>
@@ -41,7 +58,7 @@ const ProfilePage = () => {
                             </Col>
 
                             <Col xs={12} md={8} >
-                                <ProfileContent />
+                                <ProfileContent userPlacesData={userPlacesData} />
                             </Col>
                         </Row>
                 }

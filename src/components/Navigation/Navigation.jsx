@@ -19,8 +19,8 @@ const Navigation = () => {
                     <Nav className="mx-auto">
                         <Nav.Link as="span">
                             <Link to="/places">Places</Link>
-
                         </Nav.Link>
+
                         <Nav.Link as="span">
                             <Link to="/community">Community</Link>
                         </Nav.Link>

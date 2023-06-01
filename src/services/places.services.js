@@ -14,6 +14,10 @@ class PlacesService {
         return this.api.get('/getAllPlaces')
     }
 
+    getUserPlaces(user_id) {
+        return this.api.get(`/${user_id}/getUserPlaces`)
+    }
+
     createPlace(placeData) {
         return this.api.post(`/createPlace`, placeData)
     }
