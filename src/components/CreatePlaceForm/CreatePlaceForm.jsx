@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { useState } from "react"
 import placesService from './../../services/places.services'
 import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
+import FormError from "../FormError/FormError";
 
 const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
@@ -14,6 +15,8 @@ const CreatePlaceForm = () => {
     const { user } = useContext(AuthContext)
 
     const [address, setAddress] = useState()
+    const [errors, setErrors] = useState([])
+
 
     const [placesData, setplacesData] = useState({
         placeId: '',
@@ -49,7 +52,7 @@ const CreatePlaceForm = () => {
                 // closeModal()
                 // updateList()
             })
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.response.data.errorMessages))
     }
 
     const handleChange = (newAddress) => setAddress(newAddress)
@@ -97,7 +100,6 @@ const CreatePlaceForm = () => {
                     <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect} name='name' apiKey={apiKey} className="mb-3" controlId="name">
                         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                             <Form.Group>
-
                                 <input  {...getInputProps({ placeholder: 'Enter a location' })} />
 
                                 <div>
@@ -126,7 +128,7 @@ const CreatePlaceForm = () => {
                     <Form.Group className="mb-3" controlId="title">
                         <Form.Label>Type:</Form.Label>
 
-                        <Form.Select aria-label="Default select example" multiply onChange={handleInputChange} name="type" >
+                        <Form.Select aria-label="Default select example" onChange={handleInputChange} name="type" >
                             <option>Select type...</option>
                             <option value="Night">Night</option>
                             <option value="Parks and gardens">Parks and gardens</option>
@@ -194,6 +196,8 @@ const CreatePlaceForm = () => {
                         <Form.Label>Your Opinion</Form.Label>
                         <Form.Control type="text" onChange={handleInputChange} name="userOpinion" />
                     </Form.Group>
+
+                    {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
 
                     <div className="d-grid mt-3">
                         <Button variant="dark" type="submit">Create Place</Button>

@@ -4,6 +4,8 @@ import { Button, Form } from "react-bootstrap"
 import { useNavigate } from 'react-router-dom'
 import authService from './../../services/auth.services'
 import uploadServices from './../../services/upload.services'
+import FormError from "../FormError/FormError";
+
 
 const SignupForm = () => {
 
@@ -16,6 +18,8 @@ const SignupForm = () => {
     })
 
     const [loadingAvatar, setloadingAvatar] = useState(false)
+    const [errors, setErrors] = useState([])
+
 
     const navigate = useNavigate()
 
@@ -31,7 +35,7 @@ const SignupForm = () => {
         authService
             .signup(signupData)
             .then(({ data }) => navigate('/login'))
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.response.data.errorMessages))
     }
 
 
@@ -86,6 +90,9 @@ const SignupForm = () => {
                     <Form.Label>Imagen (URL)</Form.Label>
                     <Form.Control type="file" onChange={handleFileUpload} />
                 </Form.Group>
+
+                {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
+
 
                 <div className="d-grid mt-4">
                     <Button variant="dark" disabled={loadingAvatar} type="submit"> {loadingAvatar ? 'loading image...' : 'Signup'}</Button>
