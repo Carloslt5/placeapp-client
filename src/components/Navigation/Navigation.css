@@ -1,0 +1,8 @@
+.navbarBg{
+backdrop-filter: blur(10px);
+}
+
+.dropdown-menu {
+  left: unset !important;
+  right: 0;
+}

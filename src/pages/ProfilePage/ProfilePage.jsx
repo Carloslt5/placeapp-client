@@ -10,12 +10,26 @@ const ProfilePage = () => {
 
     return (
         <>
-            <h1>Welcome , {user.name}</h1>
-            <h1>Welcome , {user.lastName}</h1>
-            <h1>Welcome , {user.role}</h1>
-            <img src={user.avatar} alt="" />
-            <h1>Welcome , {user.role}</h1>
-            <h1>Welcome , {user.favouritesPlaces}</h1>
+            <div style={{ backgroundColor: 'purple' }}>
+
+                <h1>Welcome , {user.name}</h1>
+                <h1>Welcome , {user.lastName}</h1>
+                <h1>Welcome , {user.role}</h1>
+                <img src={user.avatar} alt="" />
+                <h1>Welcome , {user.favouritesPlaces}</h1>
+
+                <h1>Welcome , {user.name}</h1>
+                <h1>Welcome , {user.lastName}</h1>
+                <h1>Welcome , {user.role}</h1>
+                <img src={user.avatar} alt="" />
+                <h1>Welcome , {user.favouritesPlaces}</h1>
+
+                <h1>Welcome , {user.name}</h1>
+                <h1>Welcome , {user.lastName}</h1>
+                <h1>Welcome , {user.role}</h1>
+                <img src={user.avatar} alt="" />
+                <h1>Welcome , {user.favouritesPlaces}</h1>
+            </div>
 
 
             <Profile />
