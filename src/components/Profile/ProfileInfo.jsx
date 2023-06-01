@@ -1,12 +1,7 @@
 import './ProfileInfo.css'
 import { Card, Button } from 'react-bootstrap';
 
-
-
-
-
 const ProfileInfo = ({ userData: { _id, name, lastName, email, avatar, role } }) => {
-
 
     return (
 

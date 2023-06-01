@@ -1,0 +1,8 @@
+.justify-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1em;
+}

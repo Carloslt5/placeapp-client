@@ -4,7 +4,7 @@ import { Button, Container, Form } from "react-bootstrap"
 import { useParams } from 'react-router-dom'
 import usersService from './../../services/users.services'
 import uploadServices from './../../services/upload.services'
-//import FormError from "../FormError/FormError";
+// import FormError from "../FormError/FormError";
 import { AuthContext } from '../../contexts/auth.context'
 
 
@@ -62,7 +62,6 @@ const EditProfileForm = () => {
     }
 
 
-
     return (
         <>
             <Container>
@@ -95,7 +94,6 @@ const EditProfileForm = () => {
 
                 </Form>
             </Container>
-
         </>
     )
 }

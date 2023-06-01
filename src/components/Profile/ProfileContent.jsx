@@ -2,9 +2,7 @@ import './ProfileContent.css'
 import { Row, Card, Col, Nav, ListGroup, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-
 const ProfileContent = ({ userPlacesData }) => {
-
 
     return (
 
