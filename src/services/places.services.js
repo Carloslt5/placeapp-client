@@ -18,6 +18,10 @@ class PlacesService {
         return this.api.get(`/${user_id}/getUserPlaces`)
     }
 
+    getDetailsPlace(place_id) {
+        return this.api.get(`/${place_id}/getDetailsPlace`)
+    }
+
     createPlace(placeData) {
         return this.api.post(`/createPlace`, placeData)
     }
@@ -25,6 +29,8 @@ class PlacesService {
     getOnePlace(placeId) {
         return this.api.get(`/getOnePlace/${placeId}`)
     }
+
+    
 
     editPlace(placeId, placeData) {
         return this.api.put(`${placeId}/edit`, placeData)

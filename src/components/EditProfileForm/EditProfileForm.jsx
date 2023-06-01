@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react'
 import './EditProfileForm.css'
 import { Button, Container, Form } from "react-bootstrap"
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import usersService from './../../services/users.services'
 import uploadServices from './../../services/upload.services'
-import FormError from "../FormError/FormError";
+//import FormError from "../FormError/FormError";
 import { AuthContext } from '../../contexts/auth.context'
 
 

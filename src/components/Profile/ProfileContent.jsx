@@ -1,7 +1,6 @@
 import './ProfileContent.css'
-import { Row, Card, Col, Nav, ListGroup } from 'react-bootstrap';
+import { Row, Card, Col, Nav, ListGroup, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
 
 
 const ProfileContent = ({ userPlacesData }) => {
@@ -58,8 +57,11 @@ const ProfileContent = ({ userPlacesData }) => {
                                             <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
                                         </ListGroup>
                                         <Card.Body>
-                                            <Card.Link href="#">Card Link</Card.Link>
-                                            <Card.Link href="#">Another Link</Card.Link>
+                                            <div className="d-grid gap-2">
+                                                <Button variant="dark" href={`/places/${userPlace._id}`}>
+                                                    View more details
+                                                </Button>
+                                            </div>
                                         </Card.Body>
                                     </Card>
                                 </Col>

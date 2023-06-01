@@ -30,7 +30,6 @@ const ProfilePage = () => {
     }
 
 
-
     //Aqui busco los places creados por un usuario
     const loadUserPlaces = () => {
         placesService
