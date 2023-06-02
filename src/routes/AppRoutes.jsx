@@ -19,9 +19,8 @@ const AppRoutes = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
 
-            <Route path="/places/:id" element={<PlaceDetailsPage />} />
             <Route path="/places" element={<AllPlacesPage />} />
-            <Route path="/places/:id" element={<h1>PLACES DETAILS 🫂 🙃</h1>} />
+            <Route path="/places/:id" element={<PlaceDetailsPage />} />
             <Route path="/places/create" element={<CreatePlacePage />} />
             <Route path="/places/edit" element={<h1>EDIT PLACE 🫂 🙃</h1>} />
             <Route path="/community" element={<h1>Community 🫂 🙃</h1>} />

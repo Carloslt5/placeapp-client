@@ -14,13 +14,11 @@ const EditProfileForm = () => {
     const { id } = useParams()
 
     const [editData, setEditData] = useState({
-        name: user.name,
-        lastName: user.lastName,
-        email: user.email,
+        name: '',
+        lastName: '',
+        email: '',
         avatar: '',
     })
-
-
 
     const handleInputChange = event => {
         const { name, value } = event.target
@@ -29,13 +27,15 @@ const EditProfileForm = () => {
 
     const [loadingAvatar, setloadingAvatar] = useState(false)
 
+    const { name, lastName, email } = editData
+
     const handleSubmit = event => {
         event.preventDefault()
 
         usersService
             .editUser(id, editData)
             .then(({ data }) => {
-                console.log('data en el front AQUI TU PUTA MADRE CON TODO JUNTO UNO ENCIMA DE OTRO', data)
+                console.log('data en el front AQUI', data)
                 // closeModal()
                 // updateList()
             })
@@ -70,17 +70,17 @@ const EditProfileForm = () => {
 
                     <Form.Group className="mb-3" controlId="name">
                         <Form.Label>Name: </Form.Label>
-                        <Form.Control type="text" value={editData.name} onChange={handleInputChange} name='name' />
+                        <Form.Control type="text" value={name} onChange={handleInputChange} name='name' />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="lastName">
                         <Form.Label>Last Name:</Form.Label>
-                        <Form.Control type="text" value={editData.lastName} onChange={handleInputChange} name='lastName' />
+                        <Form.Control type="text" value={lastName} onChange={handleInputChange} name='lastName' />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="email">
                         <Form.Label>Email:</Form.Label>
-                        <Form.Control type="email" value={editData.email} onChange={handleInputChange} name='email' />
+                        <Form.Control type="email" value={email} onChange={handleInputChange} name='email' />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="image">
