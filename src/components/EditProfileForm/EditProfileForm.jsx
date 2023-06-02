@@ -1,7 +1,7 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import './EditProfileForm.css'
 import { Button, Container, Form } from "react-bootstrap"
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import usersService from './../../services/users.services'
 import uploadServices from './../../services/upload.services'
 // import FormError from "../FormError/FormError";
@@ -14,20 +14,33 @@ const EditProfileForm = () => {
     const { id } = useParams()
 
     const [editData, setEditData] = useState({
-        name: '',
-        lastName: '',
-        email: '',
+        name: user.name,
+        lastName: user.lastName,
+        email: user.email,
         avatar: '',
     })
+
+    const [loadingAvatar, setloadingAvatar] = useState(false)
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        loaderUser()
+    }, [])
+
+    const loaderUser = () => {
+        usersService
+            .getOneUser(id)
+            .then(({ data }) => {
+                setEditData(data)
+            })
+            .catch(err => console.log(err))
+    }
 
     const handleInputChange = event => {
         const { name, value } = event.target
         setEditData({ ...editData, [name]: value })
     }
-
-    const [loadingAvatar, setloadingAvatar] = useState(false)
-
-    const { name, lastName, email } = editData
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -35,7 +48,7 @@ const EditProfileForm = () => {
         usersService
             .editUser(id, editData)
             .then(({ data }) => {
-                console.log('data en el front AQUI', data)
+                navigate(`/profile/${user._id}`)
                 // closeModal()
                 // updateList()
             })
@@ -52,6 +65,7 @@ const EditProfileForm = () => {
         uploadServices
             .uploadImage(formData)
             .then(({ data }) => {
+                console.log('yo llego del back', data)
                 setEditData({ ...editData, avatar: data.cloudinary_url })
                 setloadingAvatar(false)
             })
@@ -61,6 +75,7 @@ const EditProfileForm = () => {
             })
     }
 
+    const { name, lastName, email, avatar } = editData
 
     return (
         <>
@@ -83,13 +98,13 @@ const EditProfileForm = () => {
                         <Form.Control type="email" value={email} onChange={handleInputChange} name='email' />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="image">
+                    <Form.Group className="mb-3" controlId="imageData">
                         <Form.Label>Imagen (URL)</Form.Label>
                         <Form.Control type="file" onChange={handleFileUpload} />
                     </Form.Group>
 
                     <div className="d-grid mt-4">
-                        <Button variant="dark" type="submit"> Edit Profile</Button>
+                        <Button variant="dark" disabled={loadingAvatar} type="submit"> {loadingAvatar ? 'loading image...' : ' Edit Profile'}</Button>
                     </div>
 
                 </Form>

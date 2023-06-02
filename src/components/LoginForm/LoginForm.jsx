@@ -7,6 +7,8 @@ import { AuthContext } from "../../contexts/auth.context"
 
 const LoginForm = () => {
 
+    const { user } = useContext(AuthContext
+    )
     const [loginData, setLoginData] = useState({
         email: '',
         password: ''
@@ -29,7 +31,7 @@ const LoginForm = () => {
             .then(({ data }) => {
                 storeToken(data.authToken)
                 authenticateUser()
-                navigate('/')
+                navigate(`/profile/${user._id}`)
             })
             .catch(err => console.log(err))
     }

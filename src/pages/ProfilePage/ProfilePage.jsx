@@ -1,13 +1,13 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import './ProfilePage.css'
-import ProfileInfo from '../../components/Profile/ProfileInfo';
-import ProfileContent from '../../components/Profile/ProfileContent';
 import usersService from './../../services/users.services'
 import placesService from './../../services/places.services'
 
 import { useContext } from 'react'
 import { AuthContext } from '../../contexts/auth.context'
 import { useEffect, useState } from "react"
+import ProfileContent from '../../components/ProfileContent/ProfileContent';
+import ProfileInfo from '../../components/ProfileInfo/ProfileInfo';
 
 
 const ProfilePage = () => {
@@ -29,7 +29,6 @@ const ProfilePage = () => {
             .catch(err => console.log(err))
     }
 
-
     //Aqui busco los places creados por un usuario
     const loadUserPlaces = () => {
         placesService
@@ -37,11 +36,6 @@ const ProfilePage = () => {
             .then(({ data }) => setuserPlacesData(data))
             .catch(err => console.log(err))
     }
-
-
-
-
-
 
     return (
         <>
@@ -63,8 +57,6 @@ const ProfilePage = () => {
                 }
             </Container>
         </>
-
-
     )
 }
 
