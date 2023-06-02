@@ -21,20 +21,21 @@ const AppRoutes = () => {
             <Route path="/signup" element={<SignupPage />} />
 
             <Route path="/places" element={<AllPlacesPage />} />
-            <Route path="/places/:id" element={<PlaceDetailsPage />} />
-            <Route path="/places/create" element={<CreatePlacePage />} />
-            <Route path="/places/:id/edit" element={<EditPlacePage />} />
             <Route path="/community" element={<h1>Community 🫂 🙃</h1>} />
 
-            <Route path="/profile/:id" element={<PrivateRoute />}>
-                <Route path="" element={<ProfilePage />} />
-                <Route path="/profile/:id/edit" element={<EditPage />} />
-            </Route>
+            <Route element={<PrivateRoute />}>
 
-            <Route path="/profile/:id/myplaces" element={<h1>PROFILE My Places 🫂 🙃</h1>} />
-            <Route path="/profile/:id/myfavourites" element={<h1>TUS LUGARES FAVS 🫂 🙃</h1>} />
-            <Route path="/match" element={<h1> BOTON HACER MATCH 💦 🫂 🚪</h1>} />
-            <Route path="*" element={<h1>404 🤓</h1>} />
+                <Route path="/places/:id" element={<PlaceDetailsPage />} />
+                <Route path="/places/:id/edit" element={<EditPlacePage />} />
+                <Route path="/places/create" element={<CreatePlacePage />} />
+                <Route path="/profile/:id" element={<ProfilePage />} />
+                <Route path="/profile/:id/edit" element={<EditPage />} />
+                <Route path="/profile/:id/myplaces" element={<h1>PROFILE My Places 🫂 🙃</h1>} />
+                <Route path="/profile/:id/myfavourites" element={<h1>TUS LUGARES FAVS 🫂 🙃</h1>} />
+                <Route path="*" element={<h1>404 🤓</h1>} />
+                <Route path="/match" element={<h1> BOTON HACER MATCH 💦 🫂 🚪</h1>} />
+
+            </Route>
 
         </Routes>
     )
