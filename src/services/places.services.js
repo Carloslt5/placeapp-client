@@ -29,11 +29,9 @@ class PlacesService {
     getOnePlace(placeId) {
         return this.api.get(`/getOnePlace/${placeId}`)
     }
-
     
-
-    editPlace(placeId, placeData) {
-        return this.api.put(`${placeId}/edit`, placeData)
+    editPlace(place_id, placeData) {
+        return this.api.put(`${place_id}/edit`, placeData)
     }
 
     addFavouritesPlace(placeIdFavourite) {

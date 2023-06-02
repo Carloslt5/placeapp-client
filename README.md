@@ -8,7 +8,7 @@
 | `/places`                     | Places list page           |              |
 | `/places/:id`                 | Place details page         |              |
 | `/places/create`              | Create new place           |              |
-| `/places/edit`                | Edit place                 |              |
+| `/places/:id/edit`            | Edit place                 |              |
 | `/community`                  | Users list page            |              |
 | `/profile/:id`                | Users profiles page        |              | 
 | `/profile/:id/edit`           | Users edit profiles page   |              |
