@@ -57,6 +57,7 @@ const ProfileContent = ({ userPlacesData }) => {
                                         <Card.Body>
                                             <div className="d-grid gap-2">
                                                 <Button variant="dark" href={`/places/${userPlace._id}`}>
+
                                                     View more details
                                                 </Button>
                                             </div>
