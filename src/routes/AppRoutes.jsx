@@ -7,6 +7,7 @@ import CreatePlacePage from '../pages/CreatePlacePage/CreatePlacePage'
 import EditPage from '../pages/EditPage/EditPage'
 import PlaceDetailsPage from '../pages/PlaceDetailsPage/PlaceDetailsPage'
 import AllPlacesPage from '../pages/AllPlacesPage/AllPlacesPage'
+import EditPlacePage from '../pages/EditPlacePage/EditPlacePage'
 
 
 const AppRoutes = () => {
@@ -22,7 +23,7 @@ const AppRoutes = () => {
             <Route path="/places" element={<AllPlacesPage />} />
             <Route path="/places/:id" element={<PlaceDetailsPage />} />
             <Route path="/places/create" element={<CreatePlacePage />} />
-            <Route path="/places/:id/edit" element={<h1>hello soy page edit place</h1>} />
+            <Route path="/places/:id/edit" element={<EditPlacePage />} />
             <Route path="/community" element={<h1>Community 🫂 🙃</h1>} />
 
             <Route path="/profile/:id" element={<PrivateRoute />}>

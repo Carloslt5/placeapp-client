@@ -40,42 +40,6 @@ const ProfileContent = ({ userPlacesData }) => {
                                             <EachPlace place={place} />
                                         </Col>
                                     </>
-
-                                    // <Col xs={12} md={4} >
-                                    //     <Card>
-                                    //         <Card.Img variant="top" src={userPlace.photoReference[0]} />
-                                    //         <Card.Body>
-                                    //             <Card.Title>{userPlace.name}</Card.Title>
-                                    //             <Card.Text>
-                                    //                 <p> Description: {userPlace.description} </p>
-                                    //                 <p>  Type: {userPlace.type} </p>
-                                    //                 <p>  Phone: {userPlace.phone}</p>
-                                    //                 <p>  WeekDay: {userPlace.weekDay[0]}</p>
-                                    //                 <p>  City: {userPlace.addressComponents.city}</p>
-                                    //                 <p>  address: {userPlace.addressComponents.address}</p>
-                                    //                 <p>  latitude: {userPlace.addressComponents.location.coordinates[0]}</p>
-                                    //                 <p>  longitude: {userPlace.addressComponents.location.coordinates[0]}</p>
-                                    //                 <p>  Your Rating: {userPlace.userRating}</p>
-                                    //                 <p>  Your Opinion: {userPlace.userOpinion}</p>
-
-                                    //             </Card.Text>
-                                    //         </Card.Body>
-                                    //         <ListGroup className="list-group-flush">
-                                    //             <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                                    //             <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                                    //             <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-                                    //         </ListGroup>
-                                    //         <Card.Body>
-                                    //             <div className="d-grid gap-2">
-                                    //                 <Button variant="dark" href={`/places/${userPlace._id}`}>
-
-                                    //                     View more details
-                                    //                 </Button>
-                                    //             </div>
-                                    //         </Card.Body>
-                                    //     </Card>
-                                    // </Col>
-
                                 )
                             })
                     }

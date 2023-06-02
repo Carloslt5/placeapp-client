@@ -54,8 +54,11 @@ const DetailsPlace = ({ placeData: { _id, name, description, photoReference, typ
 
                             </div>
                             <p>Owner:</p>
-                            <p>{owner.name} {owner.lastName}</p>
-                            <img src={owner.avatar} alt="" />
+
+                            <p> {owner ? owner.name : "no hay owner name"} </p>
+                            <p> {owner ? owner.lastName : "no hay owner lastName"} </p>
+
+                            {/* <img src={owner} alt="" /> */}
                             <p>comments: {comments}</p>
 
                         </Col>

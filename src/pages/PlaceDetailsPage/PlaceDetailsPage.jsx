@@ -45,6 +45,7 @@ const PlaceDetailsPage = () => {
 
             <Container>
                 <h1>place details page 🫂 🙃</h1>
+
                 <Row>
                     {
                         !placeData
