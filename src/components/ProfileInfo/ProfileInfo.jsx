@@ -1,7 +1,27 @@
 import './ProfileInfo.css'
 import { Card, Button } from 'react-bootstrap';
+import usersService from './../../services/users.services'
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/auth.context'
+import { useContext } from 'react';
+
 
 const ProfileInfo = ({ userData: { _id, name, lastName, email, avatar, role } }) => {
+
+    const { user, logout } = useContext(AuthContext)
+
+    const navigate = useNavigate()
+
+    const deleteHandler = () => {
+        usersService
+            .deleteUser(_id)
+            .then(({ data }) => {
+                logout()
+                navigate(`/`)
+            })
+            .catch(err => console.log(err))
+
+    }
 
     return (
 
@@ -22,7 +42,7 @@ const ProfileInfo = ({ userData: { _id, name, lastName, email, avatar, role } })
                     <Button variant="dark" href={`/profile/${_id}/edit`}>
                         Edit
                     </Button>
-                    <Button variant="danger">
+                    <Button variant="danger" onClick={deleteHandler} >
                         Delete
                     </Button>
                 </div>
