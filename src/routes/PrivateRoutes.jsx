@@ -8,7 +8,7 @@ const PrivateRoute = () => {
     const { user, isLoading } = useContext(AuthContext)
 
     if (isLoading) {
-        // return <Loader /> METER SPINER DE CARGA
+        // return <Loader /> TODO: METER SPINER DE CARGA
         return <h1>Loading user...</h1>
     }
 

@@ -56,7 +56,6 @@ const SignupForm = () => {
                 setloadingAvatar(false)
             })
             .catch(err => {
-                console.log(err)
                 setloadingAvatar(false)
             })
     }

@@ -65,7 +65,6 @@ const EditProfileForm = () => {
         uploadServices
             .uploadImage(formData)
             .then(({ data }) => {
-                console.log('yo llego del back', data)
                 setEditData({ ...editData, avatar: data.cloudinary_url })
                 setloadingAvatar(false)
             })
