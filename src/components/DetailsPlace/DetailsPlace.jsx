@@ -2,7 +2,7 @@ import './DetailsPlace.css'
 import { Card, Col, ListGroup, Row, Button } from 'react-bootstrap'
 
 
-const DetailsPlace = ({ placeData: { _id, name, description, photoReference, type, phone, weekDay, addressComponents, userRating, userOpinion, owner, comments } }) => {
+const DetailsPlace = ({ _id, name, description, photoReference, type, phone, weekDay, addressComponents, userRating, userOpinion, owner, comments }) => {
     return (
 
         <Card>
@@ -55,8 +55,7 @@ const DetailsPlace = ({ placeData: { _id, name, description, photoReference, typ
                             </div>
                             <p>Owner:</p>
 
-                            <p> {owner ? owner.name : "no hay owner name"} </p>
-                            <p> {owner ? owner.lastName : "no hay owner lastName"} </p>
+                            <p> {owner ? owner.name && owner.lastName : "no hay owner name"} </p>
 
                             {/* <img src={owner} alt="" /> */}
                             <p>comments: {comments}</p>

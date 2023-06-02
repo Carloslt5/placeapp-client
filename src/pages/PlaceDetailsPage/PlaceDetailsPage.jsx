@@ -6,9 +6,6 @@ import { useEffect, useState } from "react"
 import DetailsPlace from '../../components/DetailsPlace/DetailsPlace'
 
 
-
-
-
 const PlaceDetailsPage = () => {
 
     const { id } = useParams()
@@ -39,7 +36,7 @@ const PlaceDetailsPage = () => {
                             ?
                             <p>cargando</p>
                             :
-                            <DetailsPlace placeData={placeData} />
+                            <DetailsPlace {...placeData} />
                     }
 
                 </Row>

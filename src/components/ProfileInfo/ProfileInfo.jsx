@@ -6,7 +6,7 @@ import { AuthContext } from '../../contexts/auth.context'
 import { useContext } from 'react';
 
 
-const ProfileInfo = ({ userData: { _id, name, lastName, email, avatar, role } }) => {
+const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
 
     const { user, logout } = useContext(AuthContext)
 

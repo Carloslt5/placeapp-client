@@ -33,16 +33,11 @@ const ProfileContent = ({ userPlacesData }) => {
                             :
                             userPlacesData.map(place => {
                                 return (
-
-                                    <>
-                                        <Col>
-                                            <EachPlace place={place} />
-                                        </Col>
-                                    </>
-
+                                    <Col key={place._id}>
+                                        <EachPlace {...place} />
+                                    </Col>
                                 )
                             })
-
                     }
                 </Row>
 

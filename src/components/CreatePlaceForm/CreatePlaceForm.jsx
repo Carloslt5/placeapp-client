@@ -62,7 +62,7 @@ const CreatePlaceForm = () => {
 
         geocodeByAddress(selectedAddress)
             .then((results) => {
-                const place_id = (results[0].place_id)
+                const { place_id } = results[0]
                 return placesService.getOnePlace(place_id)
             })
             .then(({ data }) => {

@@ -29,7 +29,6 @@ const ProfilePage = () => {
             .catch(err => console.log(err))
     }
 
-    //Aqui busco los places creados por un usuario
     const loadUserPlaces = () => {
         placesService
             .getUserPlaces(user._id)
@@ -47,7 +46,7 @@ const ProfilePage = () => {
                         :
                         <Row>
                             <Col xs={12} md={4}>
-                                <ProfileInfo userData={userData} />
+                                <ProfileInfo {...userData} />
                             </Col>
 
                             <Col xs={12} md={8} >

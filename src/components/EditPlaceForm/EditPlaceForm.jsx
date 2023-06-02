@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 import placesService from './../../services/places.services'
 
 
-const EditPlaceForm = ({ placeData: { _id, name, description, photoReference, type, phone, weekDay, addressComponents, userRating, userOpinion, owner, comments } }) => {
+const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, weekDay, addressComponents, userRating, userOpinion, owner, comments }) => {
 
     const [placeData, setPlaceData] = useState({
         type: type,
@@ -33,12 +33,10 @@ const EditPlaceForm = ({ placeData: { _id, name, description, photoReference, ty
             .then(({ data }) => {
                 setPlaceData(data)
                 setLoadingDataPlace(false)
-
             })
             .catch(err => {
                 console.log(err)
                 setLoadingDataPlace(false)
-
             })
     }
 

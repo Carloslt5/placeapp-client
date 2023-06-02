@@ -33,7 +33,7 @@ const EditPlacePage = () => {
                     ?
                     <p>Loading....</p>
                     :
-                    <EditPlaceForm placeData={placeData} />
+                    <EditPlaceForm {...placeData} />
             }
         </>
 

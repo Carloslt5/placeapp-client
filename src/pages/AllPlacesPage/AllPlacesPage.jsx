@@ -31,11 +31,11 @@ const AllPlacesPage = () => {
                             ?
                             <h2>Cargando.....</h2>
                             :
-                            placesData.map((place, index) => {
+                            placesData.map((place) => {
                                 return (
 
-                                    <Col md={3} key={index}>
-                                        <EachPlace place={place} />
+                                    <Col md={3} key={place._id}>
+                                        <EachPlace {...place} />
                                     </Col>
 
                                 )
