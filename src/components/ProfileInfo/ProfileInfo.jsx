@@ -15,7 +15,7 @@ const ProfileInfo = ({ userData: { _id, name, lastName, email, avatar, role } })
     const deleteHandler = () => {
         usersService
             .deleteUser(_id)
-            .then(({ data }) => {
+            .then(() => {
                 logout()
                 navigate(`/`)
             })
