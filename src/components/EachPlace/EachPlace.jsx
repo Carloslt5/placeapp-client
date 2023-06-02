@@ -22,7 +22,7 @@ const EachPlace = ({ place }) => {
                         </article>
 
                     </Card.Text>
-                    <Button variant="dark" href={`/places/${place.placeId}`}>
+                    <Button variant="dark" href={`/places/${place._id}`}>
                         View Details
                     </Button>
                 </Card.Body>
