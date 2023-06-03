@@ -8,7 +8,7 @@ import { useContext } from 'react';
 
 const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
 
-    const { user, logout } = useContext(AuthContext)
+    const { logout } = useContext(AuthContext)
 
     const navigate = useNavigate()
 

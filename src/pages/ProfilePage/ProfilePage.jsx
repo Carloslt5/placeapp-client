@@ -8,11 +8,12 @@ import { AuthContext } from '../../contexts/auth.context'
 import { useEffect, useState } from "react"
 import ProfileContent from '../../components/ProfileContent/ProfileContent';
 import ProfileInfo from '../../components/ProfileInfo/ProfileInfo';
+import { useParams } from 'react-router-dom';
 
 
 const ProfilePage = () => {
 
-    const { user } = useContext(AuthContext)
+    const { id } = useParams()
 
     const [userData, setUserData] = useState()
     const [userPlacesData, setuserPlacesData] = useState()
@@ -20,18 +21,18 @@ const ProfilePage = () => {
     useEffect(() => {
         loadUser()
         loadUserPlaces()
-    }, [])
+    }, [id])
 
     const loadUser = () => {
         usersService
-            .getOneUser(user._id)
+            .getOneUser(id)
             .then(({ data }) => setUserData(data))
             .catch(err => console.log(err))
     }
 
     const loadUserPlaces = () => {
         placesService
-            .getUserPlaces(user._id)
+            .getUserPlaces(id)
             .then(({ data }) => setuserPlacesData(data))
             .catch(err => console.log(err))
     }
