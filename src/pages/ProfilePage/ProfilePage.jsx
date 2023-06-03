@@ -8,9 +8,12 @@ import { AuthContext } from '../../contexts/auth.context'
 import { useEffect, useState } from "react"
 import ProfileContent from '../../components/ProfileContent/ProfileContent';
 import ProfileInfo from '../../components/ProfileInfo/ProfileInfo';
+import { useParams } from 'react-router-dom';
 
 
 const ProfilePage = () => {
+
+    // const { id } = useParams()
 
     const { user } = useContext(AuthContext)
 

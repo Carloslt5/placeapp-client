@@ -30,7 +30,7 @@ const AppRoutes = () => {
                 <Route path="/places/create" element={<CreatePlacePage />} />
                 <Route path="/profile/:id" element={<ProfilePage />} />
                 <Route path="/profile/:id/edit" element={<EditPage />} />
-                <Route path="/profile/:id/myplaces" element={<h1>PROFILE My Places 🫂 🙃</h1>} />
+                <Route path="/profile/:id/myplaces" element={<h2>my places</h2>} />
                 <Route path="/profile/:id/myfavourites" element={<h1>TUS LUGARES FAVS 🫂 🙃</h1>} />
                 <Route path="*" element={<h1>404 🤓</h1>} />
                 <Route path="/match" element={<h1> BOTON HACER MATCH 💦 🫂 🚪</h1>} />
