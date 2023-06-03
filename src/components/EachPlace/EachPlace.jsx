@@ -1,6 +1,8 @@
 import './EachPlace.css'
 import { Button, Card } from "react-bootstrap"
 
+
+
 const EachPlace = ({ photoReference, name, userRating, _id }) => {
 
     return (
@@ -25,6 +27,7 @@ const EachPlace = ({ photoReference, name, userRating, _id }) => {
                     <Button variant="dark" href={`/places/${_id}`}>
                         View Details
                     </Button>
+
                 </Card.Body>
 
             </Card>

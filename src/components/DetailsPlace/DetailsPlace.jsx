@@ -1,8 +1,27 @@
 import './DetailsPlace.css'
 import { Card, Col, ListGroup, Row, Button } from 'react-bootstrap'
+import placesService from './../../services/places.services'
+import { useContext, useMemo } from 'react'
+import { useParams } from 'react-router-dom'
+import { AuthContext } from '../../contexts/auth.context'
 
 
 const DetailsPlace = ({ _id, name, description, photoReference, type, phone, weekDay, addressComponents, userRating, userOpinion, owner, comments }) => {
+
+    const { user } = useContext(AuthContext)
+    const { id } = useParams()
+
+
+    const handlerFavourite = () => {
+
+        placesService
+            .addFavouritesPlace(id, user._id)
+            .then(({ data }) => {
+                console.log('esa la data que recibo en el front', data)
+            })
+
+    }
+
     return (
 
         <Card>
@@ -45,11 +64,15 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                             <p>Your opinion: {userOpinion}</p>
 
                             <div className="d-grid gap-2">
+
                                 <Button variant="dark" href={`/places/${_id}/edit`}>
                                     Edit
                                 </Button>
                                 <Button variant="danger">
                                     Delete
+                                </Button>
+                                <Button variant="warning" onClick={handlerFavourite}>
+                                    Add Favourites
                                 </Button>
 
                             </div>
@@ -68,6 +91,7 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
 
 
                 </Card.Text>
+
             </Card.Body>
         </Card>
     )
