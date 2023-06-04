@@ -39,7 +39,7 @@ class PlacesService {
     }
 
     deletePlace(placeIdDelete) {
-        return this.api.delete(`${placeIdDelete}/delete`)
+        return this.api.delete(`/${placeIdDelete}/delete`)
     }
 
 

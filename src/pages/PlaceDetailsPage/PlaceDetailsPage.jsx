@@ -1,4 +1,4 @@
-import { Container, Form, Row } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 import './PlaceDetailsPage.css'
 import placesService from './../../services/places.services'
 import { useParams } from 'react-router-dom'

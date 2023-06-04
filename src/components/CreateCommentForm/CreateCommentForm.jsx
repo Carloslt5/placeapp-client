@@ -1,5 +1,5 @@
 
-import { Form, Button, Row, Col } from "react-bootstrap"
+import { Form, Button } from "react-bootstrap"
 import commentsService from "../../services/comment.services"
 import { useState } from "react"
 import { AuthContext } from '../../contexts/auth.context'
