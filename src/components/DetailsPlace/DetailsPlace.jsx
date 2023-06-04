@@ -1,7 +1,7 @@
 import './DetailsPlace.css'
 import { Card, Col, ListGroup, Row, Button } from 'react-bootstrap'
 import placesService from './../../services/places.services'
-import { useContext, useMemo } from 'react'
+import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 import CreateCommentForm from '../CreateCommentForm/CreateCommentForm'

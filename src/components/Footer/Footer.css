@@ -1,8 +1,9 @@
-footer {
+.footer {
     align-self: flex-end;
     background-color: #212429;
     color: white;
     font-size: .8em;
     padding: .8em 0;
     text-align: center;
+    width: 100%;
 }

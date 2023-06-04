@@ -4,6 +4,8 @@ import placesService from './../../services/places.services'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import DetailsPlace from '../../components/DetailsPlace/DetailsPlace'
+import Loader from '../../components/Loader/Loader'
+
 
 
 const PlaceDetailsPage = () => {
@@ -34,7 +36,7 @@ const PlaceDetailsPage = () => {
                     {
                         !placeData
                             ?
-                            <p>cargando</p>
+                            <Loader md={{ offset: 3, span: 6 }} />
                             :
                             <DetailsPlace {...placeData} />
                     }

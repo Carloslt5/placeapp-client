@@ -19,9 +19,7 @@ const EachPlace = ({ photoReference, name, userRating, _id }) => {
 
                     <Card.Text>
 
-                        <article>
-                            <p><strong>Rating: </strong>{userRating}</p>
-                        </article>
+                        <strong>Rating: </strong>{userRating}
 
                     </Card.Text>
                     <Button variant="dark" href={`/places/${_id}`}>
