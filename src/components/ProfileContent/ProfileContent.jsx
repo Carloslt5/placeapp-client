@@ -2,11 +2,8 @@ import './ProfileContent.css'
 import { Row, Card, Col, Nav, Tab, Button, Tabs, TabContainer } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import EachPlace from '../EachPlace/EachPlace';
-import { useState } from 'react';
 
 const ProfileContent = ({ userPlacesData }) => {
-
-    const { user } = useContext(AuthContext)
 
 
     return (

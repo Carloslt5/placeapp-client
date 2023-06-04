@@ -31,7 +31,6 @@ class PlacesService {
     }
 
     editPlace(place_id, placeData) {
-        // TODO PREGUNTAR A GERMAn
         return this.api.put(`/${place_id}/edit`, placeData)
     }
 

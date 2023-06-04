@@ -4,6 +4,7 @@ import placesService from './../../services/places.services'
 import { useContext, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
+import CreateCommentForm from '../CreateCommentForm/CreateCommentForm'
 
 
 const DetailsPlace = ({ _id, name, description, photoReference, type, phone, weekDay, addressComponents, userRating, userOpinion, owner, comments }) => {
@@ -80,7 +81,17 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                             <p> {owner ? owner.name && owner.lastName : "no hay owner name"} </p>
 
                             {/* <img src={owner} alt="" /> */}
+
+
+
+
+
+
+
+
                             <p>comments: {comments}</p>
+                            <CreateCommentForm />
+
 
                         </Col>
                     </Row>
