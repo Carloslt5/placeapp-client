@@ -1,49 +1,60 @@
 import './ProfileContent.css'
-import { Row, Card, Col, Nav } from 'react-bootstrap';
+import { Row, Card, Col, Nav, Tab, Button, Tabs, TabContainer } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import EachPlace from '../EachPlace/EachPlace';
+import { useState } from 'react';
 
 const ProfileContent = ({ userPlacesData }) => {
 
     return (
+        <TabContainer defaultActiveKey="#myplaces">
 
-        <Card>
-            <Card.Header>
-                <Nav variant="pills" defaultActiveKey="#first">
+            <Card>
+                <Card.Header>
+                    <Nav variant="pills">
 
-                    <Nav.Item>
-                        <Nav.Link href="#first">
-                            <Link to="/profile/:id/myplaces">My places</Link>
-                        </Nav.Link>
-                    </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link href='#myplaces'>My Places</Nav.Link>
+                        </Nav.Item>
 
-                    <Nav.Item>
-                        <Nav.Link href="#link">My favourites</Nav.Link>
-                    </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link href='#favourites'>My favourites</Nav.Link>
+                        </Nav.Item>
 
-                </Nav>
-            </Card.Header>
+                    </Nav>
+                </Card.Header>
 
-            <Card.Body>
-                <Row>
-                    {
-                        !userPlacesData
-                            ?
-                            <p>Cargando...</p>
-                            :
-                            userPlacesData.map(place => {
-                                return (
-                                    <Col key={place._id}>
-                                        <EachPlace {...place} />
-                                    </Col>
-                                )
-                            })
-                    }
-                </Row>
+                <Card.Body >
 
-            </Card.Body>
+                    <Tab.Content >
+                        <Tab.Pane eventKey="#myplaces">
+                            <Row>
+                                {
+                                    !userPlacesData
+                                        ?
+                                        <p>Cargando...</p>
+                                        :
+                                        userPlacesData.map(place => {
+                                            return (
+                                                <Col key={place._id}>
+                                                    <EachPlace {...place} />
+                                                </Col>
+                                            )
+                                        })
+                                }
+                            </Row>
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="#favourites">
+                            MIS FAVORITOS
+                        </Tab.Pane>
 
-        </Card>
+                    </Tab.Content>
+
+                </Card.Body>
+
+            </Card >
+
+        </TabContainer>
 
     )
 }

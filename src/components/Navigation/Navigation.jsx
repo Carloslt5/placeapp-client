@@ -43,13 +43,13 @@ const Navigation = () => {
 
                                     <NavDropdown.Item >
                                         <Nav.Link as="span">
-                                            <Link to={`/profile/${user._id}/myplaces`}>My places</Link>
+                                            <Link to={`/profile/${user._id}#myplaces`}>My places</Link>
                                         </Nav.Link>
                                     </NavDropdown.Item>
 
                                     <NavDropdown.Item >
                                         <Nav.Link as="span">
-                                            <Link to={`/profile/${user._id}/myfavourites`}>My favourites</Link>
+                                            <Link to={`/profile/${user._id}#favourites`}>My favourites</Link>
                                         </Nav.Link>
                                     </NavDropdown.Item>
 
@@ -61,13 +61,15 @@ const Navigation = () => {
                             </Nav>
                             :
                             <Nav>
-                                <Nav.Link as="span">
-                                    <Link to="/login">Login</Link>
-                                </Nav.Link>
 
                                 <Nav.Link as="span">
                                     <Link to="/signup">Singup</Link>
                                 </Nav.Link>
+
+                                <Nav.Link as="span">
+                                    <Link to="/login">Login</Link>
+                                </Nav.Link>
+
                             </Nav>
 
                     }
