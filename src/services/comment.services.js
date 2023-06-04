@@ -19,7 +19,7 @@ class CommentsServices {
     }
 
     editComment(commentId, commentData) {
-        return this.api.put(`/${commentId}/edit`, commentData)
+        return this.api.put(`/${commentId}/edit`, {commentId, commentData})
     }
 
     deteleComment(commentId) {

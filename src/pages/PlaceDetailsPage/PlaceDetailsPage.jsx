@@ -1,11 +1,12 @@
 import { Container, Form, Row } from 'react-bootstrap'
 import './PlaceDetailsPage.css'
-import placesService from './../../services/places.services'
-import { useParams } from 'react-router-dom'
 import { useEffect, useState } from "react"
+import { useParams } from 'react-router-dom'
+import placesService from './../../services/places.services'
 import DetailsPlace from '../../components/DetailsPlace/DetailsPlace'
 import Loader from '../../components/Loader/Loader'
-
+import CreateCommentForm from '../../components/CreateCommentForm/CreateCommentForm'
+import EachComment from '../../components/EachComment/EachComment'
 
 
 const PlaceDetailsPage = () => {
@@ -25,23 +26,35 @@ const PlaceDetailsPage = () => {
             .catch(err => console.log(err))
     }
 
-
     return (
         <>
 
+            <h1>place details page 🫂 🙃</h1>
+
             <Container>
-                <h1>place details page 🫂 🙃</h1>
-
-                <Row>
-                    {
-                        !placeData
-                            ?
-                            <Loader md={{ offset: 3, span: 6 }} />
-                            :
+                {
+                    !placeData
+                        ?
+                        <Loader md={{ offset: 3, span: 6 }} />
+                        :
+                        <>
                             <DetailsPlace {...placeData} />
-                    }
 
-                </Row>
+                            <h2>Comentarios 💦</h2>
+                            {
+                                placeData.comments.map(comment => {
+
+                                    return (
+
+                                        < EachComment comment={comment} updateComments={loadPlaceDetails} />
+                                    )
+                                })
+                            }
+
+                            <CreateCommentForm updateComments={loadPlaceDetails} />
+                        </>
+
+                }
 
             </Container>
 

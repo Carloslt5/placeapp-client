@@ -4,9 +4,9 @@ import './CreatePlaceForm.css'
 import { AuthContext } from '../../contexts/auth.context'
 import { useContext } from 'react'
 import { useState } from "react"
+import FormError from "../FormError/FormError"
 import placesService from './../../services/places.services'
 import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete'
-import FormError from "../FormError/FormError"
 
 const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
 

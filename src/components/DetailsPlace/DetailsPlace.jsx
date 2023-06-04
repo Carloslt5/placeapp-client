@@ -4,7 +4,6 @@ import placesService from './../../services/places.services'
 import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
-import CreateCommentForm from '../CreateCommentForm/CreateCommentForm'
 
 
 const DetailsPlace = ({ _id, name, description, photoReference, type, phone, weekDay, addressComponents, userRating, userOpinion, owner, comments }) => {
@@ -19,91 +18,83 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
             .then(({ data }) => {
                 console.log('esa la data que recibo en el front', data)
             })
-
+            .catch(err => console.log(err))
     }
+
 
     return (
 
-        <Card>
-            <Card.Img variant="top" src={photoReference} />
-            <Card.Body>
-                <Card.Title>{name}</Card.Title>
-                <Card.Text>
+        <>
+            <Card>
+                <Card.Img variant="top" src={photoReference} />
+                <Card.Body>
+                    <Card.Title>{name}</Card.Title>
 
-                    <Row>
-                        <Col md={6}>
-                            <Card>
-                                <ListGroup variant="flush">
-                                    <ListGroup.Item>Description: {description}</ListGroup.Item>
-                                    <ListGroup.Item>Address: {addressComponents.address}</ListGroup.Item>
-                                    <ListGroup.Item>City: {addressComponents.city}</ListGroup.Item>
-                                    <ListGroup.Item>Latitude: {addressComponents.location.coordinates[0]}</ListGroup.Item>
-                                    <ListGroup.Item>Longitude: {addressComponents.location.coordinates[1]}</ListGroup.Item>
-                                </ListGroup>
-                            </Card>
-                        </Col>
+                    <Card.Text>
 
-                        <Col md={6}>
-                            <Card>
-                                <ListGroup variant="flush">
-                                    <ListGroup.Item>Phone: {phone}</ListGroup.Item>
-                                    <ListGroup.Item>
-                                        {
-                                            weekDay.map(eachDay => (
-                                                <p key={eachDay}>{eachDay}</p>
-                                            ))
-                                        }
-                                    </ListGroup.Item>
-                                </ListGroup>
-                            </Card>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md={12}>
-                            <p>Your Rating: {userRating}</p>
-                            <p>Your opinion: {userOpinion}</p>
+                        <Row>
+                            <Col md={6}>
+                                <Card>
+                                    <ListGroup variant="flush">
+                                        <ListGroup.Item>Description: {description}</ListGroup.Item>
+                                        <ListGroup.Item>Address: {addressComponents.address}</ListGroup.Item>
+                                        <ListGroup.Item>City: {addressComponents.city}</ListGroup.Item>
+                                        <ListGroup.Item>Latitude: {addressComponents.location.coordinates[0]}</ListGroup.Item>
+                                        <ListGroup.Item>Longitude: {addressComponents.location.coordinates[1]}</ListGroup.Item>
+                                    </ListGroup>
+                                </Card>
+                            </Col>
 
-                            <div className="d-grid gap-2">
+                            <Col md={6}>
+                                <Card>
+                                    <ListGroup variant="flush">
+                                        <ListGroup.Item>Phone: {phone}</ListGroup.Item>
+                                        <ListGroup.Item>
+                                            {
+                                                weekDay.map(eachDay => (
+                                                    <p key={eachDay}>{eachDay}</p>
+                                                ))
+                                            }
+                                        </ListGroup.Item>
+                                    </ListGroup>
+                                </Card>
+                            </Col>
+                        </Row>
 
-                                <Button variant="dark" href={`/places/${_id}/edit`}>
-                                    Edit
-                                </Button>
-                                <Button variant="danger">
-                                    Delete
-                                </Button>
-                                <Button variant="warning" onClick={handlerFavourite}>
-                                    Add Favourites
-                                </Button>
+                        <Row>
+                            <Col md={12}>
 
-                            </div>
-                            <p>Owner:</p>
+                                <p>Your Rating: {userRating}</p>
+                                <p>Your opinion: {userOpinion}</p>
 
-                            <p> {owner ? owner.name && owner.lastName : "no hay owner name"} </p>
+                                <div className="d-grid gap-2">
+                                    <Button variant="dark" href={`/places/${_id}/edit`}>
+                                        Edit
+                                    </Button>
+                                    <Button variant="danger">
+                                        Delete
+                                    </Button>
+                                    <Button variant="warning" onClick={handlerFavourite}>
+                                        Add Favourites
+                                    </Button>
+                                </div>
 
-                            {/* <img src={owner} alt="" /> */}
+                                {
+                                    owner
+                                        ?
+                                        <p>Owner: {owner.name} {owner.lastName} </p>
+                                        :
+                                        <p>no hay owner </p>
+                                }
 
+                            </Col>
+                        </Row>
 
+                    </Card.Text>
+                </Card.Body>
+            </Card>
 
-
-
-
-
-
-                            <p>comments: {comments}</p>
-                            <CreateCommentForm />
-
-
-                        </Col>
-                    </Row>
-
-
-
-
-
-                </Card.Text>
-
-            </Card.Body>
-        </Card>
+        </>
     )
 }
 export default DetailsPlace
