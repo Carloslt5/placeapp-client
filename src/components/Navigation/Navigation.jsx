@@ -12,7 +12,7 @@ const Navigation = () => {
 
         <Navbar collapseOnSelect expand="lg" className='navbarBg' sticky="top" >
             <Container>
-                <Navbar.Brand href="/" className='mx-0'>React-Bootstrap</Navbar.Brand>
+                <Navbar.Brand href="/" className='mx-0'>Places-App</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
 
