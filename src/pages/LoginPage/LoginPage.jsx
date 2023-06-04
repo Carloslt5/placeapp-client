@@ -1,23 +1,19 @@
-import { Container, Form } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import './LoginPage.css'
 
 import LoginForm from '../../components/LoginForm/LoginForm'
 
 const LoginPage = () => {
+
     return (
-        <>
 
-            <Container>
+        <Container>
 
-                <h1>LOGIN 🫂 🙃</h1>
+            <h1>LOGIN 🫂 🙃</h1>
 
-                <LoginForm />
+            <LoginForm />
 
-            </Container>
-
-
-        </>
-
+        </Container>
 
     )
 }

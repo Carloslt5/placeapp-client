@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import placesService from './../../services/places.services'
 import { Col, Container, Row } from "react-bootstrap"
 import EachPlace from "../../components/EachPlace/EachPlace"
+import Loader from '../../components/Loader/Loader'
 
 const AllPlacesPage = () => {
 
@@ -24,12 +25,14 @@ const AllPlacesPage = () => {
         <>
             <Container>
                 <h1 className="my-3">All Places</h1>
-                <Row>
+                <Row className='justify-content-center'>
 
                     {
                         !placesData
                             ?
-                            <h2>Cargando.....</h2>
+                            <Col>
+                                <Loader md={{ offset: 3, span: 6 }} />
+                            </Col>
                             :
                             placesData.map((place) => {
                                 return (

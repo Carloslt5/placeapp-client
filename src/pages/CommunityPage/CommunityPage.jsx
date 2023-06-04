@@ -3,6 +3,8 @@ import './CommunityPage.css'
 import usersService from './../../services/users.services'
 import { useEffect, useState } from 'react'
 import EachUser from '../../components/EachUser/EachUser'
+import Loader from '../../components/Loader/Loader'
+
 
 const CommunityPage = () => {
 
@@ -31,7 +33,9 @@ const CommunityPage = () => {
                 {
                     !usersData
                         ?
-                        <h2>Cargando.....</h2>
+                        <Col>
+                            <Loader md={{ offset: 3, span: 6 }} />
+                        </Col>
                         :
                         usersData.map((user, index) => {
                             return (

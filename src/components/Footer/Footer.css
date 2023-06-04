@@ -1,9 +1,8 @@
 footer {
+    align-self: flex-end;
     background-color: #212429;
-    bottom: 0;
     color: white;
     font-size: .8em;
-    margin-top: 3em;
     padding: .8em 0;
     text-align: center;
 }

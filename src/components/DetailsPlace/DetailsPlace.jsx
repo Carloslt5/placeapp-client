@@ -11,11 +11,10 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
     const { user } = useContext(AuthContext)
     const { id } = useParams()
 
-
     const handlerFavourite = () => {
 
         placesService
-            .addFavouritesPlace(id, user._id)
+            .addFavouritesPlace(id, user)
             .then(({ data }) => {
                 console.log('esa la data que recibo en el front', data)
             })

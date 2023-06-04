@@ -36,7 +36,7 @@ class PlacesService {
     }
 
     addFavouritesPlace(placeIdFavourite, userId) {
-        return this.api.post(`/${placeIdFavourite}/favourites`, userId)
+        return this.api.put(`/${placeIdFavourite}/favourites`, userId)
     }
 
     deletePlace(placeIdDelete) {
