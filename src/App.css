@@ -1,18 +1,16 @@
+body {
+  background-color: #e0e0e0;
+}
+
 .App {
+  display: flex;
+  flex-flow: column wrap;
   font-family: sans-serif;
   min-height: 100vh;
   min-width: 100vw;
 }
 
-body {
-  background-color: #e0e0e0;
-}
 
-#root {
-  display: flex;
-  flex-wrap: wrap;
-
-}
 
 img {
   display: block;
