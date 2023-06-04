@@ -2,7 +2,7 @@ import './DetailsPlace.css'
 import { Card, Col, ListGroup, Row, Button } from 'react-bootstrap'
 import placesService from './../../services/places.services'
 import { useContext } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 
 
@@ -10,6 +10,19 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
 
     const { user } = useContext(AuthContext)
     const { id } = useParams()
+
+    const navigate = useNavigate()
+
+    const deleteHandler = () => {
+
+        placesService
+            .deletePlace(id)
+            .then(() => {
+                navigate(`/`)
+            })
+            .catch(err => console.log(err))
+
+    }
 
     const handlerFavourite = () => {
 
@@ -68,15 +81,17 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                                 <p>Your opinion: {userOpinion}</p>
 
                                 <div className="d-grid gap-2">
+
                                     <Button variant="dark" href={`/places/${_id}/edit`}>
                                         Edit
                                     </Button>
-                                    <Button variant="danger">
+                                    <Button variant="danger" onClick={deleteHandler}>
                                         Delete
                                     </Button>
                                     <Button variant="warning" onClick={handlerFavourite}>
                                         Add Favourites
                                     </Button>
+
                                 </div>
 
                                 {

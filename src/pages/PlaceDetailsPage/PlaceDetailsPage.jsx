@@ -1,4 +1,4 @@
-import { Container, Form, Row } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 import './PlaceDetailsPage.css'
 import { useEffect, useState } from "react"
 import { useParams } from 'react-router-dom'
