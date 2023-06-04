@@ -1,9 +1,15 @@
 import './ProfileContent.css'
-import { Row, Card, Col, Nav } from 'react-bootstrap';
+import { Row, Card, Col, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
-import EachPlace from '../EachPlace/EachPlace';
+import EachPlace from '../EachPlace/EachPlace'
+import { AuthContext } from '../../contexts/auth.context'
+import { useContext } from 'react'
+
 
 const ProfileContent = ({ userPlacesData }) => {
+
+    const { user } = useContext(AuthContext)
+
 
     return (
 
@@ -13,12 +19,15 @@ const ProfileContent = ({ userPlacesData }) => {
 
                     <Nav.Item>
                         <Nav.Link href="#first">
-                            <Link to="/profile/:id/myplaces">My places</Link>
+                            <Link to={`/profile/${user._id}/myplaces`}>My places</Link>
                         </Nav.Link>
                     </Nav.Item>
 
                     <Nav.Item>
-                        <Nav.Link href="#link">My favourites</Nav.Link>
+                        <Nav.Link href="#link">
+                            <Link to={`/profile/${user._id}/myplaces`}>My favourites</Link>
+
+                        </Nav.Link>
                     </Nav.Item>
 
                 </Nav>

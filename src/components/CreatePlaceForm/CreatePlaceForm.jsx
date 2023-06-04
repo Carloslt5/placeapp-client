@@ -1,14 +1,14 @@
 
 import { Form, Button, Row, Col, Container } from "react-bootstrap"
 import './CreatePlaceForm.css'
-import { AuthContext } from '../../contexts/auth.context';
-import { useContext } from 'react';
+import { AuthContext } from '../../contexts/auth.context'
+import { useContext } from 'react'
 import { useState } from "react"
 import placesService from './../../services/places.services'
-import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
-import FormError from "../FormError/FormError";
+import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete'
+import FormError from "../FormError/FormError"
 
-const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
+const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
 
 const CreatePlaceForm = () => {
 
@@ -58,7 +58,7 @@ const CreatePlaceForm = () => {
     const handleChange = (newAddress) => setAddress(newAddress)
 
     const handleSelect = (selectedAddress) => {
-        setAddress(selectedAddress);
+        setAddress(selectedAddress)
 
         geocodeByAddress(selectedAddress)
             .then((results) => {
@@ -84,12 +84,12 @@ const CreatePlaceForm = () => {
                     userOpinion: data.userOpinion,
                     owner: user._id,
                     comments: data.comments
-                }));
+                }))
 
             })
             .catch(err => console.log(err))
 
-    };
+    }
 
     return (
         <>
