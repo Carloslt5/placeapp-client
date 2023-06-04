@@ -1,5 +1,6 @@
-.navbarBg{
-backdrop-filter: blur(10px);
+.navbarBg {
+  backdrop-filter: blur(10px);
+  background-color: #ffffff55;
 }
 
 .dropdown-menu {

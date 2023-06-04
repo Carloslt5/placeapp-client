@@ -1,10 +1,9 @@
 import './ProfileContent.css'
 import { Row, Card, Col, Nav, Tab, TabContainer } from 'react-bootstrap';
-// import { Link } from 'react-router-dom';
+import Loader from '../../components/Loader/Loader'
 import EachPlace from '../EachPlace/EachPlace';
 
-const ProfileContent = ({ userPlacesData }) => {
-
+const ProfileContent = ({ userPlacesData, favouritePlaces }) => {
 
     return (
         <TabContainer defaultActiveKey="#myplaces">
@@ -27,12 +26,13 @@ const ProfileContent = ({ userPlacesData }) => {
                 <Card.Body >
 
                     <Tab.Content >
+
                         <Tab.Pane eventKey="#myplaces">
                             <Row>
                                 {
                                     !userPlacesData
                                         ?
-                                        <p>Cargando...</p>
+                                        <Loader md={{ offset: 3, span: 6 }} />
                                         :
                                         userPlacesData.map(place => {
                                             return (
@@ -45,7 +45,29 @@ const ProfileContent = ({ userPlacesData }) => {
                             </Row>
                         </Tab.Pane>
                         <Tab.Pane eventKey="#favourites">
-                            MIS FAVORITOS
+
+                            <Row>
+
+                                {
+                                    !favouritePlaces
+                                        ?
+                                        <Loader md={{ offset: 3, span: 6 }} />
+                                        :
+                                        favouritePlaces?.map(place => {
+                                            return (
+                                                <Col key={place._id}>
+                                                    <EachPlace {...place} />
+                                                </Col>
+                                            )
+                                        })
+
+                                }
+
+
+
+                            </Row>
+
+
                         </Tab.Pane>
 
                     </Tab.Content>

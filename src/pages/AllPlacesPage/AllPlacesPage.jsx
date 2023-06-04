@@ -24,7 +24,7 @@ const AllPlacesPage = () => {
     return (
         <>
             <Container>
-                <h1 className="my-3">All Places</h1>
+                <h1 >All Places</h1>
                 <Row className='justify-content-center'>
 
                     {

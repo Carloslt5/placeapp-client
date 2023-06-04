@@ -8,6 +8,7 @@ body {
   font-family: sans-serif;
   min-height: 100vh;
   min-width: 100vw;
+  row-gap: 2em;
 }
 
 

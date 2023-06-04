@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import ProfileContent from '../../components/ProfileContent/ProfileContent';
 import ProfileInfo from '../../components/ProfileInfo/ProfileInfo';
 import { useParams } from 'react-router-dom';
+import Loader from '../../components/Loader/Loader'
 
 
 const ProfilePage = () => {
@@ -37,21 +38,17 @@ const ProfilePage = () => {
     return (
         <>
             <Container>
-                {
-                    !userData
-                        ?
-                        <h2>Cargando.....</h2>
-                        :
-                        <Row>
-                            <Col xs={12} md={4}>
-                                <ProfileInfo {...userData} />
-                            </Col>
 
-                            <Col xs={12} md={8} >
-                                <ProfileContent userPlacesData={userPlacesData} />
-                            </Col>
-                        </Row>
-                }
+                <Row>
+                    <Col xs={12} md={4}>
+                        <ProfileInfo {...userData} />
+                    </Col>
+
+                    <Col xs={12} md={8} >
+                        <ProfileContent userPlacesData={userPlacesData} {...userData} />
+                    </Col>
+                </Row>
+
             </Container>
         </>
     )
