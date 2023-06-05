@@ -8,7 +8,7 @@ import { useContext } from 'react';
 
 const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
 
-    const { logout } = useContext(AuthContext)
+    const { user, logout } = useContext(AuthContext)
 
     const navigate = useNavigate()
 
@@ -39,12 +39,15 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
 
             <Card.Body>
                 <div className="d-grid gap-2">
-                    <Button variant="dark" href={`/profile/${_id}/edit`}>
-                        Edit
-                    </Button>
-                    <Button variant="danger" onClick={deleteHandler} >
-                        Delete
-                    </Button>
+
+                    {
+                        user._id === _id &&
+                        <>
+                            <Button variant="dark" href={`/profile/${_id}/edit`}> Edit</Button>
+                            <Button variant="danger" onClick={deleteHandler} >Delete</Button>
+                        </>
+                    }
+
                 </div>
             </Card.Body>
         </Card>
