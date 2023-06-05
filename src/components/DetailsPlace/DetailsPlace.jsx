@@ -82,9 +82,10 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
 
                                 <div className="d-grid gap-2">
 
-                                    <Button variant="dark" href={`/places/${_id}/edit`}>
-                                        Edit
-                                    </Button>
+                                    {
+                                        user._id === owner._id && <Button variant="dark" href={`/places/${_id}/edit`}>Edit</Button>
+                                    }
+
                                     <Button variant="danger" onClick={deleteHandler}>
                                         Delete
                                     </Button>

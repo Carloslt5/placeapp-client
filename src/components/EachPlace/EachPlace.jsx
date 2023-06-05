@@ -3,7 +3,7 @@ import { Button, Card } from "react-bootstrap"
 
 
 
-const EachPlace = ({ photoReference, name, userRating, _id }) => {
+const EachPlace = ({ photoReference, name, userRating, _id, owner }) => {
 
     return (
         <>
