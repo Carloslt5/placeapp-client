@@ -7,11 +7,14 @@ import { useContext } from 'react'
 import { useState } from "react"
 import FormError from "../FormError/FormError"
 import placesService from './../../services/places.services'
+import { MessageContext } from '../../contexts/message.context'
 import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete'
 
 const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
 
 const CreatePlaceForm = () => {
+
+    const { emitMessage } = useContext(MessageContext)
 
     const { user } = useContext(AuthContext)
 
@@ -51,6 +54,7 @@ const CreatePlaceForm = () => {
         placesService
             .createPlace(placesData)
             .then(({ data }) => {
+                emitMessage("Place created!")
                 navigate(`/profile/${user._id}`)
                 // updateList()
             })

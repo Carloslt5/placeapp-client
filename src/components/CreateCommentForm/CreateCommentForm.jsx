@@ -4,10 +4,13 @@ import { useState } from "react"
 import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
+import { MessageContext } from '../../contexts/message.context'
 import commentsService from "../../services/comment.services"
 
 
 const CreateCommentForm = ({ updateComments }) => {
+
+    const { emitMessage } = useContext(MessageContext)
 
     const { user } = useContext(AuthContext)
 
@@ -35,6 +38,7 @@ const CreateCommentForm = ({ updateComments }) => {
                     .addCommentToPlace(id, data._id)
                     .then(({ data }) => {
                         updateComments()
+                        emitMessage("Created comment!")
                         setCommentData({
                             content: '',
                             owner: user._id

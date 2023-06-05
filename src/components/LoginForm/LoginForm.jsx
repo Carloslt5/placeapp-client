@@ -3,12 +3,14 @@ import { Form, Button, Row, Col } from "react-bootstrap"
 import authService from './../../services/auth.services'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from "../../contexts/auth.context"
+import { MessageContext } from '../../contexts/message.context'
 import './LoginForm.css'
 
 
 const LoginForm = () => {
 
-    // const { user } = useContext(AuthContext)
+
+    const { emitMessage } = useContext(MessageContext)
 
     const { authenticateUser, storeToken } = useContext(AuthContext)
 
@@ -32,6 +34,7 @@ const LoginForm = () => {
             .then(({ data }) => {
                 storeToken(data.authToken)
                 authenticateUser()
+                emitMessage("Welcome to PlaceApp!")
                 navigate(`/places`)
             })
             .catch(err => console.log(err))

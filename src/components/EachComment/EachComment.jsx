@@ -4,13 +4,18 @@ import { useEffect, useState } from "react"
 import Loader from '../Loader/Loader'
 import usersService from './../../services/users.services'
 import commentsService from './../../services/comment.services'
+import { MessageContext } from '../../contexts/message.context'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom';
 
 const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, updateComments }) => {
 
+    const { emitMessage } = useContext(MessageContext)
+
     const [userData, setUserData] = useState()
     const [isEditing, setEditing] = useState(false)
     const [editedContent, setEditedContent] = useState(content)
+
 
     useEffect(() => {
         loaderUser()
@@ -36,7 +41,7 @@ const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, up
             .editComment(_id, editedContent)
             .then(({ data }) => {
                 updateComments()
-                console.log("comentario updateado---->", data)
+                emitMessage("Updated comment!")
             })
             .catch(err => console.log(err))
 
@@ -53,7 +58,10 @@ const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, up
             .deteleComment(_id)
             .then(({ data }) => {
                 updateComments()
+                emitMessage("Deleted comment!")
+
             })
+            .catch(err => console.log(err))
 
     }
 
