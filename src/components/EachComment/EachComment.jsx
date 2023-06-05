@@ -53,11 +53,8 @@ const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, up
             .deteleComment(_id)
             .then(({ data }) => {
                 updateComments()
-                console.log('DELETEADO CON EXITO', data)
             })
 
-        // setEditing(false);
-        // setEditedContent(content);
     }
 
 

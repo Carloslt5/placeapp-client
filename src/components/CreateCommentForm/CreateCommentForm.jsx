@@ -4,9 +4,7 @@ import { useState } from "react"
 import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
-import placesService from "../../services/places.services"
 import commentsService from "../../services/comment.services"
-
 
 
 const CreateCommentForm = ({ updateComments }) => {
