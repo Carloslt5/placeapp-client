@@ -7,7 +7,7 @@ const LoginPage = () => {
 
     return (
 
-        <Container>
+        <Container >
 
             <h1>LOGIN 🫂 🙃</h1>
 

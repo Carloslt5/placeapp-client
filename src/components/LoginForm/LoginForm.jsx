@@ -8,7 +8,7 @@ import './LoginForm.css'
 
 const LoginForm = () => {
 
-    const { user } = useContext(AuthContext)
+    // const { user } = useContext(AuthContext)
 
     const { authenticateUser, storeToken } = useContext(AuthContext)
 
@@ -32,7 +32,7 @@ const LoginForm = () => {
             .then(({ data }) => {
                 storeToken(data.authToken)
                 authenticateUser()
-                navigate(`/profile/${user._id}`)
+                navigate(`/places`)
             })
             .catch(err => console.log(err))
     }
