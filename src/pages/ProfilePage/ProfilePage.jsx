@@ -39,7 +39,7 @@ const ProfilePage = () => {
             <Container>
 
                 <Row>
-                    <Col xs={12} md={4}>
+                    <Col xs={12} md={4} className='profile-info-heigth'>
                         <ProfileInfo {...userData} />
                     </Col>
 

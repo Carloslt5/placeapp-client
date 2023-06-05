@@ -2,7 +2,6 @@ import { Button, Card } from 'react-bootstrap'
 import './EachUser.css'
 
 const EachUser = ({ name, lastName, avatar, _id }) => {
-    console.log(name, lastName, avatar, _id)
 
     return (
         <>

@@ -35,7 +35,6 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
                 setLoadingDataPlace(false)
             })
             .catch(err => {
-                console.log(err)
                 setLoadingDataPlace(false)
             })
     }

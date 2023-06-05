@@ -40,7 +40,7 @@ const CommunityPage = () => {
                         usersData.map((user, index) => {
                             return (
 
-                                <Col Col md={3} key={index} >
+                                <Col xs={6} md={3} key={index} >
                                     <EachUser {...user} />
                                 </Col>
 

@@ -28,13 +28,13 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
         <Card>
             <Card.Img variant="top" src={avatar} />
             <Card.Body>
-                <Card.Title>{name} {lastName}</Card.Title>
-                <Card.Text>
+                <Card.Title><strong>{name} {lastName}</strong></Card.Title>
 
-                    <p>email: {email}</p>
-                    <p>role: {role}</p>
 
-                </Card.Text>
+                <article>
+                    <Card.Text>role: {role}</Card.Text>
+                    <Card.Text>email: {email}</Card.Text>
+                </article>
             </Card.Body>
 
             <Card.Body>
