@@ -33,14 +33,10 @@ const CreateCommentForm = ({ updateComments }) => {
             .then(({ data }) => { return data })
             .then((data) => {
 
-                placesService
-                    .editPlace(id, { comment: data })
+                commentsService
+                    .addCommentToPlace(id, data._id)
                     .then(({ data }) => {
                         updateComments()
-                        setCommentData({
-                            content: '',
-                            owner: user._id
-                        })
                     })
             })
             .catch(err => console.log(err))
@@ -54,7 +50,7 @@ const CreateCommentForm = ({ updateComments }) => {
 
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Escribe aqui tu comentario:</Form.Label>
-                    <Form.Control as="textarea" rows={3} name="content" onChange={handleInputChange} value={commentData.content} />
+                    <Form.Control as="textarea" rows={3} name="content" onChange={handleInputChange} />
                 </Form.Group>
 
                 <div className="d-grid mt-3">
