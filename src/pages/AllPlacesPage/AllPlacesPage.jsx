@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react'
 import placesService from './../../services/places.services'
-import { Col, Container, Row } from "react-bootstrap"
+import { Col, Container, Row, Form } from "react-bootstrap"
 import EachPlace from "../../components/EachPlace/EachPlace"
 import Loader from '../../components/Loader/Loader'
+import FilteringPlaces from '../../components/FilteringPlaces/FilteringPlaces'
 
 const AllPlacesPage = () => {
 
     const [placesData, setPlacesData] = useState()
+    const [placesDataBackup, setPlacesDataBackup] = useState()
+
+    console.log("backup", placesDataBackup)
 
     useEffect(() => {
         loadUserPlaces()
@@ -17,14 +21,28 @@ const AllPlacesPage = () => {
             .getAllPlaces()
             .then(({ data }) => {
                 setPlacesData(data)
+                setPlacesDataBackup(data)
             })
             .catch(err => console.log(err))
     }
+
+    const filterPlacesByType = query => {
+
+        const filteredPlaces = placesDataBackup.filter(elm => elm.type.includes(query))
+        setPlacesData(filteredPlaces)
+    }
+
+
+
 
     return (
         <>
             <Container>
                 <h1 >All Places</h1>
+
+                <FilteringPlaces filterPlacesByType={filterPlacesByType} />
+
+
                 <Row className='justify-content-center'>
 
                     {
