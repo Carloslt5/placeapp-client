@@ -44,7 +44,7 @@ const LoginForm = () => {
     const { password, email } = loginData
 
     return (
-        <Row className="justify-content-center">
+        <Row className="justify-content-center py-5">
 
             <Col md={{ span: 6 }} className="formBox">
                 <Form onSubmit={handleSubmit} >

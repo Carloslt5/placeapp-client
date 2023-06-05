@@ -11,7 +11,15 @@ body {
   row-gap: 2em;
 }
 
+body {
+  padding-bottom: 5em;
+}
 
+footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
 
 img {
   display: block;

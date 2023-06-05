@@ -64,8 +64,8 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                                         <ListGroup.Item>Phone: {phone}</ListGroup.Item>
                                         <ListGroup.Item>
                                             {
-                                                weekDay.map(eachDay => (
-                                                    <p key={eachDay}>{eachDay}</p>
+                                                weekDay.map((eachDay, index) => (
+                                                    <p key={index}>{eachDay}</p>
                                                 ))
                                             }
                                         </ListGroup.Item>
