@@ -72,36 +72,36 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
 
                     <Form.Group className="mb-3" controlId="description">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="description" value={description} />
+                        <Form.Control type="text" onChange={handleInputChange} name="description" value={description} disabled />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="photoReference">
                         <Form.Label>Photo Reference</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="photoReference" value={photoReference} />
+                        <Form.Control type="text" onChange={handleInputChange} name="photoReference" value={photoReference} disabled />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="phone">
                         <Form.Label>Phone</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="phone" value={phone} />
+                        <Form.Control type="text" onChange={handleInputChange} name="phone" value={phone} disabled />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="weekDay">
                         <Form.Label>Week Day</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="weekDay" value={weekDay} />
+                        <Form.Control type="text" onChange={handleInputChange} name="weekDay" value={weekDay} disabled />
                     </Form.Group>
 
                     <Row>
                         <Col >
                             <Form.Group className="mb-3" controlId="address">
                                 <Form.Label>Address</Form.Label>
-                                <Form.Control type="text" onChange={handleInputChange} name="address" value={addressComponents.address} />
+                                <Form.Control type="text" onChange={handleInputChange} name="address" value={addressComponents.address} disabled />
                             </Form.Group>
                         </Col>
 
                         <Col>
                             <Form.Group className="mb-3" controlId="city">
                                 <Form.Label>City</Form.Label>
-                                <Form.Control type="text" onChange={handleInputChange} name="city" value={addressComponents.city} />
+                                <Form.Control type="text" onChange={handleInputChange} name="city" value={addressComponents.city} disabled />
                             </Form.Group>
                         </Col>
 
@@ -111,14 +111,14 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
                         <Col >
                             <Form.Group className="mb-3" controlId="latitude">
                                 <Form.Label>Latitude</Form.Label>
-                                <Form.Control type="text" onChange={handleInputChange} name="latitude" value={addressComponents.location.coordinates[0]} />
+                                <Form.Control type="text" onChange={handleInputChange} name="latitude" value={addressComponents.location.coordinates[0]} disabled />
                             </Form.Group>
                         </Col>
 
                         <Col >
                             <Form.Group className="mb-3" controlId="longitude">
                                 <Form.Label>Longitude</Form.Label>
-                                <Form.Control type="text" onChange={handleInputChange} name="longitude" value={addressComponents.location.coordinates[1]} />
+                                <Form.Control type="text" onChange={handleInputChange} name="longitude" value={addressComponents.location.coordinates[1]} disabled />
                             </Form.Group>
                         </Col>
                     </Row>

@@ -96,8 +96,9 @@ const CreatePlaceForm = () => {
             <Container>
 
                 <Form onSubmit={handleSubmit}>
+                    <Form.Label>Place name</Form.Label>
 
-                    <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect} name='name' apiKey={apiKey} className="mb-3" controlId="name">
+                    <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect} name='name' apiKey={apiKey} controlId="name">
                         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                             <Form.Group>
                                 <input  {...getInputProps({ placeholder: 'Enter a location' })} />
@@ -115,15 +116,62 @@ const CreatePlaceForm = () => {
                     </PlacesAutocomplete>
 
 
-                    <Form.Group className="mb-3" controlId="description">
+                    <Form.Group className="my-3" controlId="description">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="description" value={placesData.description} />
+                        <Form.Control type="text" onChange={handleInputChange} name="description" value={placesData.description} disabled />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="photoReference"  >
                         <Form.Label>Photo Reference</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="photoReference" value={placesData.photoReference} />
+                        <Form.Control type="text" onChange={handleInputChange} name="photoReference" value={placesData.photoReference} disabled />
                     </Form.Group>
+
+
+
+                    <Form.Group className="mb-3" controlId="phone">
+                        <Form.Label>Phone</Form.Label>
+                        <Form.Control type="text" onChange={handleInputChange} name="phone" value={placesData.phone} disabled />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="weekDay">
+                        <Form.Label>Week Day</Form.Label>
+                        <Form.Control type="text" onChange={handleInputChange} name="weekDay" value={placesData.weekDay} disabled />
+                    </Form.Group>
+
+                    <Row>
+                        <Col >
+                            <Form.Group className="mb-3" controlId="address">
+                                <Form.Label>Address</Form.Label>
+                                <Form.Control type="text" onChange={handleInputChange} name="address" value={placesData.address} disabled />
+                            </Form.Group>
+                        </Col>
+
+                        <Col>
+                            <Form.Group className="mb-3" controlId="city">
+                                <Form.Label>City</Form.Label>
+                                <Form.Control type="text" onChange={handleInputChange} name="city" value={placesData.city} disabled />
+                            </Form.Group>
+                        </Col>
+
+                    </Row>
+                    <Row>
+
+                        <Col >
+                            <Form.Group className="mb-3" controlId="latitude">
+                                <Form.Label>Latitude</Form.Label>
+                                <Form.Control type="text" onChange={handleInputChange} name="latitude" value={placesData.latitude} disabled />
+                            </Form.Group>
+                        </Col>
+
+                        <Col >
+                            <Form.Group className="mb-3" controlId="longitude">
+                                <Form.Label>Longitude</Form.Label>
+                                <Form.Control type="text" onChange={handleInputChange} name="longitude" value={placesData.longitude} disabled />
+                            </Form.Group>
+                        </Col>
+
+
+                    </Row>
 
                     <Form.Group className="mb-3" controlId="title">
                         <Form.Label>Type:</Form.Label>
@@ -141,51 +189,6 @@ const CreatePlaceForm = () => {
                         </Form.Select>
 
                     </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="phone">
-                        <Form.Label>Phone</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="phone" value={placesData.phone} />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="weekDay">
-                        <Form.Label>Week Day</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="weekDay" value={placesData.weekDay} />
-                    </Form.Group>
-
-                    <Row>
-                        <Col >
-                            <Form.Group className="mb-3" controlId="address">
-                                <Form.Label>Address</Form.Label>
-                                <Form.Control type="text" onChange={handleInputChange} name="address" value={placesData.address} />
-                            </Form.Group>
-                        </Col>
-
-                        <Col>
-                            <Form.Group className="mb-3" controlId="city">
-                                <Form.Label>City</Form.Label>
-                                <Form.Control type="text" onChange={handleInputChange} name="city" value={placesData.city} />
-                            </Form.Group>
-                        </Col>
-
-                    </Row>
-                    <Row>
-
-                        <Col >
-                            <Form.Group className="mb-3" controlId="latitude">
-                                <Form.Label>Latitude</Form.Label>
-                                <Form.Control type="text" onChange={handleInputChange} name="latitude" value={placesData.latitude} />
-                            </Form.Group>
-                        </Col>
-
-                        <Col >
-                            <Form.Group className="mb-3" controlId="longitude">
-                                <Form.Label>Longitude</Form.Label>
-                                <Form.Control type="text" onChange={handleInputChange} name="longitude" value={placesData.longitude} />
-                            </Form.Group>
-                        </Col>
-
-
-                    </Row>
 
                     <Form.Group className="mb-3" controlId="userRating">
                         <Form.Label>Your Rating</Form.Label>
