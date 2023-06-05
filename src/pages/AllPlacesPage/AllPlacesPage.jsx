@@ -37,7 +37,7 @@ const AllPlacesPage = () => {
                             placesData.map((place) => {
                                 return (
 
-                                    <Col md={3} key={place._id}>
+                                    <Col md={3} key={place._id} className='mb-3'>
                                         <EachPlace {...place} />
                                     </Col>
 
