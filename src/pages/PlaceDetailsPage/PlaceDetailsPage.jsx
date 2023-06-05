@@ -46,7 +46,7 @@ const PlaceDetailsPage = () => {
 
                                     return (
 
-                                        < EachComment comment={comment} updateComments={loadPlaceDetails} />
+                                        < EachComment key={comment._id} comment={comment} updateComments={loadPlaceDetails} />
                                     )
                                 })
                             }
