@@ -1,31 +1,34 @@
+import { useState } from 'react';
 import { Form, Row } from 'react-bootstrap'
 import './FilteringPlaces.css'
 
 const FilteringPlaces = ({ filterPlacesByType }) => {
 
-    const handleClick = (e) => {
-        const checkValue = e.target.name
-        filterPlacesByType(checkValue)
+    const handleChange = (e) => {
+
+        const inputValueType = e.target.value
+        filterPlacesByType(inputValueType)
     }
 
     return (
-        <>
-            <Form.Check
-                type="switch"
-                id="custom-switch"
-                label="Night" onClick={handleClick} name="Night"
-            />
 
-            {/* <Form.Check type="radio" label="Night" onClick={handleClick} name="Night" />
-            <Form.Check type="radio" label="Parks and gardens" onClick={handleClick} name="Parks and gardens" />
-            <Form.Check type="radio" label="Bar" onClick={handleClick} name="Bar" />
-            <Form.Check type="radio" label="Restaurant" onClick={handleClick} name="Restaurant" />
-            <Form.Check type="radio" label="Theatre" onClick={handleClick} name="Theatre" />
-            <Form.Check type="radio" label="Cinema" onClick={handleClick} name="Cinema" />
-            <Form.Check type="radio" label="Exposition" onClick={handleClick} name="Exposition" />
-            <Form.Check type="radio" label="Interest" onClick={handleClick} name="Interest" /> */}
+        <Form.Group className="mb-3" controlId="title">
+            <Form.Label>Type:</Form.Label>
 
-        </>
+            <Form.Select aria-label="Default select example" onChange={handleChange} name="type" >
+                <option>Select type...</option>
+                <option value="All">All Places</option>
+                <option value="Night">Night</option>
+                <option value="Parks and gardens">Parks and gardens</option>
+                <option value="Bar">Bar</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Theatre">Theatre</option>
+                <option value="Cinema">Cinema</option>
+                <option value="Exposition">Exposition</option>
+                <option value="Interest point">Interest point</option>
+            </Form.Select>
+        </Form.Group>
+
     )
 }
 

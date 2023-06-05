@@ -2,6 +2,7 @@
 import { Form, Button, Row, Col, Container } from "react-bootstrap"
 import './CreatePlaceForm.css'
 import { AuthContext } from '../../contexts/auth.context'
+import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { useState } from "react"
 import FormError from "../FormError/FormError"
@@ -15,8 +16,10 @@ const CreatePlaceForm = () => {
     const { user } = useContext(AuthContext)
 
     const [address, setAddress] = useState()
+
     const [errors, setErrors] = useState([])
 
+    const navigate = useNavigate()
 
     const [placesData, setplacesData] = useState({
         placeId: '',
@@ -47,9 +50,8 @@ const CreatePlaceForm = () => {
 
         placesService
             .createPlace(placesData)
-            .then((place) => {
-                console.log('Sitio creado con exito!', place)
-                // closeModal()
+            .then(({ data }) => {
+                navigate(`/profile/${user._id}`)
                 // updateList()
             })
             .catch(err => setErrors(err.response.data.errorMessages))
