@@ -4,11 +4,14 @@ import authService from './../../services/auth.services'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from "../../contexts/auth.context"
 import { MessageContext } from '../../contexts/message.context'
+import FormError from "../FormError/FormError"
 import './LoginForm.css'
 
 
 const LoginForm = () => {
 
+    const [errors, setErrors] = useState([])
+    console.log('ESTOS SON LOS ERRORES', errors)
 
     const { emitMessage } = useContext(MessageContext)
 
@@ -37,7 +40,7 @@ const LoginForm = () => {
                 emitMessage("Welcome to PlaceApp!")
                 navigate(`/places`)
             })
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.response.data.errorMessages))
     }
 
 
@@ -60,6 +63,7 @@ const LoginForm = () => {
                         <Form.Control type="password" value={password} onChange={handleInputChange} name="password" />
                     </Form.Group>
 
+                    {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
 
                     <div className="d-grid">
                         <Button variant="dark" type="submit">Acceder</Button>

@@ -6,11 +6,14 @@ import usersService from './../../services/users.services'
 import commentsService from './../../services/comment.services'
 import { MessageContext } from '../../contexts/message.context'
 import { useContext } from 'react'
+import { AuthContext } from '../../contexts/auth.context'
 import { Link } from 'react-router-dom';
 
 const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, updateComments }) => {
 
     const { emitMessage } = useContext(MessageContext)
+    const { user } = useContext(AuthContext)
+
 
     const [userData, setUserData] = useState()
     const [isEditing, setEditing] = useState(false)
@@ -96,31 +99,31 @@ const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, up
                                         ?
                                         <>
                                             <p>{content}</p>
-                                            <div className="d-grid gap-2 mt-2">
 
-                                                <Button variant="dark" onClick={handleEditClick}>
-                                                    Edit
-                                                </Button>
-                                                <Button variant="danger" onClick={handlerDelete}>
-                                                    Delete
-                                                </Button>
+                                            {
+                                                user._id === owner &&
 
-                                            </div>
+                                                <div className="d-grid gap-2 mt-2">
+                                                    <Button variant="dark" onClick={handleEditClick}> Edit</Button>
+                                                    <Button variant="danger" onClick={handlerDelete}>Delete</Button>
+                                                </div>
+
+                                            }
+
                                         </>
                                         :
                                         <>
                                             <input type="text" value={editedContent} onChange={handleInputChange} className="form-control" />
 
-                                            <div className="d-grid gap-2 mt-2">
+                                            {
+                                                user._id === owner &&
 
-                                                <Button variant="dark" onClick={handleSaveClick}>
-                                                    Save
-                                                </Button>
-                                                <Button variant="danger" onClick={handleCancelClick}>
-                                                    Cancel
-                                                </Button>
+                                                <div className="d-grid gap-2 mt-2">
+                                                    <Button variant="dark" onClick={handleSaveClick}>Save</Button>
+                                                    <Button variant="danger" onClick={handleCancelClick}>Cancel</Button>
+                                                </div>
+                                            }
 
-                                            </div>
                                         </>
 
                                 }

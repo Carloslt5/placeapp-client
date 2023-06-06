@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Form, Button, Row, Col, Container } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
-//import FormError from "../FormError/FormError"
+import FormError from "../FormError/FormError"
 import placesService from './../../services/places.services'
 
 
@@ -14,7 +14,7 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
     })
 
     const [loadingDataPlace, setLoadingDataPlace] = useState(false)
-    // const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState([])
 
 
     const navigate = useNavigate()
@@ -35,6 +35,8 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
                 setLoadingDataPlace(false)
             })
             .catch(err => {
+                setErrors(err.response.data.errorMessages)
+                if (err.response.data.errorMessages) { navigate('/') }
                 setLoadingDataPlace(false)
             })
     }
@@ -68,6 +70,8 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
 
             <Container>
                 <Form onSubmit={handleSubmit}>
+
+                    {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
 
                     <Form.Group className="mb-3" controlId="description">
                         <Form.Label>Description</Form.Label>
@@ -148,7 +152,6 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
                         <Form.Control type="text" onChange={handleInputChange} name="userOpinion" value={placeData.userOpinion} />
                     </Form.Group>
 
-                    {/* {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>} */}
 
                     <div className="d-grid mt-4">
                         <Button variant="dark" disabled={loadingDataPlace} type="submit"> {loadingDataPlace ? 'loading data place...' : 'Update Place'}</Button>
