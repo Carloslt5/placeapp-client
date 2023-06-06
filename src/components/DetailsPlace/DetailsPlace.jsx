@@ -93,23 +93,23 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                                 <div className="d-grid gap-2">
 
                                     {
-                                        user._id === owner._id && <Button variant="dark" href={`/places/${_id}/edit`}>Edit</Button>
-                                    }
+                                        (user._id === owner._id || user.role === "ADMIN") &&
 
-                                    {
-                                        isFavourite ?
-                                            <Button variant="danger" onClick={handlerRemoveFavourite}>
-                                                Remove Favourites
-                                            </Button>
-                                            :
-                                            <Button variant="warning" onClick={handlerFavourite}>
-                                                Add Favourites
-                                            </Button>
-                                    }
+                                        <>
+                                            <Button variant="dark" href={`/places/${_id}/edit`}>Edit</Button>
+                                            <Button variant="danger" onClick={deleteHandler}> Delete</Button>
+                                        </>
 
-                                    <Button variant="danger" onClick={deleteHandler}>
-                                        Delete
-                                    </Button>
+
+                                    }
+                                    <>
+                                        {
+                                            isFavourite ?
+                                                <Button variant="danger" onClick={handlerRemoveFavourite}>Remove Favourites</Button>
+                                                :
+                                                <Button variant="warning" onClick={handlerFavourite}>Add Favourites</Button>
+                                        }
+                                    </>
 
                                 </div>
 

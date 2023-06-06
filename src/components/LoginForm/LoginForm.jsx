@@ -11,7 +11,6 @@ import './LoginForm.css'
 const LoginForm = () => {
 
     const [errors, setErrors] = useState([])
-    console.log('ESTOS SON LOS ERRORES', errors)
 
     const { emitMessage } = useContext(MessageContext)
 

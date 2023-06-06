@@ -29,29 +29,28 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
             <Card.Img variant="top" src={avatar} />
             <Card.Body>
                 <Card.Title><strong>{name} {lastName}</strong></Card.Title>
-
-
                 <article>
                     <Card.Text>role: {role}</Card.Text>
                     <Card.Text>email: {email}</Card.Text>
                 </article>
             </Card.Body>
 
-            <Card.Body>
-                <div className="d-grid gap-2">
+            <div className="d-grid gap-2">
 
-                    {
-                        user._id === _id &&
-                        <>
-                            <Button variant="dark" href={`/profile/${_id}/edit`}> Edit</Button>
-                            <Button variant="danger" onClick={deleteHandler} >Delete</Button>
-                        </>
-                    }
+                {
 
-                </div>
-            </Card.Body>
+                    (user._id === _id || user.role === "ADMIN") &&
+                    <>
+                        <Button variant="dark" href={`/profile/${_id}/edit`}> Edit</Button>
+                        <Button variant="danger" onClick={deleteHandler} >Delete</Button>
+                    </>
+
+                }
+
+            </div>
         </Card>
     )
 }
 
 export default ProfileInfo
+
