@@ -1,7 +1,7 @@
 import './DetailsPlace.css'
 import { Card, Col, ListGroup, Row, Button } from 'react-bootstrap'
 import placesService from './../../services/places.services'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 
@@ -11,21 +11,21 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
     const { user } = useContext(AuthContext)
     const { id } = useParams()
 
+    const [isFavourite, setIsFavourite] = useState(false)
+
     const navigate = useNavigate()
 
     const deleteHandler = () => {
 
         placesService
             .deletePlace(id)
-            .then(() => {
-                navigate(`/`)
-            })
+            .then(() => { navigate(`/`) })
             .catch(err => console.log(err))
 
     }
 
     const handlerFavourite = () => {
-
+        setIsFavourite(true)
         placesService
             .addFavouritesPlace(id, user)
             .then(({ data }) => {
@@ -34,11 +34,21 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
             .catch(err => console.log(err))
     }
 
+    const handlerRemoveFavourite = () => {
+        setIsFavourite(false)
+
+        placesService
+            .removeFavouritesPlace(id, user)
+            .then(({ data }) => {
+                console.log('esa la data que recibo en el front', data)
+            })
+            .catch(err => console.log(err))
+    }
 
     return (
 
         <>
-            <Card>
+            <Card className='mb-4'>
                 <Card.Img variant="top" src={photoReference} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
@@ -86,11 +96,19 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                                         user._id === owner._id && <Button variant="dark" href={`/places/${_id}/edit`}>Edit</Button>
                                     }
 
+                                    {
+                                        isFavourite ?
+                                            <Button variant="danger" onClick={handlerRemoveFavourite}>
+                                                Remove Favourites
+                                            </Button>
+                                            :
+                                            <Button variant="warning" onClick={handlerFavourite}>
+                                                Add Favourites
+                                            </Button>
+                                    }
+
                                     <Button variant="danger" onClick={deleteHandler}>
                                         Delete
-                                    </Button>
-                                    <Button variant="warning" onClick={handlerFavourite}>
-                                        Add Favourites
                                     </Button>
 
                                 </div>

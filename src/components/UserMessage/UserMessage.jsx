@@ -8,7 +8,7 @@ const UserMessage = () => {
     const { toastMessage, showToast, closeMessage } = useContext(MessageContext)
 
     return (
-        <Toast onClose={closeMessage} show={showToast} delay={3000} autohide style={{ position: 'fixed', bottom: 10, right: 10 }}>
+        <Toast onClose={closeMessage} show={showToast} delay={3000} autohide style={{ position: 'fixed', bottom: 50, right: 10 }}>
             <Toast.Header>
                 <strong className="me-auto">Mensaje del sistema</strong>
             </Toast.Header>

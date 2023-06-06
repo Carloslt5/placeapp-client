@@ -29,9 +29,8 @@ const PlaceDetailsPage = () => {
     return (
         <>
 
-            <h1>place details page 🫂 🙃</h1>
-
             <Container>
+                <h1>place details page 🫂 🙃</h1>
                 {
                     !placeData
                         ?
@@ -41,6 +40,7 @@ const PlaceDetailsPage = () => {
                             <DetailsPlace {...placeData} />
 
                             <h2>Comentarios 💦</h2>
+
                             {
                                 placeData.comments.map(comment => {
 
