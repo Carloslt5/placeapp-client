@@ -4,14 +4,20 @@ import { Button, Container, Form } from "react-bootstrap"
 import { useNavigate, useParams } from 'react-router-dom'
 import usersService from './../../services/users.services'
 import uploadServices from './../../services/upload.services'
-// import FormError from "../FormError/FormError";
+import FormError from "../FormError/FormError";
 import { AuthContext } from '../../contexts/auth.context'
+import { MessageContext } from '../../contexts/message.context'
+
 
 
 const EditProfileForm = () => {
 
     const { user } = useContext(AuthContext)
     const { id } = useParams()
+
+    const { emitMessage } = useContext(MessageContext)
+
+    const [errors, setErrors] = useState([])
 
     const [editData, setEditData] = useState({
         name: user.name,
@@ -43,16 +49,18 @@ const EditProfileForm = () => {
     }
 
     const handleSubmit = event => {
+        emitMessage("Not Authorized")
         event.preventDefault()
 
         usersService
             .editUser(id, editData)
             .then(({ data }) => {
                 navigate(`/profile/${user._id}`)
-                // closeModal()
-                // updateList()
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                setErrors(err.response.data.errorMessages)
+                if (err.response.data.errorMessages) { navigate(`/profile/${user._id}`) }
+            })
     }
 
     const handleFileUpload = e => {
@@ -69,7 +77,6 @@ const EditProfileForm = () => {
                 setloadingAvatar(false)
             })
             .catch(err => {
-                console.log(err)
                 setloadingAvatar(false)
             })
     }
@@ -81,6 +88,8 @@ const EditProfileForm = () => {
             <Container>
 
                 <Form onSubmit={handleSubmit} encType="multipart/form-data">
+
+                    {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
 
                     <Form.Group className="mb-3" controlId="name">
                         <Form.Label>Name: </Form.Label>

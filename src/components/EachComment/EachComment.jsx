@@ -13,8 +13,6 @@ const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, up
 
     const { emitMessage } = useContext(MessageContext)
     const { user } = useContext(AuthContext)
-
-
     const [userData, setUserData] = useState()
     const [isEditing, setEditing] = useState(false)
     const [editedContent, setEditedContent] = useState(content)

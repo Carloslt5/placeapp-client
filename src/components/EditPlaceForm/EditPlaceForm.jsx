@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { Form, Button, Row, Col, Container } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import FormError from "../FormError/FormError"
 import placesService from './../../services/places.services'
+import { MessageContext } from '../../contexts/message.context'
 
 
 const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, weekDay, addressComponents, userRating, userOpinion, owner, comments }) => {
@@ -15,6 +16,7 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
 
     const [loadingDataPlace, setLoadingDataPlace] = useState(false)
     const [errors, setErrors] = useState([])
+    const { emitMessage } = useContext(MessageContext)
 
 
     const navigate = useNavigate()
@@ -35,6 +37,7 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
                 setLoadingDataPlace(false)
             })
             .catch(err => {
+                emitMessage("Not Authorized!")
                 setErrors(err.response.data.errorMessages)
                 if (err.response.data.errorMessages) { navigate('/') }
                 setLoadingDataPlace(false)
