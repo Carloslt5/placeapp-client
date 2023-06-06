@@ -32,6 +32,7 @@ class UsersService {
         return this.api.put(`/${id}/edit`, editData)
     }
 
+
     deleteUser(id) {
         return this.api.delete(`/${id}/delete`)
     }

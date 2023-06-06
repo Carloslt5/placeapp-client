@@ -1,7 +1,8 @@
 import './ProfileInfo.css'
 import { Card, Button } from 'react-bootstrap';
+import matchServices from './../../services/match.services'
 import usersService from './../../services/users.services'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../contexts/auth.context'
 import { useContext } from 'react';
 
@@ -11,6 +12,7 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
     const { user, logout } = useContext(AuthContext)
 
     const navigate = useNavigate()
+    const { id } = useParams()
 
     const deleteHandler = () => {
         usersService
@@ -19,6 +21,14 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
                 logout()
                 navigate(`/`)
             })
+            .catch(err => console.log(err))
+
+    }
+
+    const matchHandler = () => {
+        matchServices
+            .getMatchPlaces(id)
+            .then(({ data }) => console.log('ESTO LO RECIBO EN EL FRONT  SON LOS COMMON', data))
             .catch(err => console.log(err))
 
     }
@@ -46,6 +56,8 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
                     </>
 
                 }
+
+                <Button variant="success" onClick={matchHandler} >Match 💦</Button>
 
             </div>
         </Card>
