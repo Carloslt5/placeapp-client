@@ -2,7 +2,6 @@ import './EachPlace.css'
 import { Button, Card } from "react-bootstrap"
 
 
-
 const EachPlace = ({ photoReference, name, userRating, _id, owner }) => {
 
     return (
@@ -14,12 +13,12 @@ const EachPlace = ({ photoReference, name, userRating, _id, owner }) => {
                 <Card.Body className='justify-content'>
 
                     <article>
-                        <Card.Title className='card-title'><p><strong>{name}</strong></p></Card.Title>
+                        <Card.Title className='card-title'><strong>{name}</strong></Card.Title>
                         <hr />
                     </article>
 
                     <div>
-                        <Card.Text><p><strong>Rating: </strong>{userRating}</p></Card.Text>
+                        <Card.Text><strong>Rating: </strong>{userRating}</Card.Text>
                         <Button variant="dark" href={`/places/${_id}`}>
                             View Details
                         </Button>
