@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import authService from './../../services/auth.services'
 import uploadServices from './../../services/upload.services'
-import FormError from "../FormError/FormError";
+import FormError from "../FormError/FormError"
 
 
 const SignupForm = () => {

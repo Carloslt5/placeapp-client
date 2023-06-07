@@ -43,7 +43,9 @@ a {
 .card {
   height: 100%;
 }
-
+.card-title{
+  font-size: 2em !important;
+}
 .card-img-top {
   height: 12em;
   object-fit: cover;

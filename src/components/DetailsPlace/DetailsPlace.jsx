@@ -61,6 +61,7 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                                     <ListGroup variant="flush">
                                         <ListGroup.Item>Description: {description}</ListGroup.Item>
                                         <ListGroup.Item>Address: {addressComponents.address}</ListGroup.Item>
+                                        <ListGroup.Item>Type: {type}</ListGroup.Item>
                                         <ListGroup.Item>City: {addressComponents.city}</ListGroup.Item>
                                         <ListGroup.Item>Latitude: {addressComponents.location.coordinates[0]}</ListGroup.Item>
                                         <ListGroup.Item>Longitude: {addressComponents.location.coordinates[1]}</ListGroup.Item>

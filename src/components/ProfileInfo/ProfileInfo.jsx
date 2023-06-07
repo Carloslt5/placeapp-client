@@ -1,11 +1,11 @@
-import { Card, Button, Modal } from 'react-bootstrap';
+import { Card, Button, Modal } from 'react-bootstrap'
 import './ProfileInfo.css'
-import { useContext, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useContext, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 import matchServices from './../../services/match.services'
 import usersService from './../../services/users.services'
-import MatchInfo from '../../components/MatchInfo/MatchInfo';
+import MatchInfo from '../../components/MatchInfo/MatchInfo'
 
 
 const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
@@ -46,15 +46,21 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
         <>
             <Card>
                 <Card.Img variant="top" src={avatar} />
-                <Card.Body>
+                <Card.Body className='p-4'>
                     <Card.Title><strong>{name} {lastName}</strong></Card.Title>
+                    <hr />
                     <article>
-                        <Card.Text>role: {role}</Card.Text>
-                        <Card.Text>email: {email}</Card.Text>
+                        <Card.Text><strong>Role: </strong> {role}</Card.Text>
+                        <Card.Text><strong>Email: </strong> {email}</Card.Text>
                     </article>
                 </Card.Body>
 
-                <div className="d-grid gap-2">
+                <div className="d-flex gap-2 p-4 justify-content-end">
+
+                    {
+                        user._id !== _id &&
+                        <Button variant="success" onClick={matchHandler}> Match 💦</Button>
+                    }
 
                     {
                         (user._id === _id || user.role === "ADMIN") &&
@@ -63,11 +69,6 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
                             <Button variant="danger" onClick={deleteHandler} >Delete</Button>
                         </>
 
-                    }
-
-                    {
-                        user._id !== _id &&
-                        <Button variant="success" onClick={matchHandler}> Match 💦</Button>
                     }
 
                 </div>

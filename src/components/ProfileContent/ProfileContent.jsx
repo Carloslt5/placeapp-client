@@ -1,7 +1,7 @@
-import { Row, Card, Col, Nav, Tab, TabContainer } from 'react-bootstrap';
+import { Row, Card, Col, Nav, Tab, TabContainer } from 'react-bootstrap'
 import './ProfileContent.css'
 import Loader from '../../components/Loader/Loader'
-import EachPlace from '../EachPlace/EachPlace';
+import EachPlace from '../EachPlace/EachPlace'
 
 const ProfileContent = ({ userPlacesData, favouritePlaces }) => {
 
