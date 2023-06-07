@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom"
 import { MessageContext } from '../../contexts/message.context'
 import placesService from './../../services/places.services'
 import FormError from "../FormError/FormError"
+import { PLACES_TYPE_ARRAY } from '../../consts/places-consts'
+
 
 
 const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, weekDay, addressComponents, userRating, userOpinion, owner, comments }) => {
@@ -22,11 +24,11 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
     const navigate = useNavigate()
 
     useEffect(() => {
-        loaderPlace()
+        loadPlace()
     }, [])
 
 
-    const loaderPlace = () => {
+    const loadPlace = () => {
 
         setLoadingDataPlace(true)
 
@@ -39,7 +41,7 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
             .catch(err => {
                 emitMessage("Not Authorized!")
                 setErrors(err.response.data.errorMessages)
-                if (err.response.data.errorMessages) { navigate('/') }
+                err.response.data.errorMessages && navigate('/')
                 setLoadingDataPlace(false)
             })
     }
@@ -129,14 +131,11 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
 
                         <Form.Select aria-label="Default select example" onChange={handleInputChange} name="type" >
                             <option>Select type...</option>
-                            <option value="Night">Night</option>
-                            <option value="Parks and gardens">Parks and gardens</option>
-                            <option value="Bar">Bar</option>
-                            <option value="Restaurant">Restaurant</option>
-                            <option value="Theatre">Theatre</option>
-                            <option value="Cinema">Cinema</option>
-                            <option value="Exposition">Exposition</option>
-                            <option value="Interest point">Interest point</option>
+
+                            {
+                                PLACES_TYPE_ARRAY.map(elm => <option key={elm} value={elm}>{elm}</option>)
+                            }
+
                         </Form.Select>
                     </Form.Group>
 

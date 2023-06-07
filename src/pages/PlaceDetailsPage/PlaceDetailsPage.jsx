@@ -6,7 +6,7 @@ import placesService from './../../services/places.services'
 import DetailsPlace from '../../components/DetailsPlace/DetailsPlace'
 import Loader from '../../components/Loader/Loader'
 import CreateCommentForm from '../../components/CreateCommentForm/CreateCommentForm'
-import EachComment from '../../components/EachComment/EachComment'
+import CommentsList from '../../components/CommentsList/CommentsList'
 
 
 const PlaceDetailsPage = () => {
@@ -30,8 +30,6 @@ const PlaceDetailsPage = () => {
 
         <>
             <Container>
-                <h1>place details page 🫂 🙃</h1>
-
                 {
                     !placeData
                         ?
@@ -40,17 +38,7 @@ const PlaceDetailsPage = () => {
                         <>
                             <DetailsPlace {...placeData} />
 
-                            <h2>Comentarios 💦</h2>
-
-                            {
-                                placeData.comments.map(comment => {
-
-                                    return (
-
-                                        < EachComment key={comment._id} comment={comment} updateComments={loadPlaceDetails} />
-                                    )
-                                })
-                            }
+                            <CommentsList placeData={placeData} updateComments={loadPlaceDetails} />
 
                             <CreateCommentForm updateComments={loadPlaceDetails} />
                         </>

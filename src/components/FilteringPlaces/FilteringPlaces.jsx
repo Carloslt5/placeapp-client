@@ -1,4 +1,5 @@
 import { Form, Row } from 'react-bootstrap'
+import { PLACES_TYPE_ARRAY } from '../../consts/places-consts'
 import './FilteringPlaces.css'
 
 
@@ -12,19 +13,12 @@ const FilteringPlaces = ({ filterPlacesByType }) => {
     return (
 
         <Form.Group className="mb-3" controlId="title">
-            <Form.Label>Type:</Form.Label>
 
             <Form.Select aria-label="Default select example" onChange={handleChange} name="type" >
                 <option>Select type...</option>
-                <option value="All">All Places</option>
-                <option value="Night">Night</option>
-                <option value="Parks and gardens">Parks and gardens</option>
-                <option value="Bar">Bar</option>
-                <option value="Restaurant">Restaurant</option>
-                <option value="Theatre">Theatre</option>
-                <option value="Cinema">Cinema</option>
-                <option value="Exposition">Exposition</option>
-                <option value="Interest point">Interest point</option>
+                {
+                    PLACES_TYPE_ARRAY.map(elm => <option key={elm} value={elm}>{elm}</option>)
+                }
             </Form.Select>
         </Form.Group>
 

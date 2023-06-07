@@ -25,26 +25,24 @@ const AllPlacesPage = () => {
             .catch(err => console.log(err))
     }
 
+    // TODO OPCIONAL: FILTRAR EN SERVIDOR
     const filterPlacesByType = query => {
-
         if (query === "All") {
             setPlacesData(placesDataBackup)
         } else {
             const filteredPlaces = placesDataBackup.filter(elm => elm.type.includes(query))
             setPlacesData(filteredPlaces)
         }
-
     }
 
 
     return (
 
         <Container>
-            <h1 >All Places</h1>
 
             <FilteringPlaces filterPlacesByType={filterPlacesByType} />
 
-            <Row className='justify-content-center'>
+            <Row className='justify-content-center mt-5'>
 
                 {
                     !placesData
@@ -56,7 +54,7 @@ const AllPlacesPage = () => {
                         placesData.map((place) => {
                             return (
 
-                                <Col sm={6} md={3} key={place._id} className='mb-3'>
+                                <Col sm={6} md={6} key={place._id} className='mb-4'>
                                     <EachPlace {...place} />
                                 </Col>
 

@@ -2,6 +2,10 @@ import { Row, Card, Col, Nav, Tab, TabContainer } from 'react-bootstrap'
 import './ProfileContent.css'
 import Loader from '../../components/Loader/Loader'
 import EachPlace from '../EachPlace/EachPlace'
+import { MESSAGES_TYPE_ARRAY } from '../../consts/messages-consts'
+import PlacesProfile from '../PlacesProfile/PlacesProfile'
+import FavouritesProfile from '../FavouritesProfile/FavouritesProfile'
+
 
 const ProfileContent = ({ userPlacesData, favouritePlaces }) => {
 
@@ -30,21 +34,18 @@ const ProfileContent = ({ userPlacesData, favouritePlaces }) => {
 
                         <Tab.Pane eventKey="#myplaces">
                             <Row>
+
                                 {
                                     !userPlacesData
                                         ?
                                         <Loader md={{ offset: 3, span: 6 }} />
                                         :
-                                        userPlacesData.map(place => {
-                                            return (
-                                                <Col xs={12} md={6} lg={4} key={place._id} className='mb-3' >
-                                                    <EachPlace {...place} />
-                                                </Col>
-                                            )
-                                        })
+                                        <PlacesProfile userPlacesData={userPlacesData} />
                                 }
+
                             </Row>
                         </Tab.Pane>
+
                         <Tab.Pane eventKey="#favourites">
 
                             <Row>
@@ -54,13 +55,7 @@ const ProfileContent = ({ userPlacesData, favouritePlaces }) => {
                                         ?
                                         <Loader md={{ offset: 3, span: 6 }} />
                                         :
-                                        favouritePlaces?.map(place => {
-                                            return (
-                                                <Col key={place._id}>
-                                                    <EachPlace {...place} />
-                                                </Col>
-                                            )
-                                        })
+                                        <FavouritesProfile favouritePlaces={favouritePlaces} />
 
                                 }
 

@@ -79,40 +79,36 @@ const EditProfileForm = () => {
     const { name, lastName, email, avatar } = editData
 
     return (
-        <>
-            <Container>
 
-                <Form onSubmit={handleSubmit} encType="multipart/form-data">
+        <Form onSubmit={handleSubmit} encType="multipart/form-data">
 
-                    {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
+            {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
 
-                    <Form.Group className="mb-3" controlId="name">
-                        <Form.Label>Name: </Form.Label>
-                        <Form.Control type="text" value={name} onChange={handleInputChange} name='name' />
-                    </Form.Group>
+            <Form.Group className="mb-3" controlId="name">
+                <Form.Label>Name: </Form.Label>
+                <Form.Control type="text" value={name} onChange={handleInputChange} name='name' />
+            </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="lastName">
-                        <Form.Label>Last Name:</Form.Label>
-                        <Form.Control type="text" value={lastName} onChange={handleInputChange} name='lastName' />
-                    </Form.Group>
+            <Form.Group className="mb-3" controlId="lastName">
+                <Form.Label>Last Name:</Form.Label>
+                <Form.Control type="text" value={lastName} onChange={handleInputChange} name='lastName' />
+            </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="email">
-                        <Form.Label>Email:</Form.Label>
-                        <Form.Control type="email" value={email} onChange={handleInputChange} name='email' />
-                    </Form.Group>
+            <Form.Group className="mb-3" controlId="email">
+                <Form.Label>Email:</Form.Label>
+                <Form.Control type="email" value={email} onChange={handleInputChange} name='email' />
+            </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="imageData">
-                        <Form.Label>Imagen (URL)</Form.Label>
-                        <Form.Control type="file" onChange={handleFileUpload} />
-                    </Form.Group>
+            <Form.Group className="mb-3" controlId="imageData">
+                <Form.Label>Imagen (URL)</Form.Label>
+                <Form.Control type="file" onChange={handleFileUpload} />
+            </Form.Group>
 
-                    <div className="d-grid mt-4">
-                        <Button variant="dark" disabled={loadingAvatar} type="submit"> {loadingAvatar ? 'loading image...' : ' Edit Profile'}</Button>
-                    </div>
+            <div className="d-grid mt-4">
+                <Button variant="dark" disabled={loadingAvatar} type="submit"> {loadingAvatar ? 'loading image...' : ' Edit Profile'}</Button>
+            </div>
 
-                </Form>
-            </Container>
-        </>
+        </Form>
     )
 }
 

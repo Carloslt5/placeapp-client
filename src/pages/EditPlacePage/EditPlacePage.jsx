@@ -14,7 +14,6 @@ const EditPlacePage = () => {
         loaderUser()
     }, [])
 
-
     const loaderUser = () => {
         placesService
             .getDetailsPlace(id)
@@ -23,7 +22,6 @@ const EditPlacePage = () => {
             })
             .catch(err => console.log(err))
     }
-
 
     return (
 

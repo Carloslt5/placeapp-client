@@ -11,10 +11,10 @@ const CommunityPage = () => {
     const [usersData, setUsersData] = useState()
 
     useEffect(() => {
-        loadUser()
+        loadUsers()
     }, [])
 
-    const loadUser = () => {
+    const loadUsers = () => {
         usersService
             .getAllUser()
             .then(({ data }) => {

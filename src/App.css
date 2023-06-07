@@ -1,5 +1,5 @@
 body {
-  background-color: #e0e0e0;
+  background-color: #EDF2FB;
 }
 
 .App {
@@ -12,6 +12,7 @@ body {
 }
 
 body {
+  color: #1f1f1f;
   padding-bottom: 5em;
 }
 
@@ -33,7 +34,9 @@ h4,
 h5 {
   font-family: 'Poppins', sans-serif;
   font-weight: 900;
+
 }
+
 
 a {
   color: inherit;
@@ -41,16 +44,22 @@ a {
 }
 
 .card {
-  height: 100%;
+border: none;
+box-shadow: rgba(204, 219, 253) 0px 10px 10px 0px, rgba(204, 219, 253) 0px 0px 0px 0px;
+height: 100%;
 }
 .card-title{
-  font-size: 2em !important;
+  font-size: 1.1em !important;
 }
-.card-img-top {
-  height: 12em;
+.card-img-top{
+  height: 15em;
   object-fit: cover;
 }
 
 .card-text {
   margin-bottom: 0;
+}
+.btn{
+  background-color: #6e88f9!important;
+  border: none;
 }

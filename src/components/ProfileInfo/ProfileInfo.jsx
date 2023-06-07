@@ -58,8 +58,7 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
                 <div className="d-flex gap-2 p-4 justify-content-end">
 
                     {
-                        user._id !== _id &&
-                        <Button variant="success" onClick={matchHandler}> Match 💦</Button>
+                        user._id !== _id && <Button variant="success" onClick={matchHandler}> Match 💦</Button>
                     }
 
                     {

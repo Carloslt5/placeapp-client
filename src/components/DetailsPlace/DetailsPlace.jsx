@@ -4,6 +4,7 @@ import { useContext, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 import placesService from './../../services/places.services'
+import MapsPage from '../MapsPage/MapsPage'
 
 
 const DetailsPlace = ({ _id, name, description, photoReference, type, phone, weekDay, addressComponents, userRating, userOpinion, owner, comments }) => {
@@ -49,22 +50,46 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
 
         <>
             <Card className='mb-4'>
-                <Card.Img variant="top" src={photoReference} />
+                <Card.Img variant="top" src={photoReference} className='card-img-details' />
                 <Card.Body>
-                    <Card.Title>{name}</Card.Title>
+                    <Row className=' align-items-center'>
+                        <Col>
+                            <Card.Title ><strong>{name}</strong></Card.Title>
 
-                    <Card.Text>
+                        </Col>
+                        <Col>
+                            {
+                                owner
+                                    ?
+                                    <Row className='align-items-center '>
+
+                                        <Col style={{ textAlign: 'end' }} >
+                                            <strong>Created by:</strong>
+                                            <p className='m-0'>{owner.name} {owner.lastName}</p>
+                                        </Col>
+                                        <Col md={{ span: 2 }} >
+                                            <img className='rounded-circle' src={owner.avatar}></img>
+                                        </Col>
+                                    </Row>
+                                    :
+                                    <p>no hay owner </p>
+                            }
+                        </Col>
+                    </Row>
+
+                    <hr />
+
+                    <Card.Text className='mt-5'>
 
                         <Row>
                             <Col md={6}>
-                                <Card>
+                                <Card className='pt-3'>
                                     <ListGroup variant="flush">
-                                        <ListGroup.Item>Description: {description}</ListGroup.Item>
-                                        <ListGroup.Item>Address: {addressComponents.address}</ListGroup.Item>
-                                        <ListGroup.Item>Type: {type}</ListGroup.Item>
-                                        <ListGroup.Item>City: {addressComponents.city}</ListGroup.Item>
-                                        <ListGroup.Item>Latitude: {addressComponents.location.coordinates[0]}</ListGroup.Item>
-                                        <ListGroup.Item>Longitude: {addressComponents.location.coordinates[1]}</ListGroup.Item>
+                                        <ListGroup.Item><strong>Description:</strong> {description}</ListGroup.Item>
+                                        <ListGroup.Item><strong>Address:</strong> {addressComponents.address}</ListGroup.Item>
+                                        <ListGroup.Item><strong>Type:</strong> {type}</ListGroup.Item>
+                                        <ListGroup.Item><strong>City:</strong> {addressComponents.city}</ListGroup.Item>
+                                        <ListGroup.Item><strong>Phone:</strong> {phone}</ListGroup.Item>
                                     </ListGroup>
                                 </Card>
                             </Col>
@@ -72,12 +97,9 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                             <Col md={6}>
                                 <Card>
                                     <ListGroup variant="flush">
-                                        <ListGroup.Item>Phone: {phone}</ListGroup.Item>
                                         <ListGroup.Item>
                                             {
-                                                weekDay.map((eachDay, index) => (
-                                                    <p key={index}>{eachDay}</p>
-                                                ))
+                                                weekDay.map((eachDay, index) => (<p key={index}>{eachDay}</p>))
                                             }
                                         </ListGroup.Item>
                                     </ListGroup>
@@ -85,11 +107,15 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                             </Col>
                         </Row>
 
+                        <Row className='my-5'>
+                            <MapsPage {...addressComponents} />
+                        </Row>
+
                         <Row>
                             <Col md={12}>
-
-                                <p>Your Rating: {userRating}</p>
-                                <p>Your opinion: {userOpinion}</p>
+                                <Card.Title><strong>💬 Opinion:</strong></Card.Title>
+                                <p className='py-2 mb-4'> {userOpinion}</p>
+                                <p><strong> 🏆 Rating:</strong> {userRating}</p>
 
                                 <div className="d-grid gap-2">
 
@@ -100,7 +126,6 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                                             <Button variant="dark" href={`/places/${_id}/edit`}>Edit</Button>
                                             <Button variant="danger" onClick={deleteHandler}> Delete</Button>
                                         </>
-
 
                                     }
                                     <>
@@ -114,13 +139,7 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
 
                                 </div>
 
-                                {
-                                    owner
-                                        ?
-                                        <p>Owner: {owner.name} {owner.lastName} </p>
-                                        :
-                                        <p>no hay owner </p>
-                                }
+
 
                             </Col>
                         </Row>

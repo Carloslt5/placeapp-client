@@ -15,7 +15,6 @@ const ProfilePage = () => {
     const [userData, setUserData] = useState()
     const [userPlacesData, setuserPlacesData] = useState()
 
-
     useEffect(() => {
         loadUser()
         loadUserPlaces()

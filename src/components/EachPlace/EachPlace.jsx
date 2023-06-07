@@ -2,7 +2,7 @@ import { Button, Card } from "react-bootstrap"
 import './EachPlace.css'
 
 
-const EachPlace = ({ photoReference, name, userRating, _id, owner }) => {
+const EachPlace = ({ addressComponents, description, photoReference, name, userRating, _id, owner }) => {
 
     return (
         <Card>
@@ -12,11 +12,13 @@ const EachPlace = ({ photoReference, name, userRating, _id, owner }) => {
             <Card.Body className='justify-content'>
 
                 <article>
-                    <Card.Title className='card-title'><strong>{name}</strong></Card.Title>
+                    <Card.Title><strong>{name}</strong></Card.Title>
                     <hr />
                 </article>
 
                 <div>
+                    {description === 'data not available' ? '' : <Card.Text className="mb-3">{description}</Card.Text>}
+                    <Card.Text> <strong>City:</strong> {addressComponents.city} </Card.Text>
                     <Card.Text><strong>Rating: </strong>{userRating}</Card.Text>
                     <Button variant="dark" href={`/places/${_id}`} className='mt-3'>
                         View Details

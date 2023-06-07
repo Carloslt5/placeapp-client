@@ -11,7 +11,7 @@ const Navigation = () => {
 
     return (
 
-        <Navbar collapseOnSelect expand="lg" className='navbarBg' sticky="top" >
+        <Navbar collapseOnSelect expand="lg" className='navbarBg mb-3' sticky="top" >
             <Container>
                 <Navbar.Brand href="/" className='mx-0'>Places-App</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

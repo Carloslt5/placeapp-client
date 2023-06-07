@@ -7,6 +7,8 @@ import { MessageContext } from '../../contexts/message.context'
 import usersService from './../../services/users.services'
 import commentsService from './../../services/comment.services'
 import Loader from '../Loader/Loader'
+import { MESSAGES_UPDATE_COMMENT, MESSAGES_DELETE_COMMENT } from '../../consts/messages-consts'
+
 
 const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, updateComments }) => {
 
@@ -42,7 +44,7 @@ const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, up
             .editComment(_id, editedContent)
             .then(({ data }) => {
                 updateComments()
-                emitMessage("Updated comment!")
+                emitMessage(MESSAGES_UPDATE_COMMENT)
             })
             .catch(err => console.log(err))
 
@@ -59,7 +61,7 @@ const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, up
             .deteleComment(_id)
             .then(({ data }) => {
                 updateComments()
-                emitMessage("Deleted comment!")
+                emitMessage(MESSAGES_DELETE_COMMENT)
 
             })
             .catch(err => console.log(err))
