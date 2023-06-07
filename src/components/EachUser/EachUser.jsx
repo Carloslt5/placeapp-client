@@ -1,6 +1,7 @@
 import { Button, Card } from 'react-bootstrap'
 import './EachUser.css'
 
+
 const EachUser = ({ name, lastName, avatar, _id }) => {
 
     return (
@@ -22,5 +23,6 @@ const EachUser = ({ name, lastName, avatar, _id }) => {
         </>
     )
 }
+
 
 export default EachUser

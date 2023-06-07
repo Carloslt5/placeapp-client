@@ -1,9 +1,9 @@
-import './DetailsPlace.css'
 import { Card, Col, ListGroup, Row, Button } from 'react-bootstrap'
-import placesService from './../../services/places.services'
+import './DetailsPlace.css'
 import { useContext, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
+import placesService from './../../services/places.services'
 
 
 const DetailsPlace = ({ _id, name, description, photoReference, type, phone, weekDay, addressComponents, userRating, userOpinion, owner, comments }) => {
@@ -131,4 +131,6 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
         </>
     )
 }
+
+
 export default DetailsPlace

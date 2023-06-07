@@ -1,7 +1,7 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import './CommunityPage.css'
-import usersService from './../../services/users.services'
 import { useEffect, useState } from 'react'
+import usersService from './../../services/users.services'
 import EachUser from '../../components/EachUser/EachUser'
 import Loader from '../../components/Loader/Loader'
 
@@ -23,8 +23,8 @@ const CommunityPage = () => {
             .catch(err => console.log(err))
     }
 
-
     return (
+
         <Container>
             <h1>CommunityPage</h1>
 
@@ -51,7 +51,9 @@ const CommunityPage = () => {
             </Row>
 
         </Container >
+
     )
 }
+
 
 export default CommunityPage

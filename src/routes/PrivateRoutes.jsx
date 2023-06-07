@@ -1,8 +1,8 @@
 import { useContext } from "react"
-import { AuthContext } from "./../contexts/auth.context"
 import { Navigate, Outlet } from 'react-router-dom'
+import { AuthContext } from "./../contexts/auth.context"
 import Loader from "../components/Loader/Loader"
-//import Loader from "../components/Loader/Loader"
+
 
 const PrivateRoute = () => {
 
@@ -19,5 +19,6 @@ const PrivateRoute = () => {
 
     return <Outlet />
 }
+
 
 export default PrivateRoute

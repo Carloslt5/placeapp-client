@@ -27,10 +27,11 @@ const PlaceDetailsPage = () => {
     }
 
     return (
-        <>
 
+        <>
             <Container>
                 <h1>place details page 🫂 🙃</h1>
+
                 {
                     !placeData
                         ?
@@ -61,8 +62,8 @@ const PlaceDetailsPage = () => {
 
         </>
 
-
     )
 }
+
 
 export default PlaceDetailsPage

@@ -1,8 +1,7 @@
-import EditPlaceForm from "../../components/EditPlaceForm/EditPlaceForm"
-import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import placesService from './../../services/places.services'
-
+import EditPlaceForm from "../../components/EditPlaceForm/EditPlaceForm"
 
 
 const EditPlacePage = () => {
@@ -27,6 +26,7 @@ const EditPlacePage = () => {
 
 
     return (
+
         <>
             {
                 !placeData
@@ -37,8 +37,9 @@ const EditPlacePage = () => {
             }
         </>
 
-
     )
 
 }
+
+
 export default EditPlacePage

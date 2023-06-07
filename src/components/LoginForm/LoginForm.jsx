@@ -1,20 +1,19 @@
-import { useContext, useState } from "react"
 import { Form, Button, Row, Col } from "react-bootstrap"
-import authService from './../../services/auth.services'
+import './LoginForm.css'
+import { useContext, useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from "../../contexts/auth.context"
 import { MessageContext } from '../../contexts/message.context'
+import authService from './../../services/auth.services'
 import FormError from "../FormError/FormError"
-import './LoginForm.css'
 
 
 const LoginForm = () => {
 
-    const [errors, setErrors] = useState([])
-
     const { emitMessage } = useContext(MessageContext)
-
     const { authenticateUser, storeToken } = useContext(AuthContext)
+
+    const [errors, setErrors] = useState([])
 
     const [loginData, setLoginData] = useState({
         email: '',
@@ -75,5 +74,6 @@ const LoginForm = () => {
 
     )
 }
+
 
 export default LoginForm

@@ -1,18 +1,18 @@
 import { Card, Row, Col, Button } from 'react-bootstrap'
 import './EachComment.css'
-import { useEffect, useState } from "react"
-import Loader from '../Loader/Loader'
+import { useEffect, useState, useContext } from "react"
+import { Link } from 'react-router-dom'
+import { AuthContext } from '../../contexts/auth.context'
+import { MessageContext } from '../../contexts/message.context'
 import usersService from './../../services/users.services'
 import commentsService from './../../services/comment.services'
-import { MessageContext } from '../../contexts/message.context'
-import { useContext } from 'react'
-import { AuthContext } from '../../contexts/auth.context'
-import { Link } from 'react-router-dom';
+import Loader from '../Loader/Loader'
 
 const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, updateComments }) => {
 
     const { emitMessage } = useContext(MessageContext)
     const { user } = useContext(AuthContext)
+
     const [userData, setUserData] = useState()
     const [isEditing, setEditing] = useState(false)
     const [editedContent, setEditedContent] = useState(content)
@@ -32,7 +32,7 @@ const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, up
     }
 
     const handleEditClick = () => {
-        setEditing(true);
+        setEditing(true)
     }
 
     const handleSaveClick = () => {
@@ -46,11 +46,11 @@ const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, up
             })
             .catch(err => console.log(err))
 
-    };
+    }
 
     const handleCancelClick = () => {
-        setEditing(false);
-        setEditedContent(content);
+        setEditing(false)
+        setEditedContent(content)
     }
 
     const handlerDelete = () => {

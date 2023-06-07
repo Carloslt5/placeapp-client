@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap'
 import './LoginPage.css'
-
 import LoginForm from '../../components/LoginForm/LoginForm'
+
 
 const LoginPage = () => {
 
@@ -17,5 +17,6 @@ const LoginPage = () => {
 
     )
 }
+
 
 export default LoginPage

@@ -1,23 +1,23 @@
 import { useContext, useEffect, useState } from 'react'
-import './EditProfileForm.css'
 import { Button, Container, Form } from "react-bootstrap"
+import './EditProfileForm.css'
 import { useNavigate, useParams } from 'react-router-dom'
+import { MessageContext } from '../../contexts/message.context'
+import { AuthContext } from '../../contexts/auth.context'
 import usersService from './../../services/users.services'
 import uploadServices from './../../services/upload.services'
-import FormError from "../FormError/FormError";
-import { AuthContext } from '../../contexts/auth.context'
-import { MessageContext } from '../../contexts/message.context'
-
+import FormError from "../FormError/FormError"
 
 
 const EditProfileForm = () => {
 
     const { user } = useContext(AuthContext)
-    const { id } = useParams()
-
     const { emitMessage } = useContext(MessageContext)
 
+    const { id } = useParams()
+
     const [errors, setErrors] = useState([])
+    const [loadingAvatar, setloadingAvatar] = useState(false)
 
     const [editData, setEditData] = useState({
         name: user.name,
@@ -25,8 +25,6 @@ const EditProfileForm = () => {
         email: user.email,
         avatar: '',
     })
-
-    const [loadingAvatar, setloadingAvatar] = useState(false)
 
     const navigate = useNavigate()
 
@@ -120,6 +118,7 @@ const EditProfileForm = () => {
         </>
     )
 }
+
 
 export default EditProfileForm
 

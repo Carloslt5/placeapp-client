@@ -1,5 +1,5 @@
-import { useContext } from 'react'
 import { Toast } from 'react-bootstrap'
+import { useContext } from 'react'
 import { MessageContext } from '../../contexts/message.context'
 
 
@@ -16,5 +16,6 @@ const UserMessage = () => {
         </Toast>
     )
 }
+
 
 export default UserMessage

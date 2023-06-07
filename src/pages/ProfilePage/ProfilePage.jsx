@@ -1,20 +1,20 @@
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap'
 import './ProfilePage.css'
+import { useEffect, useState } from "react"
+import { useParams } from 'react-router-dom'
 import usersService from './../../services/users.services'
 import placesService from './../../services/places.services'
-import { useEffect, useState } from "react"
-import ProfileContent from '../../components/ProfileContent/ProfileContent';
-import ProfileInfo from '../../components/ProfileInfo/ProfileInfo';
-import { useParams } from 'react-router-dom';
+import ProfileContent from '../../components/ProfileContent/ProfileContent'
+import ProfileInfo from '../../components/ProfileInfo/ProfileInfo'
 
 
 const ProfilePage = () => {
-
 
     const { id } = useParams()
 
     const [userData, setUserData] = useState()
     const [userPlacesData, setuserPlacesData] = useState()
+
 
     useEffect(() => {
         loadUser()
@@ -36,22 +36,23 @@ const ProfilePage = () => {
     }
 
     return (
-        <>
-            <Container>
 
-                <Row>
-                    <Col xs={12} md={4} className='profile-info-heigth'>
-                        <ProfileInfo {...userData} />
-                    </Col>
+        <Container>
 
-                    <Col xs={12} md={8} >
-                        <ProfileContent userPlacesData={userPlacesData} {...userData} />
-                    </Col>
-                </Row>
+            <Row>
+                <Col xs={12} md={4} className='profile-info-heigth'>
+                    <ProfileInfo {...userData} />
+                </Col>
 
-            </Container>
-        </>
+                <Col xs={12} md={8} >
+                    <ProfileContent userPlacesData={userPlacesData} {...userData} />
+                </Col>
+            </Row>
+
+        </Container>
+
     )
 }
+
 
 export default ProfilePage

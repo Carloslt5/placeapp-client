@@ -1,11 +1,12 @@
-import './ProfileContent.css'
 import { Row, Card, Col, Nav, Tab, TabContainer } from 'react-bootstrap';
+import './ProfileContent.css'
 import Loader from '../../components/Loader/Loader'
 import EachPlace from '../EachPlace/EachPlace';
 
 const ProfileContent = ({ userPlacesData, favouritePlaces }) => {
 
     return (
+
         <TabContainer defaultActiveKey="#myplaces">
 
             <Card>
@@ -64,7 +65,6 @@ const ProfileContent = ({ userPlacesData, favouritePlaces }) => {
                                 }
 
 
-
                             </Row>
 
 
@@ -80,5 +80,6 @@ const ProfileContent = ({ userPlacesData, favouritePlaces }) => {
 
     )
 }
+
 
 export default ProfileContent

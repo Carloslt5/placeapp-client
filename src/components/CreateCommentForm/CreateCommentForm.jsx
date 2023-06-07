@@ -1,7 +1,7 @@
 
 import { Form, Button, Row } from "react-bootstrap"
-import { useState } from "react"
-import { useContext } from 'react'
+import './CreateCommentForm.css'
+import { useState, useContext } from "react"
 import { useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 import { MessageContext } from '../../contexts/message.context'
@@ -66,7 +66,6 @@ const CreateCommentForm = ({ updateComments }) => {
 
             </Form>
         </Row>
-
 
     )
 }

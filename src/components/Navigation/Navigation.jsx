@@ -1,8 +1,9 @@
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import './Navigation.css'
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { AuthContext } from '../../contexts/auth.context';
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { AuthContext } from '../../contexts/auth.context'
+
 
 const Navigation = () => {
 
@@ -24,9 +25,16 @@ const Navigation = () => {
                         <Nav.Link as="span">
                             <Link to="/community">Community</Link>
                         </Nav.Link>
-                        <Nav.Link as="span">
-                            <Link to="/places/create">Create places</Link>
-                        </Nav.Link>
+
+                        {
+                            user &&
+                            <Nav.Link as="span">
+                                <Link to="/places/create">Create places</Link>
+                            </Nav.Link>
+
+
+                        }
+
                     </Nav>
 
                     {
@@ -40,7 +48,7 @@ const Navigation = () => {
                                             <Link to={`/profile/${user._id}`}>My Profile</Link>
                                         </Nav.Link>
                                     </NavDropdown.Item>
-
+                                    {/* TODO: MIRAR PORQUE CUANDO HACES CLICK NO VAS AL QUE CORRESPONDE */}
                                     <NavDropdown.Item >
                                         <Nav.Link as="span">
                                             <Link to={`/profile/${user._id}#myplaces`}>My places</Link>
@@ -80,4 +88,6 @@ const Navigation = () => {
 
     )
 }
+
+
 export default Navigation

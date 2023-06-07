@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import './SignupForm.css'
 import { Button, Form } from "react-bootstrap"
+import './SignupForm.css'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import authService from './../../services/auth.services'
 import uploadServices from './../../services/upload.services'
@@ -20,7 +20,6 @@ const SignupForm = () => {
     const [loadingAvatar, setloadingAvatar] = useState(false)
     const [errors, setErrors] = useState([])
 
-
     const navigate = useNavigate()
 
     const handleInputChange = e => {
@@ -35,7 +34,7 @@ const SignupForm = () => {
         authService
             .signup(signupData)
             .then(({ data }) => navigate('/login'))
-            .catch(err => setErrors(err.response.data.errorMessages))
+            .catch(err => { setErrors(err.response.data.errorMessages) })
     }
 
 
@@ -101,6 +100,7 @@ const SignupForm = () => {
         </>
     )
 }
+
 
 export default SignupForm
 

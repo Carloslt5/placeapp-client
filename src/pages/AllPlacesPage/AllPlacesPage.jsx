@@ -1,6 +1,6 @@
+import { Col, Container, Row, Form } from "react-bootstrap"
 import { useEffect, useState } from 'react'
 import placesService from './../../services/places.services'
-import { Col, Container, Row, Form } from "react-bootstrap"
 import EachPlace from "../../components/EachPlace/EachPlace"
 import Loader from '../../components/Loader/Loader'
 import FilteringPlaces from '../../components/FilteringPlaces/FilteringPlaces'
@@ -70,4 +70,6 @@ const AllPlacesPage = () => {
 
     )
 }
+
+
 export default AllPlacesPage

@@ -1,9 +1,9 @@
-import { useEffect, useState, useContext } from "react"
 import { Form, Button, Row, Col, Container } from "react-bootstrap"
+import { useEffect, useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
-import FormError from "../FormError/FormError"
-import placesService from './../../services/places.services'
 import { MessageContext } from '../../contexts/message.context'
+import placesService from './../../services/places.services'
+import FormError from "../FormError/FormError"
 
 
 const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, weekDay, addressComponents, userRating, userOpinion, owner, comments }) => {
@@ -16,8 +16,8 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
 
     const [loadingDataPlace, setLoadingDataPlace] = useState(false)
     const [errors, setErrors] = useState([])
-    const { emitMessage } = useContext(MessageContext)
 
+    const { emitMessage } = useContext(MessageContext)
 
     const navigate = useNavigate()
 
@@ -58,13 +58,8 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
             .then(({ data }) => {
                 setPlaceData(data)
                 navigate(`/places/${_id}`)
-                // closeModal()
-                // updateList()
             })
-            .catch(err => {
-                console.log(err)
-                // setErrors(err.response.data.errorMessages)
-            })
+            .catch(err => console.log(err))
     }
 
     return (
@@ -168,4 +163,6 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
     )
 
 }
+
+
 export default EditPlaceForm

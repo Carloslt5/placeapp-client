@@ -1,11 +1,10 @@
-import { useState } from 'react';
 import { Form, Row } from 'react-bootstrap'
 import './FilteringPlaces.css'
+
 
 const FilteringPlaces = ({ filterPlacesByType }) => {
 
     const handleChange = (e) => {
-
         const inputValueType = e.target.value
         filterPlacesByType(inputValueType)
     }
@@ -31,5 +30,6 @@ const FilteringPlaces = ({ filterPlacesByType }) => {
 
     )
 }
+
 
 export default FilteringPlaces

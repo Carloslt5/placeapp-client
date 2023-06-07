@@ -1,12 +1,11 @@
 import './Loader.css'
 
+
 const Loader = () => {
 
-    return (
+    return (<span className="loader"></span>)
 
-        <span className="loader"></span>
-
-    )
 }
+
 
 export default Loader

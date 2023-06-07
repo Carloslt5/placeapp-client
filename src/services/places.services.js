@@ -20,7 +20,6 @@ class PlacesService {
         })
     }
 
-
     getAllPlaces() {
         return this.api.get('/getAllPlaces')
     }
