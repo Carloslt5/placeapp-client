@@ -46,12 +46,11 @@ const CreateCommentForm = ({ updateComments }) => {
             <Form onSubmit={handleSubmit}>
 
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Escribe aqui tu comentario:</Form.Label>
-                    <Form.Control as="textarea" rows={3} name="content" onChange={handleInputChange} value={commentData.content} />
+                    <Form.Control as="textarea" rows={3} name="content" onChange={handleInputChange} value={commentData.content} placeholder="Write your opinion" />
                 </Form.Group>
 
-                <div className="d-grid mt-3">
-                    <Button variant="dark" type="submit">Create Comment</Button>
+                <div className="d-flex justify-content-end mt-3">
+                    <Button className="btn" type="submit">Create Comment</Button>
                 </div>
 
             </Form>

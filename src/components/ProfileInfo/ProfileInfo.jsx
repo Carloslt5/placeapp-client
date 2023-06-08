@@ -58,14 +58,14 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
                 <div className="d-flex gap-2 p-4 justify-content-end">
 
                     {
-                        user._id !== _id && <Button variant="success" onClick={matchHandler}> Match 💦</Button>
+                        user._id !== _id && <Button className='btnMatch' onClick={matchHandler}> Match 💦</Button>
                     }
 
                     {
                         (user._id === _id || user.role === "ADMIN") &&
                         <>
-                            <Button variant="dark" href={`/profile/${_id}/edit`}> Edit</Button>
-                            <Button variant="danger" onClick={deleteHandler} >Delete</Button>
+                            <Button className='btnEdit' href={`/profile/${_id}/edit`}> Edit</Button>
+                            <Button className='btnDelete' onClick={deleteHandler} >Delete</Button>
                         </>
 
                     }

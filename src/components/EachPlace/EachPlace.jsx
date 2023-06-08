@@ -20,10 +20,14 @@ const EachPlace = ({ addressComponents, description, photoReference, name, userR
                     {description === 'data not available' ? '' : <Card.Text className="mb-3">{description}</Card.Text>}
                     <Card.Text> <strong>City:</strong> {addressComponents.city} </Card.Text>
                     <Card.Text><strong>Rating: </strong>{userRating}</Card.Text>
-                    <Button variant="dark" href={`/places/${_id}`} className='mt-3'>
+
+                </div>
+                <div className="d-flex gap-2 justify-content-end">
+                    <Button href={`/places/${_id}`} className='mt-3' >
                         View Details
                     </Button>
                 </div>
+
 
             </Card.Body>
 

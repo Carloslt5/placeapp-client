@@ -113,29 +113,31 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
 
                         <Row>
                             <Col md={12}>
-                                <Card.Title><strong>💬 Opinion:</strong></Card.Title>
+                                <Card.Title><strong>💬 Owner`s Opinion:</strong></Card.Title>
                                 <p className='py-2 mb-4'> {userOpinion}</p>
-                                <p><strong> 🏆 Rating:</strong> {userRating}</p>
+                                <Card.Title><strong> 🏆 Rating:</strong> {userRating}</Card.Title>
 
-                                <div className="d-grid gap-2">
+                                <div className="gap-2 d-flex justify-content-end">
+
+                                    <>
+                                        {
+                                            isFavourite ?
+                                                <Button className='btnRemoveFavourite' onClick={handlerRemoveFavourite}>Remove Favourites</Button>
+                                                :
+                                                <Button className='btnAddFavourite' onClick={handlerFavourite}>Add Favourites</Button>
+                                        }
+                                    </>
 
                                     {
                                         (user._id === owner._id || user.role === "ADMIN") &&
 
                                         <>
-                                            <Button variant="dark" href={`/places/${_id}/edit`}>Edit</Button>
-                                            <Button variant="danger" onClick={deleteHandler}> Delete</Button>
+                                            <Button className='btnEdit' href={`/places/${_id}/edit`}>Edit</Button>
+                                            <Button className='btnDelete' onClick={deleteHandler}> Delete</Button>
                                         </>
 
                                     }
-                                    <>
-                                        {
-                                            isFavourite ?
-                                                <Button variant="danger" onClick={handlerRemoveFavourite}>Remove Favourites</Button>
-                                                :
-                                                <Button variant="warning" onClick={handlerFavourite}>Add Favourites</Button>
-                                        }
-                                    </>
+
 
                                 </div>
 

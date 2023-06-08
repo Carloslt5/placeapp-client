@@ -6,7 +6,6 @@ const CommentsList = ({ placeData, updateComments }) => {
 
     return (
         <>
-            <h1>CommentsList</h1>
             {
                 placeData.comments.map(comment => {
 

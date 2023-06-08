@@ -84,18 +84,20 @@ const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, up
                     <Loader md={{ offset: 3, span: 6 }} />
                     :
 
-                    <Card className='p-4 my-2'>
+                    <Card className='p-3 my-5'>
                         <Row>
 
-                            <Col md={{ span: 2 }} >
+                            <Col md={{ span: 1 }} >
                                 <Link to={`/profile/${userData._id}`} >
                                     <img className='rounded-circle avatar-comment' src={userData.avatar} alt="" />
                                 </Link>
                             </Col>
-                            <Col>
-                                <p><strong> {userData.name} {userData.lastName}</strong></p>
-                                <hr />
+                            <Col className='d-flex flex-column justify-content-between'>
+                                <article>
+                                    <p><strong> {userData.name} {userData.lastName}</strong></p>
+                                    <hr />
 
+                                </article>
                                 {
                                     !isEditing
                                         ?
@@ -105,9 +107,9 @@ const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, up
                                             {
                                                 user._id === owner &&
 
-                                                <div className="d-grid gap-2 mt-2">
-                                                    <Button variant="dark" onClick={handleEditClick}> Edit</Button>
-                                                    <Button variant="danger" onClick={handlerDelete}>Delete</Button>
+                                                <div className="gap-2 d-flex justify-content-end mt-2 ">
+                                                    <Button className='btnEdit' onClick={handleEditClick}> Edit</Button>
+                                                    <Button className='btnDelete' onClick={handlerDelete}>Delete</Button>
                                                 </div>
 
                                             }
@@ -120,9 +122,9 @@ const EachComment = ({ comment: { _id, content, owner, createdAt, updateAt }, up
                                             {
                                                 user._id === owner &&
 
-                                                <div className="d-grid gap-2 mt-2">
-                                                    <Button variant="dark" onClick={handleSaveClick}>Save</Button>
-                                                    <Button variant="danger" onClick={handleCancelClick}>Cancel</Button>
+                                                <div className="gap-2 d-flex justify-content-end mt-2">
+                                                    <Button onClick={handleSaveClick}>Save</Button>
+                                                    <Button className='btnDelete' onClick={handleCancelClick}>Cancel</Button>
                                                 </div>
                                             }
 
