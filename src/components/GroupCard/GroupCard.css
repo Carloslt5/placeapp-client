@@ -1,0 +1,10 @@
+.group-img {
+    height: 100%;
+}
+
+figure {
+    display: inline-block;
+    margin-bottom: 0px;
+    margin-top: 1em;
+    width: 20%;
+}

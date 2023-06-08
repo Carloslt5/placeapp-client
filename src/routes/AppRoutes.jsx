@@ -9,6 +9,7 @@ import CreatePlacePage from '../pages/CreatePlacePage/CreatePlacePage'
 import CommunityPage from '../pages/CommunityPage/CommunityPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import EditPage from '../pages/EditPage/EditPage'
+import GroupsListPage from '../pages/GroupsListPage/GroupsListPage'
 
 
 const AppRoutes = () => {
@@ -34,6 +35,7 @@ const AppRoutes = () => {
 
             </Route>
 
+            <Route path="/groups" element={<GroupsListPage />} />
             <Route path="*" element={<h1>404 🤓</h1>} />
 
         </Routes>

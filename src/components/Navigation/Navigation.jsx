@@ -32,7 +32,13 @@ const Navigation = () => {
                                 <Link to="/places/create">Create places</Link>
                             </Nav.Link>
 
+                        }
 
+                        {
+                            user &&
+                            <Nav.Link as="span">
+                                <Link to="/groups/">Groups</Link>
+                            </Nav.Link>
                         }
 
                     </Nav>
