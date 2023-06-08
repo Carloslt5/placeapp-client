@@ -10,7 +10,7 @@ const FavouritesProfile = ({ favouritePlaces }) => {
             {
                 favouritePlaces?.map(place => {
                     return (
-                        <Col key={place._id}>
+                        <Col xs={12} md={6} lg={4} key={place._id} className='mb-4'>
                             <EachPlace {...place} />
                         </Col>
                     )

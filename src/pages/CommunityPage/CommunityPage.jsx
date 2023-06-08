@@ -26,21 +26,20 @@ const CommunityPage = () => {
     return (
 
         <Container>
-            <h1>CommunityPage</h1>
 
             <Row>
 
                 {
                     !usersData
                         ?
-                        <Col>
+                        <Col >
                             <Loader md={{ offset: 3, span: 6 }} />
                         </Col>
                         :
                         usersData.map((user, index) => {
                             return (
 
-                                <Col xs={6} md={3} key={index} >
+                                <Col xs={6} md={3} key={index} className='mb-4'>
                                     <EachUser {...user} />
                                 </Col>
 

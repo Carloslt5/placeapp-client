@@ -30,8 +30,14 @@ const NewGroupForm = ({ closeModal, updateList }) => {
         groupsService
             .createGroup(groupData)
             .then(({ data }) => {
-                closeModal()
-                updateList()
+
+                groupsService
+                    .joinGroup(data._id)
+                    .then(({ data }) => {
+                        closeModal()
+                        updateList()
+                    })
+
             })
             .catch(err => console.log(err))
 

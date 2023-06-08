@@ -32,10 +32,10 @@ const AppRoutes = () => {
                 <Route path="/places/create" element={<CreatePlacePage />} />
                 <Route path="/profile/:id" element={<ProfilePage />} />
                 <Route path="/profile/:id/edit" element={<EditPage />} />
+                <Route path="/groups" element={<GroupsListPage />} />
 
             </Route>
 
-            <Route path="/groups" element={<GroupsListPage />} />
             <Route path="*" element={<h1>404 🤓</h1>} />
 
         </Routes>

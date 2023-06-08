@@ -65,8 +65,8 @@ const GroupCard = ({ group: { _id, name, description, owner, members }, updateLi
                         {
                             members.map(user => {
                                 return (
-                                    <figure>
-                                        <img key={user._id} className='rounded-circle group-img' src={user.avatar} alt="" />
+                                    <figure key={user._id}>
+                                        <img className='rounded-circle group-img' src={user.avatar} alt="" />
                                     </figure>
                                 )
                             })
