@@ -1,9 +1,10 @@
 import { Card, Col, ListGroup, Row, Button } from 'react-bootstrap'
 import './DetailsPlace.css'
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 import placesService from './../../services/places.services'
+import usersService from './../../services/users.services'
 import MapsPage from '../MapsPage/MapsPage'
 
 
@@ -13,6 +14,17 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
     const { id } = useParams()
 
     const [isFavourite, setIsFavourite] = useState(false)
+
+    
+    useEffect(() => {
+        
+        usersService
+            .getOneUser(user?._id)
+            .then(({data}) => data.favouritePlaces.some(elm => elm._id === _id) ? setIsFavourite(true) : setIsFavourite(false))
+            .catch(err => console.log(err))
+
+    }, [user, user?._id])
+
 
     const navigate = useNavigate()
 
