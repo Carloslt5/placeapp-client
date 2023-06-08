@@ -10,6 +10,7 @@ import CommunityPage from '../pages/CommunityPage/CommunityPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import EditPage from '../pages/EditPage/EditPage'
 import GroupsListPage from '../pages/GroupsListPage/GroupsListPage'
+import MatchGroupsPage from '../pages/MatchGroupsPage/MatchGroupsPage'
 
 
 const AppRoutes = () => {
@@ -33,6 +34,7 @@ const AppRoutes = () => {
                 <Route path="/profile/:id" element={<ProfilePage />} />
                 <Route path="/profile/:id/edit" element={<EditPage />} />
                 <Route path="/groups" element={<GroupsListPage />} />
+                <Route path="/groups/match" element={<MatchGroupsPage />} />
 
             </Route>
 

@@ -5,8 +5,6 @@ import Loader from '../../components/Loader/Loader'
 
 const GroupsList = ({ groups, updateList }) => {
 
-    // console.log("ESTOS SON LOS GRUPOS:", groups[0].members[0].favouritePlaces)
-
     return (
 
         <>

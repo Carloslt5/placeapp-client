@@ -25,6 +25,10 @@ class MatchServices {
         return this.api.get(`/${profileId}`)
     }
 
+    getMatchPlacesGroups(groupsIds) {
+        return this.api.post(`/groups`, groupsIds)
+    }
+
 
 }
 

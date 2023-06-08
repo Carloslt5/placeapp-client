@@ -1,13 +1,21 @@
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import './Navigation.css'
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 
 
 const Navigation = () => {
 
     const { user, logout } = useContext(AuthContext)
+
+    const navigate = useNavigate()
+
+
+    const handleLogout = () => {
+        logout()
+        navigate('/')
+    }
 
     return (
 
@@ -41,6 +49,13 @@ const Navigation = () => {
                             </Nav.Link>
                         }
 
+                        {
+                            user &&
+                            <Nav.Link as="span">
+                                <Link to="/groups/match">Groups Match</Link>
+                            </Nav.Link>
+                        }
+
                     </Nav>
 
                     {
@@ -69,7 +84,7 @@ const Navigation = () => {
 
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item >
-                                        <Nav.Link as="span" onClick={logout}>Cerrar sesion</Nav.Link>
+                                        <Nav.Link as="span" onClick={handleLogout}>Cerrar sesion</Nav.Link>
                                     </NavDropdown.Item>
                                 </NavDropdown>
                             </Nav>

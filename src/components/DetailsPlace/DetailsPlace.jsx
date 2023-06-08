@@ -15,12 +15,12 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
 
     const [isFavourite, setIsFavourite] = useState(false)
 
-    
+
     useEffect(() => {
-        
+
         usersService
             .getOneUser(user?._id)
-            .then(({data}) => data.favouritePlaces.some(elm => elm._id === _id) ? setIsFavourite(true) : setIsFavourite(false))
+            .then(({ data }) => data.favouritePlaces.some(elm => elm._id === _id) ? setIsFavourite(true) : setIsFavourite(false))
             .catch(err => console.log(err))
 
     }, [user, user?._id])

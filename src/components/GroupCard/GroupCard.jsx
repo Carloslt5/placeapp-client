@@ -10,23 +10,22 @@ import './GroupCard.css'
 
 const GroupCard = ({ group: { _id, name, description, owner, members }, updateList }) => {
 
-    const [isJoin, setIsJoin] = useState(false)
     const { user } = useContext(AuthContext)
+    const [isJoin, setIsJoin] = useState(null)
 
 
     useEffect(() => {
-
         groupsService
             .getOneGroup(_id)
-            .then(({ data }) => data.members.some(elm => elm._id === user._id) ? setIsJoin(true) : setIsJoin(false))
+            .then(({ data }) => data.some(elm => elm.members._id === user._id) && setIsJoin(true))
             .catch(err => console.log(err))
 
-    }, [user, user?._id])
+    }, [user])
 
 
-
+    console.log(isJoin)
     const handlerJoinGroup = () => {
-
+        console.log('ejecuto apuntarme')
         groupsService
             .joinGroup(_id)
             .then(() => {
@@ -38,7 +37,7 @@ const GroupCard = ({ group: { _id, name, description, owner, members }, updateLi
     }
 
     const handlerUnjoinGroup = () => {
-
+        console.log('ejecuto desapuntarme')
         groupsService
             .unJoinGroup(_id)
             .then(() => {
