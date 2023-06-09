@@ -1,4 +1,4 @@
-import { Form, Button, Row, Col } from "react-bootstrap"
+import { Form, Button, Row, Col, Card } from "react-bootstrap"
 import './LoginForm.css'
 import { useContext, useState } from "react"
 import { useNavigate } from 'react-router-dom'
@@ -45,33 +45,35 @@ const LoginForm = () => {
     const { password, email } = loginData
 
     return (
-        <Row className="justify-content-center py-5">
+        <Row className="justify-content-center">
+            <Col md={{ span: 6 }}>
 
-            <Col md={{ span: 6 }} className="formBox">
-                <Form onSubmit={handleSubmit} >
+                <Card className="p-4">
+                    <Form onSubmit={handleSubmit} >
 
 
-                    <Form.Group className="mb-3" controlId="email">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" value={email} onChange={handleInputChange} name="email" />
-                    </Form.Group>
+                        <Form.Group className="mb-4" controlId="email">
+                            <Form.Label>Email:</Form.Label>
+                            <Form.Control type="email" value={email} onChange={handleInputChange} name="email" />
+                        </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="password">
-                        <Form.Label>Contraseña</Form.Label>
-                        <Form.Control type="password" value={password} onChange={handleInputChange} name="password" />
-                    </Form.Group>
+                        <Form.Group className="mb-4" controlId="password">
+                            <Form.Label>Password:</Form.Label>
+                            <Form.Control type="password" value={password} onChange={handleInputChange} name="password" />
+                        </Form.Group>
 
-                    {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
+                        {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
 
-                    <div className="d-grid">
-                        <Button variant="dark" type="submit">Acceder</Button>
-                    </div>
+                        <div className="d-grid mt-4">
+                            <Button variant="dark" type="submit">LOGIN</Button>
+                        </div>
 
-                </Form>
+                    </Form>
+
+
+                </Card>
             </Col>
-
-        </Row>
-
+        </Row >
     )
 }
 

@@ -1,5 +1,5 @@
 
-import { Form, Button, Row, Col, Container } from "react-bootstrap"
+import { Form, Button, Row, Col } from "react-bootstrap"
 import './CreatePlaceForm.css'
 import { useState, useContext } from "react"
 import { useNavigate } from 'react-router-dom'
@@ -131,17 +131,20 @@ const CreatePlaceForm = () => {
                 <Form.Control type="text" onChange={handleInputChange} name="photoReference" value={placesData.photoReference} disabled />
             </Form.Group>
 
-
-
-            <Form.Group className="mb-3" controlId="phone">
-                <Form.Label>Phone</Form.Label>
-                <Form.Control type="text" onChange={handleInputChange} name="phone" value={placesData.phone} disabled />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="weekDay">
-                <Form.Label>Week Day</Form.Label>
-                <Form.Control type="text" onChange={handleInputChange} name="weekDay" value={placesData.weekDay} disabled />
-            </Form.Group>
+            <Row>
+                <Col>
+                    <Form.Group className="mb-3" controlId="phone">
+                        <Form.Label>Phone</Form.Label>
+                        <Form.Control type="text" onChange={handleInputChange} name="phone" value={placesData.phone} disabled />
+                    </Form.Group>
+                </Col>
+                <Col>
+                    <Form.Group className="mb-3" controlId="weekDay">
+                        <Form.Label>Week Day</Form.Label>
+                        <Form.Control type="text" onChange={handleInputChange} name="weekDay" value={placesData.weekDay} disabled />
+                    </Form.Group>
+                </Col>
+            </Row>
 
             <Row>
                 <Col >
@@ -186,14 +189,6 @@ const CreatePlaceForm = () => {
                     {
                         PLACES_TYPE_ARRAY.map(elm => <option key={elm} value={elm}>{elm}</option>)
                     }
-                    {/* <option value="Night">Night</option>
-                    <option value="Parks and gardens">Parks and gardens</option>
-                    <option value="Bar">Bar</option>
-                    <option value="Restaurant">Restaurant</option>
-                    <option value="Theatre">Theatre</option>
-                    <option value="Cinema">Cinema</option>
-                    <option value="Exposition">Exposition</option>
-                    <option value="Interest point">Interest point</option> */}
                 </Form.Select>
 
             </Form.Group>
@@ -210,7 +205,7 @@ const CreatePlaceForm = () => {
 
             {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
 
-            <div className="d-grid mt-3">
+            <div className="d-grid mt-5">
                 <Button variant="dark" type="submit">Create Place</Button>
             </div>
 

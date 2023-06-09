@@ -6,8 +6,8 @@ body {
   display: flex;
   flex-flow: column wrap;
   font-family: sans-serif;
-  min-height: 100vh;
-  min-width: 100vw;
+  /* min-height: 100vh;
+  min-width: 100vw; */
   row-gap: 2em;
 }
 
@@ -43,6 +43,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: inherit;
+}
+
 .card {
   border: none;
   box-shadow: rgba(204, 219, 253) 0px 10px 10px 0px, rgba(204, 219, 253) 0px 0px 0px 0px;
@@ -67,6 +71,8 @@ a {
   border: none;
 }
 
+
+
 .btnDelete {
   background: #f8dbde !important;
   color: #ff767f;
@@ -77,8 +83,13 @@ a {
   color: #4acb96;
 }
 
-.btnAddFavourite {
+.btnBlue {
   color: #fff;
+}
+
+.btnBlue:hover {
+  background-color: #3253e6 !important;
+  border: none;
 }
 
 .btnRemoveFavourite {

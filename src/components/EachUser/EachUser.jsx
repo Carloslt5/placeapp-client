@@ -13,7 +13,7 @@ const EachUser = ({ name, lastName, avatar, _id }) => {
 
                     <Card.Title className='card-title'><strong>{name} {lastName}</strong></Card.Title>
 
-                    <Button variant="dark" href={`/profile/${_id}`}>
+                    <Button variant="dark" href={`/profile/${_id}`} className='btnBlue'>
                         View Profile
                     </Button>
 

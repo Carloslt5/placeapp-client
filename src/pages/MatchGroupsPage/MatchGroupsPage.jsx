@@ -1,15 +1,12 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { Container, Form, Button, Col, Row } from "react-bootstrap"
 import groupsService from '../../services/group.services'
 import matchService from '../../services/match.services'
-import { AuthContext } from "../../contexts/auth.context"
 import Loader from "../../components/Loader/Loader"
 import EachPlace from "../../components/EachPlace/EachPlace"
 
 
 const MatchGroupsPage = () => {
-
-    const { user } = useContext(AuthContext)
 
     const [groups, setGroups] = useState()
     const [matchedPlaces, setMatchesPlaces] = useState()
@@ -94,7 +91,7 @@ const MatchGroupsPage = () => {
                 </Form.Group>
 
                 <div className="d-flex gap-2 justify-content-end">
-                    <Button className='mt-2 mb-4' type="submit">Match Group</Button>
+                    <Button className='mt-2 mb-4 btnBlue' type="submit">Match Group</Button>
                 </div>
                 {/* <div className="d-grid mt-3">
                     <Button variant="dark" type="submit">Match Group</Button>

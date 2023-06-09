@@ -84,7 +84,7 @@ const Navigation = () => {
 
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item >
-                                        <Nav.Link as="span" onClick={handleLogout}>Cerrar sesion</Nav.Link>
+                                        <Nav.Link as="span" onClick={handleLogout}>Logout</Nav.Link>
                                     </NavDropdown.Item>
                                 </NavDropdown>
                             </Nav>

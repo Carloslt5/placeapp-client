@@ -1,6 +1,4 @@
 import { Button, Card, Col, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
 import groupsService from '../../services/group.services'
 import { AuthContext } from '../../contexts/auth.context'
 import { useContext, useEffect, useState } from 'react'
@@ -78,7 +76,7 @@ const GroupCard = ({ group: { _id, name, description, owner, members }, updateLi
                     {
                         !isJoin
                             ?
-                            <Button className='btnAddFavourite' onClick={handlerJoinGroup}>Join 💦</Button>
+                            <Button className='btnBlue' onClick={handlerJoinGroup}>Join 💦</Button>
                             :
                             <Button className='btnDelete' onClick={handlerUnjoinGroup}>Unjoin 🤬</Button>
 

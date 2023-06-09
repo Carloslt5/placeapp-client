@@ -5,7 +5,6 @@ import { Container } from 'react-bootstrap'
 const CreatePlacePage = () => {
     return (
         <Container>
-            <h1>FORM CREATE 🫂 🙃</h1>
             <CreatePlaceForm />
         </Container >
     )

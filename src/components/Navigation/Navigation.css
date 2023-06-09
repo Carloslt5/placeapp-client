@@ -7,3 +7,15 @@
   left: unset !important;
   right: 0;
 }
+
+.nav-link {
+  font-size: .8em;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all .5s ease;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}

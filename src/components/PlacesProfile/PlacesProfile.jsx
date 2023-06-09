@@ -1,6 +1,7 @@
 
 import { Col } from 'react-bootstrap'
 import EachPlace from '../EachPlace/EachPlace'
+import { Link } from 'react-router-dom'
 
 
 const PlacesProfile = ({ userPlacesData }) => {
@@ -11,7 +12,9 @@ const PlacesProfile = ({ userPlacesData }) => {
                 userPlacesData.map(place => {
                     return (
                         <Col xs={12} md={6} lg={4} key={place._id} className='mb-4' >
-                            <EachPlace {...place} />
+                            <Link to={`/places/${place._id}`}>
+                                <EachPlace {...place} />
+                            </Link>
                         </Col>
                     )
                 })

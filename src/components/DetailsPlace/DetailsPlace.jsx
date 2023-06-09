@@ -1,7 +1,7 @@
 import { Card, Col, ListGroup, Row, Button } from 'react-bootstrap'
 import './DetailsPlace.css'
 import { useContext, useState, useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 import placesService from './../../services/places.services'
 import usersService from './../../services/users.services'
@@ -73,16 +73,19 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                             {
                                 owner
                                     ?
-                                    <Row className='align-items-center '>
+                                    <Link to={`/profile/${owner._id}`}>
+                                        <Row className='align-items-center '>
 
-                                        <Col style={{ textAlign: 'end' }} >
-                                            <strong>Created by:</strong>
-                                            <p className='m-0'>{owner.name} {owner.lastName}</p>
-                                        </Col>
-                                        <Col md={{ span: 2 }} >
-                                            <img className='rounded-circle' src={owner.avatar}></img>
-                                        </Col>
-                                    </Row>
+                                            <Col style={{ textAlign: 'end' }} >
+                                                <strong>Created by:</strong>
+                                                <p className='m-0'>{owner.name} {owner.lastName}</p>
+                                            </Col>
+                                            <Col md={{ span: 2 }} >
+                                                <img className='rounded-circle' src={owner.avatar}></img>
+                                            </Col>
+
+                                        </Row>
+                                    </Link>
                                     :
                                     <p>no hay owner </p>
                             }
@@ -136,7 +139,7 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                                             isFavourite ?
                                                 <Button className='btnRemoveFavourite' onClick={handlerRemoveFavourite}>Remove Favourites</Button>
                                                 :
-                                                <Button className='btnAddFavourite' onClick={handlerFavourite}>Add Favourites</Button>
+                                                <Button className='btnBlue' onClick={handlerFavourite}>Add Favourites</Button>
                                         }
                                     </>
 

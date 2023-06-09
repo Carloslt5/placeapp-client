@@ -1,5 +1,6 @@
-import { Col, Container, Row, Form } from "react-bootstrap"
+import { Col, Container, Row } from "react-bootstrap"
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import placesService from './../../services/places.services'
 import EachPlace from "../../components/EachPlace/EachPlace"
 import Loader from '../../components/Loader/Loader'
@@ -27,7 +28,7 @@ const AllPlacesPage = () => {
 
     // TODO OPCIONAL: FILTRAR EN SERVIDOR
     const filterPlacesByType = query => {
-        if (query === "All") {
+        if (query === "All places") {
             setPlacesData(placesDataBackup)
         } else {
             const filteredPlaces = placesDataBackup.filter(elm => elm.type.includes(query))
@@ -54,8 +55,10 @@ const AllPlacesPage = () => {
                         placesData.map((place) => {
                             return (
 
-                                <Col sm={6} md={6} key={place._id} className='mb-4'>
-                                    <EachPlace {...place} />
+                                <Col sm={6} md={4} key={place._id} className='mb-4'>
+                                    <Link to={`/places/${place._id}`}>
+                                        <EachPlace {...place} />
+                                    </Link>
                                 </Col>
 
                             )

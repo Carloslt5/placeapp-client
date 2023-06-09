@@ -1,4 +1,4 @@
-import { Button, Form } from "react-bootstrap"
+import { Button, Card, Col, Form, Row } from "react-bootstrap"
 import './SignupForm.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -61,43 +61,50 @@ const SignupForm = () => {
 
 
     return (
-        <>
-            <Form onSubmit={handleSubmit} encType="multipart/form-data">
-
-                <Form.Group className="mb-3" controlId="name">
-                    <Form.Label>Name: </Form.Label>
-                    <Form.Control type="text" value={name} name='name' onChange={handleInputChange} />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="lastName">
-                    <Form.Label>Last Name:</Form.Label>
-                    <Form.Control type="text" value={lastName} name='lastName' onChange={handleInputChange} />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="email">
-                    <Form.Label>Email:</Form.Label>
-                    <Form.Control type="email" value={email} name='email' onChange={handleInputChange} />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="password">
-                    <Form.Label>Password:</Form.Label>
-                    <Form.Control type="password" value={password} name='password' onChange={handleInputChange} />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="image">
-                    <Form.Label>Imagen (URL)</Form.Label>
-                    <Form.Control type="file" onChange={handleFileUpload} />
-                </Form.Group>
-
-                {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
+        <Row className="justify-content-center">
+            <Col md={{ span: 6 }}>
+                <Card className="p-4">
 
 
-                <div className="d-grid mt-4">
-                    <Button variant="dark" disabled={loadingAvatar} type="submit"> {loadingAvatar ? 'loading image...' : 'Signup'}</Button>
-                </div>
+                    <Form onSubmit={handleSubmit} encType="multipart/form-data" >
 
-            </Form>
-        </>
+                        <Form.Group className="mb-4" controlId="name">
+                            <Form.Label>Name: </Form.Label>
+                            <Form.Control type="text" value={name} name='name' onChange={handleInputChange} />
+                        </Form.Group>
+
+                        <Form.Group className="mb-4" controlId="lastName">
+                            <Form.Label>Last Name:</Form.Label>
+                            <Form.Control type="text" value={lastName} name='lastName' onChange={handleInputChange} />
+                        </Form.Group>
+
+                        <Form.Group className="mb-4" controlId="email">
+                            <Form.Label>Email:</Form.Label>
+                            <Form.Control type="email" value={email} name='email' onChange={handleInputChange} />
+                        </Form.Group>
+
+                        <Form.Group className="mb-4" controlId="password">
+                            <Form.Label>Password:</Form.Label>
+                            <Form.Control type="password" value={password} name='password' onChange={handleInputChange} />
+                        </Form.Group>
+
+                        <Form.Group className="mb-4" controlId="image">
+                            <Form.Label>Imagen (URL)</Form.Label>
+                            <Form.Control type="file" onChange={handleFileUpload} />
+                        </Form.Group>
+
+                        {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
+
+
+                        <div className="d-grid ">
+                            <Button variant="dark" disabled={loadingAvatar} type="submit"> {loadingAvatar ? 'LOADING IMAGE...' : 'SIGUP'}</Button>
+                        </div>
+
+                    </Form>
+                </Card>
+            </Col>
+
+        </Row>
     )
 }
 

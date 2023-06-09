@@ -1,6 +1,6 @@
-import { Container, Row, Col, Button, Modal } from 'react-bootstrap'
+import { Container, Row, Button, Modal } from 'react-bootstrap'
 import groupsService from '../../services/group.services'
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import NewGroupForm from '../../components/NewGroupForm/NewGroupForm'
 import GroupsList from '../../components/GroupsList/GroupsList'
 import Loader from '../../components/Loader/Loader'

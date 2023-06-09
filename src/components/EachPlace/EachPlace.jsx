@@ -21,11 +21,11 @@ const EachPlace = ({ addressComponents, description, photoReference, name, userR
                     <Card.Text> <strong>City:</strong> {addressComponents.city} </Card.Text>
                     <Card.Text><strong>Rating: </strong>{userRating}</Card.Text>
 
-                </div>
-                <div className="d-flex gap-2 justify-content-end">
-                    <Button href={`/places/${_id}`} className='mt-3' >
-                        View Details
-                    </Button>
+                    <div className="d-flex gap-2 justify-content-end">
+                        <Button href={`/places/${_id}`} className='mt-3 btnBlue' >
+                            View Details
+                        </Button>
+                    </div>
                 </div>
 
 
