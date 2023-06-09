@@ -11,6 +11,7 @@ import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import EditPage from '../pages/EditPage/EditPage'
 import GroupsListPage from '../pages/GroupsListPage/GroupsListPage'
 import MatchGroupsPage from '../pages/MatchGroupsPage/MatchGroupsPage'
+import HomePage from '../pages/HomePage/HomePage'
 
 
 const AppRoutes = () => {
@@ -19,7 +20,7 @@ const AppRoutes = () => {
 
         <Routes>
 
-            <Route path="/" element={<h1>HOME🫂 🙃</h1>} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
 
