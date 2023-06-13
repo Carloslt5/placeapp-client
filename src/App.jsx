@@ -12,10 +12,10 @@ function App() {
 
     <div className="App">
       <Navigation />
-      <AppRoutes />
-      <Footer />
-      <UserMessage />
       <Chat />
+      <AppRoutes />
+      <UserMessage />
+      <Footer />
     </div>
 
   )

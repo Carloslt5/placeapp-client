@@ -1,0 +1,11 @@
+.items-chat{
+  border: 1px solid rgb(232, 232, 232)!important;
+    border-radius: .5em !important;
+    margin-bottom: .5em;
+}
+
+.scroll-chat{
+  height: 500px;
+  overflow-y: auto;
+  width: 430px;
+}

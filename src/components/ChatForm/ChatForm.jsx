@@ -1,7 +1,10 @@
 import { useState, useEffect, useContext } from 'react'
 import { ListGroup, InputGroup, Form, Button, Card, Container } from 'react-bootstrap'
+import './ChatForm.css'
 import { io } from 'socket.io-client'
 import chatService from './../../services/chat.services'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
 const socket = io(process.env.REACT_APP_URL)
 
@@ -48,32 +51,35 @@ const ChatForm = ({ getMessages, messages }) => {
 
     return (
         <>
-            <h1>Esto es el formulario del chat</h1>
-            <h2>{isConnected ? 'CONNECT' : 'DISCONNECT'}</h2>
+            <Container className='p-2'>
 
-            <Container>
+                <ListGroup className='scroll-chat '>
 
-                <Card>
-                    <ListGroup>
+                    {
+                        messages
+                            ?
+                            messages?.map((message, index) => {
+                                return (
+                                    <ListGroup.Item key={index} className='d-flex justify-content-between items-chat'>
+                                        <article className='d-flex gap-2 align-items-start'>
+                                            <div className='d-flex align-items-center gap-2'>
+                                                <img src={message.owner.avatar} alt="" className='rounded-circle' style={{ width: '20px', height: '20px' }} />
+                                                <strong>{message.owner.name}:</strong>
+                                            </div>
+                                            {message.message}
+                                        </article>
+                                        <article>{message.createdAt.substring(11, 16)}</article>
+                                    </ListGroup.Item >
+                                )
+                            })
+                            :
+                            <p>No hay mensajes</p>
+                    }
 
-                        {
-                            messages
-                                ?
-                                messages?.map((message, index) => {
-                                    // console.log('esto deberia ser el mensaje', message)
+                </ListGroup>
 
-                                    return (
-                                        <ListGroup.Item key={index}> {message.message}</ListGroup.Item >
-                                    )
-                                })
-                                :
-                                <p>No hay mensajes</p>
-                        }
-
-                    </ListGroup>
-
+                <Form onSubmit={handleSubmit} >
                     <InputGroup>
-
                         <Form.Control
                             placeholder="Recipient's username"
                             aria-label="Recipient's username with two button addons"
@@ -81,13 +87,11 @@ const ChatForm = ({ getMessages, messages }) => {
                             name="userChatMessage"
                             value={newMessage}
                         />
-                        <Button variant="outline-secondary" type="submit" onClick={handleSubmit}>Send</Button>
-
+                        <Button className='btnBlue' type="submit">
+                            <FontAwesomeIcon icon={faPaperPlane} />
+                        </Button>
                     </InputGroup>
-
-                </Card>
-
-
+                </Form>
             </Container>
 
         </>

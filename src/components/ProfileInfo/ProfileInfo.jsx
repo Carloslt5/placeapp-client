@@ -1,5 +1,7 @@
 import { Card, Button, Modal } from 'react-bootstrap'
 import './ProfileInfo.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useContext, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
@@ -64,8 +66,14 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
                     {
                         (user._id === _id || user.role === "ADMIN") &&
                         <>
-                            <Button className='btnEdit' href={`/profile/${_id}/edit`}> Edit</Button>
-                            <Button className='btnDelete' onClick={deleteHandler} >Delete</Button>
+                            <Button className='btnEdit' href={`/profile/${_id}/edit`}>
+                                <FontAwesomeIcon icon={faPenToSquare} />
+                                Edit
+                            </Button>
+                            <Button className='btnDelete' onClick={deleteHandler}>
+                                <FontAwesomeIcon icon={faTrash} />
+                                Delete
+                            </Button>
                         </>
 
                     }
