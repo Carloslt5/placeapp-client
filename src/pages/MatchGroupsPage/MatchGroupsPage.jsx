@@ -93,9 +93,7 @@ const MatchGroupsPage = () => {
                 <div className="d-flex gap-2 justify-content-end">
                     <Button className='mt-2 mb-4 btnBlue' type="submit">Match Group</Button>
                 </div>
-                {/* <div className="d-grid mt-3">
-                    <Button variant="dark" type="submit">Match Group</Button>
-                </div> */}
+
             </Form>
 
             <Row>

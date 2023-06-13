@@ -65,22 +65,22 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                 <Card.Img variant="top" src={photoReference} className='card-img-details' />
                 <Card.Body>
                     <Row className=' align-items-center'>
-                        <Col>
+                        <Col sm={12} md={6}>
                             <Card.Title ><strong>{name}</strong></Card.Title>
 
                         </Col>
-                        <Col>
+                        <Col sm={12} md={6}>
                             {
                                 owner
                                     ?
                                     <Link to={`/profile/${owner._id}`}>
-                                        <Row className='align-items-center '>
+                                        <Row className='justify-content-end align-items-center '>
 
                                             <Col style={{ textAlign: 'end' }} >
                                                 <strong>Created by:</strong>
                                                 <p className='m-0'>{owner.name} {owner.lastName}</p>
                                             </Col>
-                                            <Col md={{ span: 2 }} >
+                                            <Col xs={3} md={2}>
                                                 <img className='rounded-circle' src={owner.avatar}></img>
                                             </Col>
 
@@ -130,7 +130,7 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                             <Col md={12}>
                                 <Card.Title><strong>💬 Owner`s Opinion:</strong></Card.Title>
                                 <p className='py-2 mb-4'> {userOpinion}</p>
-                                <Card.Title><strong> 🏆 Rating:</strong> {userRating}</Card.Title>
+                                <Card.Title><strong> ⭐️ Rating:</strong> {userRating}</Card.Title>
 
                                 <div className="gap-2 d-flex justify-content-end">
 
@@ -162,8 +162,9 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                         </Row>
 
                     </Card.Text>
+
                 </Card.Body>
-            </Card>
+            </Card >
 
         </>
     )

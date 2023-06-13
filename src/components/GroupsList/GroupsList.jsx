@@ -15,7 +15,7 @@ const GroupsList = ({ groups, updateList }) => {
                     :
                     groups.map(elm => {
                         return (
-                            <Col md={{ span: 4 }} key={elm._id} className="mb-4">
+                            <Col sm={6} md={4} key={elm._id} className="mb-4">
                                 <GroupCard group={elm} updateList={updateList} />
                             </Col>
                         )

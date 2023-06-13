@@ -6,21 +6,20 @@ body {
   display: flex;
   flex-flow: column wrap;
   font-family: sans-serif;
-  /* min-height: 100vh;
-  min-width: 100vw; */
   row-gap: 2em;
 }
 
 body {
   color: #1f1f1f;
-  padding-bottom: 5em;
+  /* padding-bottom: 5em; */
 }
 
+/* 
 footer {
   bottom: 0;
   position: fixed;
   width: 100%;
-}
+} */
 
 img {
   display: block;

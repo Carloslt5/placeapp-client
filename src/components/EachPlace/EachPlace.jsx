@@ -1,4 +1,5 @@
 import { Button, Card } from "react-bootstrap"
+import { Link } from 'react-router-dom'
 import './EachPlace.css'
 
 
@@ -19,12 +20,14 @@ const EachPlace = ({ addressComponents, description, photoReference, name, userR
                 <div>
                     {description === 'data not available' ? '' : <Card.Text className="mb-3">{description}</Card.Text>}
                     <Card.Text> <strong>City:</strong> {addressComponents.city} </Card.Text>
-                    <Card.Text><strong>Rating: </strong>{userRating}</Card.Text>
+                    <Card.Text><strong>⭐️ Rating: </strong>{userRating}</Card.Text>
 
                     <div className="d-flex gap-2 justify-content-end">
-                        <Button href={`/places/${_id}`} className='mt-3 btnBlue' >
-                            View Details
-                        </Button>
+                        <Link to={`/places/${_id}`}>
+                            <Button className='mt-3 btnBlue' >
+                                View Details
+                            </Button>
+                        </Link>
                     </div>
                 </div>
 
