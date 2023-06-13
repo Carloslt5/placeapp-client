@@ -48,7 +48,7 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
         <>
             <Card>
                 <Card.Img variant="top" src={avatar} />
-                <Card.Body className='p-4'>
+                <Card.Body className='p-3'>
                     <Card.Title><strong>{name} {lastName}</strong></Card.Title>
                     <hr />
                     <article>
@@ -57,10 +57,10 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
                     </article>
                 </Card.Body>
 
-                <div className="d-flex gap-2 p-4 justify-content-end">
+                <div className="d-flex gap-2 p-3 justify-content-end">
 
                     {
-                        user._id !== _id && <Button className='btnMatch' onClick={matchHandler}> Match 💦</Button>
+                        user._id !== _id && <Button className='btnMatch' onClick={matchHandler}> Match </Button>
                     }
 
                     {

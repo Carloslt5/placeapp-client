@@ -6,7 +6,7 @@ import SignupForm from '../../components/SignupForm/SignupForm'
 const SignupPage = () => {
     return (
 
-        <Container>
+        <Container style={{ height: '80vh' }} >
             <SignupForm />
         </Container>
 
