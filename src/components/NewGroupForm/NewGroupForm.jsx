@@ -47,12 +47,12 @@ const NewGroupForm = ({ closeModal, updateList }) => {
     return (
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="title">
-                <Form.Label>Group Name:</Form.Label>
+                <Form.Label><strong>Group Name:</strong></Form.Label>
                 <Form.Control type="text" value={groupData.name} onChange={handleInputChange} name="name" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="description">
-                <Form.Label>Description:</Form.Label>
+                <Form.Label><strong>Description:</strong></Form.Label>
                 <Form.Control type="text" value={groupData.description} onChange={handleInputChange} name="description" />
             </Form.Group>
 

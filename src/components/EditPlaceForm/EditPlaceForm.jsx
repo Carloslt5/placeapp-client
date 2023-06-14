@@ -79,39 +79,39 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
                                 {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
 
                                 <Form.Group className="mb-3" controlId="description">
-                                    <Form.Label>Description</Form.Label>
+                                    <Form.Label><strong>Description</strong></Form.Label>
                                     <Form.Control type="text" onChange={handleInputChange} name="description" value={description} disabled />
                                 </Form.Group>
 
                                 <Form.Group className="mb-3" controlId="photoReference" hidden>
-                                    <Form.Label>Photo Reference</Form.Label>
+                                    <Form.Label><strong>Photo Reference</strong></Form.Label>
                                     <Form.Control type="text" onChange={handleInputChange} name="photoReference" value={photoReference} disabled />
                                 </Form.Group>
 
 
                                 <Form.Group className="mb-3" controlId="weekDay" hidden>
-                                    <Form.Label>Week Day</Form.Label>
+                                    <Form.Label><strong>Week Day</strong></Form.Label>
                                     <Form.Control type="text" onChange={handleInputChange} name="weekDay" value={weekDay} disabled />
                                 </Form.Group>
 
                                 <Row>
                                     <Col >
                                         <Form.Group className="mb-3" controlId="address">
-                                            <Form.Label>Address</Form.Label>
+                                            <Form.Label><strong>Address</strong></Form.Label>
                                             <Form.Control type="text" onChange={handleInputChange} name="address" value={addressComponents.address} disabled />
                                         </Form.Group>
                                     </Col>
 
                                     <Col>
                                         <Form.Group className="mb-3" controlId="city">
-                                            <Form.Label>City</Form.Label>
+                                            <Form.Label><strong>City</strong></Form.Label>
                                             <Form.Control type="text" onChange={handleInputChange} name="city" value={addressComponents.city} disabled />
                                         </Form.Group>
                                     </Col>
 
                                     <Col>
                                         <Form.Group className="mb-3" controlId="phone">
-                                            <Form.Label>Phone</Form.Label>
+                                            <Form.Label><strong>Phone</strong></Form.Label>
                                             <Form.Control type="text" onChange={handleInputChange} name="phone" value={phone} disabled />
                                         </Form.Group>
                                     </Col>
@@ -136,7 +136,7 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
                                 </Row>
 
                                 <Form.Group className="mb-3" controlId="title">
-                                    <Form.Label>Type:</Form.Label>
+                                    <Form.Label><strong>Type:</strong></Form.Label>
 
                                     <Form.Select aria-label="Default select example" onChange={handleInputChange} name="type" >
                                         <option>Select type...</option>
@@ -149,12 +149,12 @@ const EditPlaceForm = ({ _id, name, description, photoReference, type, phone, we
                                 </Form.Group>
 
                                 <Form.Group className="mb-3" controlId="userRating">
-                                    <Form.Label>Your Rating</Form.Label>
+                                    <Form.Label><strong>Your Rating</strong></Form.Label>
                                     <Form.Control type="number" onChange={handleInputChange} name="userRating" value={placeData.userRating} />
                                 </Form.Group>
 
                                 <Form.Group className="mb-3" controlId="userOpinion">
-                                    <Form.Label>Your Opinion</Form.Label>
+                                    <Form.Label><strong>Your Opinion</strong></Form.Label>
                                     <Form.Control type="text" onChange={handleInputChange} name="userOpinion" value={placeData.userOpinion} />
                                 </Form.Group>
 

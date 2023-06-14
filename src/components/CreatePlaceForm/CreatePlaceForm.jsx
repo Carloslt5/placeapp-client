@@ -102,7 +102,7 @@ const CreatePlaceForm = () => {
             <Col md={{ span: 10 }}>
                 <Card className="p-4">
                     <Form onSubmit={handleSubmit}>
-                        <Form.Label>Place name</Form.Label>
+                        <Form.Label><strong>Place name</strong></Form.Label>
 
                         <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect} name='name' apiKey={apiKey} controlId="name">
                             {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
@@ -123,19 +123,19 @@ const CreatePlaceForm = () => {
 
 
                         <Form.Group className="my-3" controlId="description">
-                            <Form.Label>Description</Form.Label>
+                            <Form.Label><strong>Description</strong></Form.Label>
                             <Form.Control type="text" onChange={handleInputChange} name="description" value={placesData.description} disabled />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="photoReference" hidden >
-                            <Form.Label>Photo Reference</Form.Label>
+                            <Form.Label><strong>Photo Reference</strong></Form.Label>
                             <Form.Control type="text" onChange={handleInputChange} name="photoReference" value={placesData.photoReference} disabled />
                         </Form.Group>
 
                         <Row>
                             <Col>
                                 <Form.Group className="mb-3" controlId="weekDay" hidden>
-                                    <Form.Label>Week Day</Form.Label>
+                                    <Form.Label><strong>Week Day</strong></Form.Label>
                                     <Form.Control type="text" onChange={handleInputChange} name="weekDay" value={placesData.weekDay} disabled />
                                 </Form.Group>
                             </Col>
@@ -144,20 +144,20 @@ const CreatePlaceForm = () => {
                         <Row>
                             <Col >
                                 <Form.Group className="mb-3" controlId="address">
-                                    <Form.Label>Address</Form.Label>
+                                    <Form.Label><strong>Address</strong></Form.Label>
                                     <Form.Control type="text" onChange={handleInputChange} name="address" value={placesData.address} disabled />
                                 </Form.Group>
                             </Col>
 
                             <Col>
                                 <Form.Group className="mb-3" controlId="city">
-                                    <Form.Label>City</Form.Label>
+                                    <Form.Label><strong>City</strong></Form.Label>
                                     <Form.Control type="text" onChange={handleInputChange} name="city" value={placesData.city} disabled />
                                 </Form.Group>
                             </Col>
                             <Col>
                                 <Form.Group className="mb-3" controlId="phone">
-                                    <Form.Label>Phone</Form.Label>
+                                    <Form.Label><strong>Phone</strong></Form.Label>
                                     <Form.Control type="text" onChange={handleInputChange} name="phone" value={placesData.phone} disabled />
                                 </Form.Group>
                             </Col>
@@ -167,14 +167,14 @@ const CreatePlaceForm = () => {
 
                             <Col >
                                 <Form.Group className="mb-3" controlId="latitude" hidden>
-                                    <Form.Label>Latitude</Form.Label>
+                                    <Form.Label><strong>Latitude</strong></Form.Label>
                                     <Form.Control type="text" onChange={handleInputChange} name="latitude" value={placesData.latitude} disabled />
                                 </Form.Group>
                             </Col>
 
                             <Col >
                                 <Form.Group className="mb-3" controlId="longitude" hidden>
-                                    <Form.Label>Longitude</Form.Label>
+                                    <Form.Label><strong>Longitude</strong></Form.Label>
                                     <Form.Control type="text" onChange={handleInputChange} name="longitude" value={placesData.longitude} disabled />
                                 </Form.Group>
                             </Col>
@@ -183,7 +183,7 @@ const CreatePlaceForm = () => {
                         </Row>
 
                         <Form.Group className="mb-3" controlId="title">
-                            <Form.Label>Type:</Form.Label>
+                            <Form.Label><strong>Type:</strong></Form.Label>
 
                             <Form.Select aria-label="Default select example" onChange={handleInputChange} name="type" >
                                 <option>Select type...</option>
@@ -195,12 +195,12 @@ const CreatePlaceForm = () => {
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="userRating">
-                            <Form.Label>Your Rating</Form.Label>
+                            <Form.Label><strong>Your Rating</strong></Form.Label>
                             <Form.Control type="number" onChange={handleInputChange} name="userRating" />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="userOpinion">
-                            <Form.Label>Your Opinion</Form.Label>
+                            <Form.Label><strong>Your Opinion</strong></Form.Label>
                             <Form.Control type="text" onChange={handleInputChange} name="userOpinion" />
                         </Form.Group>
 

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { Button, Container, Form } from "react-bootstrap"
+import { Button, Form, Card, Col, Row } from "react-bootstrap"
 import './EditProfileForm.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
@@ -79,36 +79,42 @@ const EditProfileForm = () => {
     const { name, lastName, email, avatar } = editData
 
     return (
+        <Row className="justify-content-center">
+            <Col md={{ span: 10 }}>
+                <Card className="p-4">
 
-        <Form onSubmit={handleSubmit} encType="multipart/form-data">
+                    <Form onSubmit={handleSubmit} encType="multipart/form-data">
 
-            {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
+                        {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
 
-            <Form.Group className="mb-3" controlId="name">
-                <Form.Label>Name: </Form.Label>
-                <Form.Control type="text" value={name} onChange={handleInputChange} name='name' />
-            </Form.Group>
+                        <Form.Group className="mb-3" controlId="name">
+                            <Form.Label> <strong>Name: </strong></Form.Label>
+                            <Form.Control type="text" value={name} onChange={handleInputChange} name='name' />
+                        </Form.Group>
 
-            <Form.Group className="mb-3" controlId="lastName">
-                <Form.Label>Last Name:</Form.Label>
-                <Form.Control type="text" value={lastName} onChange={handleInputChange} name='lastName' />
-            </Form.Group>
+                        <Form.Group className="mb-3" controlId="lastName">
+                            <Form.Label><strong> Last Name:</strong></Form.Label>
+                            <Form.Control type="text" value={lastName} onChange={handleInputChange} name='lastName' />
+                        </Form.Group>
 
-            <Form.Group className="mb-3" controlId="email">
-                <Form.Label>Email:</Form.Label>
-                <Form.Control type="email" value={email} onChange={handleInputChange} name='email' />
-            </Form.Group>
+                        <Form.Group className="mb-3" controlId="email">
+                            <Form.Label> <strong>Email:</strong></Form.Label>
+                            <Form.Control type="email" value={email} onChange={handleInputChange} name='email' />
+                        </Form.Group>
 
-            <Form.Group className="mb-3" controlId="imageData">
-                <Form.Label>Imagen (URL)</Form.Label>
-                <Form.Control type="file" onChange={handleFileUpload} />
-            </Form.Group>
+                        <Form.Group className="mb-3" controlId="imageData">
+                            <Form.Label> <strong>Image (URL)</strong></Form.Label>
+                            <Form.Control type="file" onChange={handleFileUpload} />
+                        </Form.Group>
 
-            <div className="d-grid mt-4">
-                <Button variant="dark" disabled={loadingAvatar} type="submit"> {loadingAvatar ? 'loading image...' : ' Edit Profile'}</Button>
-            </div>
+                        <div className="d-grid mt-4">
+                            <Button variant="dark" disabled={loadingAvatar} type="submit"> {loadingAvatar ? 'loading image...' : ' Edit Profile'}</Button>
+                        </div>
 
-        </Form>
+                    </Form>
+                </Card>
+            </Col>
+        </Row>
     )
 }
 
