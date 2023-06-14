@@ -14,13 +14,6 @@ body {
   /* padding-bottom: 5em; */
 }
 
-/* 
-footer {
-  bottom: 0;
-  position: fixed;
-  width: 100%;
-} */
-
 img {
   display: block;
   width: 100%;
@@ -69,33 +62,33 @@ a:hover {
 
 .btn {
   background-color: #222222;
-  color: #f1f1f1;
   border: 2px solid #222222;
+  color: #f1f1f1;
 }
 
 .btn:hover {
   background-color: #f1f1f1 !important;
-  color: #222222;
   border: 2px solid #222222;
+  color: #222222;
 
 }
 
-.btnFavourite{
+.btnFavourite {
   background-color: #f1f1f1;
- color: #222222;
   border: 2px solid #222222;
+  color: #222222;
 }
 
 .btnFavourite:hover {
   background-color: #f1f1f1 !important;
-  color: #c80000;
   border: 2px solid #c80000;
+  color: #c80000;
 }
 
 .btnRemoveFavourite {
   background-color: #f1f1f1 !important;
-  color: #c80000;
   border: 2px solid #c80000;
+  color: #c80000;
 
 }
 

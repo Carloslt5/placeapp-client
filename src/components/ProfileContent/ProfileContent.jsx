@@ -9,14 +9,14 @@ const ProfileContent = ({ userPlacesData, favouritePlaces }) => {
 
     return (
 
-        <TabContainer defaultActiveKey="#myplaces">
+        <TabContainer defaultActiveKey="#places">
 
             <Card>
                 <Card.Header>
-                    <Nav variant="pills">
+                    <Nav variant="pills" >
 
                         <Nav.Item>
-                            <Nav.Link href='#myplaces'>My Places</Nav.Link>
+                            <Nav.Link href='#places'>My Places</Nav.Link>
                         </Nav.Item>
 
                         <Nav.Item>
@@ -30,7 +30,7 @@ const ProfileContent = ({ userPlacesData, favouritePlaces }) => {
 
                     <Tab.Content >
 
-                        <Tab.Pane eventKey="#myplaces">
+                        <Tab.Pane eventKey="#places">
                             <Row>
 
                                 {

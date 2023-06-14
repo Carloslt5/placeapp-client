@@ -4,7 +4,7 @@ import EditProfileForm from "../../components/EditProfileForm/EditProfileForm"
 const EditPage = () => {
 
     return (
-        <Container>
+        <Container style={{ height: '80vh' }} >
             <EditProfileForm />
         </Container>
     )

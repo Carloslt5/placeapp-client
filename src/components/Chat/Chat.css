@@ -1,15 +1,15 @@
-#modalChat{
+#modalChat {
     background-color: #fff;
     border-radius: 2%;
-    bottom: 7em;
+    bottom: 5em;
     position: fixed;
-    right: 2em;
+    right: 1em;
     z-index: 2;
 }
 
-#btnChat{
+#btnChat {
     bottom: 2em;
     position: fixed;
-    right: 2em;
+    right: 1em;
     z-index: 1;
 }

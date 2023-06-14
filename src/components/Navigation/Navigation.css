@@ -1,6 +1,15 @@
 .navbarBg {
   backdrop-filter: blur(10px);
-  background-color: #ffffff55;
+  background-color: #222222;
+}
+
+.navbarBg a {
+  color: #f1f1f1;
+
+}
+
+.navbarBg a:hover {
+  color: #f1f1f1;
 }
 
 .dropdown-menu {
@@ -8,7 +17,14 @@
   right: 0;
 }
 
+.navbar-brand {
+  color: #f1f1f1;
+  font-size: 1em;
+  font-weight: 600;
+}
+
 .nav-link {
+  color: #f1f1f1;
   font-size: .8em;
   font-weight: 600;
   text-decoration: none;
@@ -17,5 +33,6 @@
 }
 
 .nav-link:hover {
+  color: #f1f1f1;
   text-decoration: underline;
 }
