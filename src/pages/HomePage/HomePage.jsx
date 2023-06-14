@@ -27,15 +27,6 @@ const HomePage = () => {
 
     return (
 
-<<<<<<< HEAD
-        <section className=" d-flex flex-column justify-content-center align-items-center mb-3" style={{ height: '80vh' }} >
-            <Container className='rounded py-4' >
-                <h1 className='home-title'>SITE OF THE DAY</h1>
-            </Container>
-            {
-                !user &&
-                <Link to="/signup" className='btn'>Singup</Link>
-=======
         <>
             <section className=" d-flex flex-column align-items-center mb-3" style={{ height: '100vh' }} >
                 <h1 className='home-title'>DISCOVER, EXPLORE & CONNECT</h1>
@@ -64,7 +55,6 @@ const HomePage = () => {
                 <Container className='d-flex justify-content-center mb-4 '>
                     <Link to="/signup" className='btn btnBlue'>Singup</Link>
                 </Container>
->>>>>>> 7345d922daf0f2aaa7692c9e9e3dd07cecda462c
             }
 
         </>

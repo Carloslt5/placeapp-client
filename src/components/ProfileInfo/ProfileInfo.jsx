@@ -3,7 +3,7 @@ import './ProfileInfo.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useContext, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 import matchServices from './../../services/match.services'
 import usersService from './../../services/users.services'
@@ -57,7 +57,7 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
                     </article>
                 </Card.Body>
 
-                <div className="d-flex gap-2 p-3 justify-content-end">
+                <div className="d-flex gap-1 p-3 justify-content-end">
 
                     {
                         user._id !== _id && <Button className='btnMatch' onClick={matchHandler}> Match </Button>
@@ -66,13 +66,17 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
                     {
                         (user._id === _id || user.role === "ADMIN") &&
                         <>
-                            <Button className='btnEdit' href={`/profile/${_id}/edit`}>
-                                <FontAwesomeIcon icon={faPenToSquare} />
-                                Edit
+                            <Button>
+                                <Link to={`/profile/${_id}/edit`}>
+                                    <FontAwesomeIcon icon={faPenToSquare} className='me-2' />
+                                    Edit
+                                </Link>
                             </Button>
-                            <Button className='btnDelete' onClick={deleteHandler}>
-                                <FontAwesomeIcon icon={faTrash} />
-                                Delete
+                            <Button>
+                                <Link to={`/profile/${_id}/edit`} onClick={deleteHandler}>
+                                    <FontAwesomeIcon icon={faTrash} className='me-2' />
+                                    Delete
+                                </Link>
                             </Button>
                         </>
 

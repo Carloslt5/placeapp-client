@@ -1,7 +1,7 @@
 import { Card, Col, ListGroup, Row, Button } from 'react-bootstrap'
 import './DetailsPlace.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useContext, useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
@@ -132,34 +132,43 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                             <Col md={12}>
                                 <Card.Title><strong> Owner`s Opinion:</strong></Card.Title>
                                 <p className='py-2 mb-4'> {userOpinion}</p>
-                                <Card.Title><strong> Rating:</strong> {userRating}</Card.Title>
+                                <Card.Title className='mb-4'><strong> Rating:</strong> {userRating}</Card.Title>
 
-                                <div className="gap-2 d-flex justify-content-end">
+                                <div className="gap-2 d-flex justify-content-between">
 
-                                    <>
+                                    <article>
                                         {
                                             isFavourite ?
-                                                <Button className='btnRemoveFavourite' onClick={handlerRemoveFavourite}>
+                                                <Button className='btnRemoveFavourite ' onClick={handlerRemoveFavourite}  >
                                                     <FontAwesomeIcon icon={faHeart} />
                                                 </Button>
                                                 :
-                                                <Button className='btnFavourite' onClick={handlerFavourite}>
+                                                <Button className='btnFavourite' onClick={handlerFavourite} >
                                                     <FontAwesomeIcon icon={faHeart} />
                                                 </Button>
                                         }
-                                    </>
+                                    </article>
 
-                                    {
-                                        (user._id === owner._id || user.role === "ADMIN") &&
+                                    <article className='d-flex gap-2'>
+                                        {
+                                            (user._id === owner._id || user.role === "ADMIN") &&
 
-                                        <>
-                                            <Button href={`/places/${_id}/edit`}>Edit</Button>
-                                            <Button onClick={deleteHandler}> Delete</Button>
-                                        </>
+                                            <>
+                                                <Button>
+                                                    <Link to={`/places/${_id}/edit`}>
+                                                        <FontAwesomeIcon icon={faPenToSquare} className='me-2' />
+                                                        Edit
+                                                    </Link>
+                                                </Button>
 
-                                    }
+                                                <Button onClick={deleteHandler}>
+                                                    <FontAwesomeIcon icon={faTrash} className='me-2' />
+                                                    Delete
+                                                </Button>
+                                            </>
 
-
+                                        }
+                                    </article>
                                 </div>
 
 
