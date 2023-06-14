@@ -50,7 +50,7 @@ const CreateCommentForm = ({ updateComments }) => {
                 </Form.Group>
 
                 <div className="d-flex justify-content-end mt-3">
-                    <Button className="btnBlue" type="submit">Create Comment</Button>
+                    <Button type="submit">Create Comment</Button>
                 </div>
 
             </Form>

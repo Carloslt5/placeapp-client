@@ -130,7 +130,7 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
 
                         <Row>
                             <Col md={12}>
-                                <Card.Title><strong>💬 Owner`s Opinion:</strong></Card.Title>
+                                <Card.Title><strong> Owner`s Opinion:</strong></Card.Title>
                                 <p className='py-2 mb-4'> {userOpinion}</p>
                                 <Card.Title><strong> Rating:</strong> {userRating}</Card.Title>
 
@@ -143,7 +143,7 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                                                     <FontAwesomeIcon icon={faHeart} />
                                                 </Button>
                                                 :
-                                                <Button className='btnBlue' onClick={handlerFavourite}>
+                                                <Button className='btnFavourite' onClick={handlerFavourite}>
                                                     <FontAwesomeIcon icon={faHeart} />
                                                 </Button>
                                         }
@@ -153,8 +153,8 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                                         (user._id === owner._id || user.role === "ADMIN") &&
 
                                         <>
-                                            <Button className='btnEdit' href={`/places/${_id}/edit`}>Edit</Button>
-                                            <Button className='btnDelete' onClick={deleteHandler}> Delete</Button>
+                                            <Button href={`/places/${_id}/edit`}>Edit</Button>
+                                            <Button onClick={deleteHandler}> Delete</Button>
                                         </>
 
                                     }

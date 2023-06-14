@@ -93,7 +93,7 @@ const MatchGroupsPage = () => {
                 </Form.Group>
 
                 <div className="d-flex gap-2 justify-content-end">
-                    <Button className='mt-2 mb-4 btnBlue' type="submit">Match Group</Button>
+                    <Button className='mt-2 mb-4' type="submit">Match Group</Button>
                 </div>
 
             </Form>

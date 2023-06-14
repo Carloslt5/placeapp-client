@@ -5,8 +5,9 @@ import { Container } from 'react-bootstrap'
 const CreatePlacePage = () => {
     return (
         <Container>
+
             <CreatePlaceForm />
-        </Container >
+        </Container>
     )
 }
 

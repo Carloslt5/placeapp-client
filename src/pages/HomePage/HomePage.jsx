@@ -30,11 +30,11 @@ const HomePage = () => {
 
         <section className=" d-flex flex-column justify-content-center align-items-center mb-3" style={{ height: '80vh' }} >
             <Container className='rounded py-4' >
-                <a href=""></a>
+                <h1 className='home-title'>SITE OF THE DAY</h1>
             </Container>
             {
                 !user &&
-                <Link to="/signup" className='btn btnBlue'>Singup</Link>
+                <Link to="/signup" className='btn'>Singup</Link>
             }
         </section >
     )

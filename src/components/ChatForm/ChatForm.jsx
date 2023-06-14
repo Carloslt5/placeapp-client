@@ -87,7 +87,7 @@ const ChatForm = ({ getMessages, messages }) => {
                             name="userChatMessage"
                             value={newMessage}
                         />
-                        <Button className='btnBlue' type="submit">
+                        <Button type="submit">
                             <FontAwesomeIcon icon={faPaperPlane} />
                         </Button>
                     </InputGroup>

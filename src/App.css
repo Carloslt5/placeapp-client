@@ -65,36 +65,42 @@ a:hover {
   margin-bottom: 0;
 }
 
+
+
 .btn {
-  background-color: #6e88f9 !important;
-  border: none;
+  background-color: #222222;
+  color: #f1f1f1;
+  border: 2px solid #222222;
 }
 
+.btn:hover {
+  background-color: #f1f1f1 !important;
+  color: #222222;
+  border: 2px solid #222222;
 
-
-.btnDelete {
-  background: #f8dbde !important;
-  color: #ff767f;
 }
 
-.btnEdit {
-  background: #c8f0de !important;
-  color: #4acb96;
+.btnFavourite{
+  background-color: #f1f1f1;
+ color: #222222;
+  border: 2px solid #222222;
 }
 
-.btnBlue {
-  color: #fff;
-}
-
-.btnBlue:hover {
-  background-color: #3253e6 !important;
-  border: none;
+.btnFavourite:hover {
+  background-color: #f1f1f1 !important;
+  color: #c80000;
+  border: 2px solid #c80000;
 }
 
 .btnRemoveFavourite {
-  background: #ff596a !important;
-  color: #ff596a;
+  background-color: #f1f1f1 !important;
+  color: #c80000;
+  border: 2px solid #c80000;
+
 }
+
+
+
 
 .btnMatch {
   background: #323232 !important;
