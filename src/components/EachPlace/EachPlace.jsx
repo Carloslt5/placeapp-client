@@ -20,7 +20,7 @@ const EachPlace = ({ addressComponents, description, photoReference, name, userR
                 <div>
                     {description === 'data not available' ? '' : <Card.Text className="mb-3">{description}</Card.Text>}
                     <Card.Text> <strong>City:</strong> {addressComponents.city} </Card.Text>
-                    <Card.Text><strong>⭐️ Rating: </strong>{userRating}</Card.Text>
+                    <Card.Text><strong>Rating: </strong>{userRating}</Card.Text>
 
                     <div className="d-flex gap-2 justify-content-end">
                         <Link to={`/places/${_id}`}>

@@ -69,18 +69,6 @@ const Navigation = () => {
                                             <Link to={`/profile/${user._id}`}>My Profile</Link>
                                         </Nav.Link>
                                     </NavDropdown.Item>
-                                    {/* TODO: MIRAR PORQUE CUANDO HACES CLICK NO VAS AL QUE CORRESPONDE */}
-                                    <NavDropdown.Item >
-                                        <Nav.Link as="span">
-                                            <Link to={`/profile/${user._id}#myplaces`}>My places</Link>
-                                        </Nav.Link>
-                                    </NavDropdown.Item>
-
-                                    <NavDropdown.Item >
-                                        <Nav.Link as="span">
-                                            <Link to={`/profile/${user._id}#favourites`}>My favourites</Link>
-                                        </Nav.Link>
-                                    </NavDropdown.Item>
 
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item >

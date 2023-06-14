@@ -48,46 +48,48 @@ const MatchGroupsPage = () => {
     console.log(matchedPlaces)
 
     return (
-        <Container>
+        <Container style={{ height: '90vh' }}>
             <Form onSubmit={handleSubmit}>
-
                 <Form.Group className="mb-3" controlId="title">
+                    <Row>
+                        <Col>
+                            <Form.Label >My Groups</Form.Label>
 
-                    <Form.Label >My Groups</Form.Label>
+                            <Form.Select aria-label="Default select example" name="myGroupId" onChange={handleInputChange}>
 
-                    <Form.Select aria-label="Default select example" name="myGroupId" onChange={handleInputChange}>
+                                {
+                                    !groups
+                                        ?
+                                        <Loader />
+                                        :
+                                        groups.map(elem => {
+                                            return (
+                                                <option key={elem._id} value={elem._id}>{elem.name}</option>
+                                            )
+                                        })
+                                }
 
-                        {
-                            !groups
-                                ?
-                                <Loader />
-                                :
-                                groups.map(elem => {
-                                    return (
-                                        <option key={elem._id} value={elem._id}>{elem.name}</option>
-                                    )
-                                })
-                        }
+                            </Form.Select>
+                        </Col>
+                        <Col>
+                            <Form.Label >All Groups</Form.Label>
 
-                    </Form.Select>
+                            <Form.Select aria-label="Default select example" name="allGroupId" onChange={handleInputChange}>
+                                {
+                                    !groups
+                                        ?
+                                        <Loader />
+                                        :
+                                        groups.map(elem => {
+                                            return (
+                                                <option key={elem._id} value={elem._id}>{elem.name}</option>
+                                            )
+                                        })
 
-                    <Form.Label >All Groups</Form.Label>
-
-                    <Form.Select aria-label="Default select example" name="allGroupId" onChange={handleInputChange}>
-                        {
-                            !groups
-                                ?
-                                <Loader />
-                                :
-                                groups.map(elem => {
-                                    return (
-                                        <option key={elem._id} value={elem._id}>{elem.name}</option>
-                                    )
-                                })
-
-                        }
-                    </Form.Select>
-
+                                }
+                            </Form.Select>
+                        </Col>
+                    </Row>
                 </Form.Group>
 
                 <div className="d-flex gap-2 justify-content-end">
@@ -110,9 +112,6 @@ const MatchGroupsPage = () => {
                     })
                 }
             </Row>
-
-
-
 
         </Container>
     )

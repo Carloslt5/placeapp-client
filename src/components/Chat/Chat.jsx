@@ -1,14 +1,17 @@
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import ChatForm from '../ChatForm/ChatForm'
 import chatService from './../../services/chat.services'
 import { Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { AuthContext } from '../../contexts/auth.context'
 import { faComment, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import './Chat.css'
 
 
 const Chat = () => {
+
+    const { user } = useContext(AuthContext)
 
     const [messages, setMessages] = useState([])
     const [showModal, setShowModal] = useState(false)
@@ -34,39 +37,26 @@ const Chat = () => {
     }
 
     return (
-
         <>
-
-            {/* 
-            <Modal show={showModal} onHide={() => setShowModal(false)} size="md" centered>
-                <Modal.Header closeButton>
-                    <Modal.Title className="px-3">Chat</Modal.Title>
-                </Modal.Header>
-                <Modal.Body className="py-4">
-                    <ChatForm getMessages={getMessages} messages={messages} />
-                </Modal.Body>
-            </Modal> */}
-            <div id="modalChat" centered>
-                {showModal &&
-                    <ChatForm getMessages={getMessages} messages={messages} />
-                }
-            </div>
-            {!showModal
-                ?
-                <Button className='btnMatch' id="btnChat" onClick={openChatHandler}>
-                    <FontAwesomeIcon icon={faComment} />
-                </Button>
-                :
-                <Button className='btnMatch' id="btnChat" onClick={closeChatHandler}>
-                    <FontAwesomeIcon icon={faCircleXmark} />
-                </Button>
-
+            {
+                user && (
+                    !showModal
+                        ?
+                        <Button className='btnMatch' id="btnChat" onClick={openChatHandler}>
+                            <FontAwesomeIcon icon={faComment} />
+                        </Button>
+                        :
+                        <>
+                            <div id="modalChat" centered>
+                                <ChatForm getMessages={getMessages} messages={messages} />
+                            </div>
+                            <Button className='btnMatch' id="btnChat" onClick={closeChatHandler}>
+                                <FontAwesomeIcon icon={faCircleXmark} />
+                            </Button>
+                        </>
+                )
             }
-
-
         </>
-
-
     )
 }
 

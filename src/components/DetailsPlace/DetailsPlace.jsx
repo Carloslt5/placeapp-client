@@ -1,5 +1,7 @@
 import { Card, Col, ListGroup, Row, Button } from 'react-bootstrap'
 import './DetailsPlace.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { useContext, useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
@@ -130,16 +132,20 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                             <Col md={12}>
                                 <Card.Title><strong>💬 Owner`s Opinion:</strong></Card.Title>
                                 <p className='py-2 mb-4'> {userOpinion}</p>
-                                <Card.Title><strong> ⭐️ Rating:</strong> {userRating}</Card.Title>
+                                <Card.Title><strong> Rating:</strong> {userRating}</Card.Title>
 
                                 <div className="gap-2 d-flex justify-content-end">
 
                                     <>
                                         {
                                             isFavourite ?
-                                                <Button className='btnRemoveFavourite' onClick={handlerRemoveFavourite}>Remove Favourites</Button>
+                                                <Button className='btnRemoveFavourite' onClick={handlerRemoveFavourite}>
+                                                    <FontAwesomeIcon icon={faHeart} />
+                                                </Button>
                                                 :
-                                                <Button className='btnBlue' onClick={handlerFavourite}>Add Favourites</Button>
+                                                <Button className='btnBlue' onClick={handlerFavourite}>
+                                                    <FontAwesomeIcon icon={faHeart} />
+                                                </Button>
                                         }
                                     </>
 
