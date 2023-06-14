@@ -6,7 +6,7 @@ body {
   display: flex;
   flex-flow: column wrap;
   font-family: sans-serif;
-  row-gap: 2em;
+  row-gap: 1em;
 }
 
 body {

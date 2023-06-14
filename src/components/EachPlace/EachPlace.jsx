@@ -22,12 +22,12 @@ const EachPlace = ({ addressComponents, description, photoReference, name, userR
                     <Card.Text> <strong>City:</strong> {addressComponents.city} </Card.Text>
                     <Card.Text><strong>Rating: </strong>{userRating}</Card.Text>
 
-                    <div className="d-flex gap-2 justify-content-end">
-                        <Link to={`/places/${_id}`}>
-                            <Button className='mt-3 btnBlue' >
+                    <div className="d-grid">
+                        <Button className='mt-3 btnBlue' >
+                            <Link to={`/places/${_id}`}>
                                 View Details
-                            </Button>
-                        </Link>
+                            </Link>
+                        </Button>
                     </div>
                 </div>
 

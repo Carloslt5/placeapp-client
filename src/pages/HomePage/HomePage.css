@@ -1,0 +1,47 @@
+.home-title {
+    font-size: clamp(3.05em, 3.54vw + 1.5em, 8em);
+    margin-bottom: .5em;
+    text-align: center;
+}
+
+.home-container {
+    background-color: rgb(210, 210, 210);
+    background-image: url(../../assets/images/bg_home.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+
+.outline {
+    color: transparent;
+    -webkit-text-stroke: 1px #000
+}
+
+.marquee {
+    height: 6.25em;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    width: 100vw;
+}
+
+.marquee_track {
+    animation: marquee 20s linear infinite;
+    position: absolute;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+.marquee__content {
+    color: #000
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
