@@ -1,7 +1,6 @@
 import './HomePage.css'
 import { useContext, useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import placesService from './../../services/places.services'
 import { AuthContext } from './../../contexts/auth.context'
 
@@ -49,14 +48,6 @@ const HomePage = () => {
                 <Container className='rounded py-4 home-container' >
                 </Container>
             </section >
-
-            {
-                !user &&
-                <Container className='d-flex justify-content-center mb-4 '>
-                    <Link to="/signup" className='btn btnBlue'>Singup</Link>
-                </Container>
-            }
-
         </>
     )
 }

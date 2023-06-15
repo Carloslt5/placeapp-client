@@ -14,7 +14,6 @@ const ChatForm = ({ getMessages, messages }) => {
 
     const [isConnected, setIsConnected] = useState(false)
     const [newMessage, setNewMessage] = useState('')
-    // const [allMessages, setAllMessages] = useState([])
 
     useEffect(() => {
         getMessages()
@@ -42,6 +41,7 @@ const ChatForm = ({ getMessages, messages }) => {
             .createMessage(newMessage)
             .then(({ data }) => {
                 socket.emit('chat_message', data)
+                getMessages()
             })
             .catch(err => console.log(err))
 

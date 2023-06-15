@@ -3,7 +3,7 @@ import './Footer.css'
 const Footer = () => {
 
     return (
-        <footer>Todos los derechos reservados</footer>
+        <footer>Proyecto realizado por Lorena Crtés y Carlos Liao. Tuku Tuku Miau Miau 🚀</footer>
     )
 }
 export default Footer

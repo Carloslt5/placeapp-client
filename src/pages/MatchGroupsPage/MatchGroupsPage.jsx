@@ -48,7 +48,7 @@ const MatchGroupsPage = () => {
     console.log(matchedPlaces)
 
     return (
-        <Container style={{ height: '90vh' }}>
+        <Container style={{ height: '100vh' }}>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="title">
                     <Row>
@@ -93,7 +93,7 @@ const MatchGroupsPage = () => {
                 </Form.Group>
 
                 <div className="d-flex gap-2 justify-content-end">
-                    <Button className='mt-2 mb-4' type="submit">Match Group</Button>
+                    <Button className='mt-2 mb-4' type="submit">Connect Group</Button>
                 </div>
 
             </Form>

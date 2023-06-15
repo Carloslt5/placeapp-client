@@ -127,14 +127,14 @@ const CreatePlaceForm = () => {
                             <Form.Control type="text" onChange={handleInputChange} name="description" value={placesData.description} disabled />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="photoReference" hidden >
+                        <Form.Group className="mb-3" controlId="photoReference"  >
                             <Form.Label><strong>Photo Reference</strong></Form.Label>
                             <Form.Control type="text" onChange={handleInputChange} name="photoReference" value={placesData.photoReference} disabled />
                         </Form.Group>
 
                         <Row>
                             <Col>
-                                <Form.Group className="mb-3" controlId="weekDay" hidden>
+                                <Form.Group className="mb-3" controlId="weekDay" >
                                     <Form.Label><strong>Week Day</strong></Form.Label>
                                     <Form.Control type="text" onChange={handleInputChange} name="weekDay" value={placesData.weekDay} disabled />
                                 </Form.Group>
@@ -207,7 +207,7 @@ const CreatePlaceForm = () => {
                         {errors.length > 0 && <FormError>{errors.map((elem, index) => <p key={index} className="my-0">{elem}</p>)}</FormError>}
 
                         <div className="d-grid mt-5">
-                            <Button variant="dark" type="submit">Create Place</Button>
+                            <Button className='btn' type="submit">Create Place</Button>
                         </div>
 
                     </Form>

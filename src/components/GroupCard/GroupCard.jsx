@@ -71,7 +71,7 @@ const GroupCard = ({ group: { _id, name, description, owner, members }, updateLi
                     {
                         !isJoin
                             ?
-                            <Button onClick={handlerJoinGroup}>Join </Button>
+                            <Button onClick={handlerJoinGroup}>Join</Button>
                             :
                             <Button className='btnRemoveFavourite' onClick={handlerUnjoinGroup}>Unjoin</Button>
 

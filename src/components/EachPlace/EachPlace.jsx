@@ -23,7 +23,7 @@ const EachPlace = ({ addressComponents, description, photoReference, name, userR
                     <Card.Text><strong>Rating: </strong>{userRating}</Card.Text>
 
                     <div className="d-grid">
-                        <Button className='mt-3 btnBlue' >
+                        <Button className='mt-3 ' >
                             <Link to={`/places/${_id}`}>
                                 View Details
                             </Link>

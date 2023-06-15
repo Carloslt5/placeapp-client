@@ -25,7 +25,7 @@ const GroupsListPage = () => {
 
     return (
         <>
-            <Container>
+            <Container className='mb-3'>
                 <Button className='btnEdit' onClick={() => setShowModal(true)}> Create new group</Button>
             </Container>
             <Container>

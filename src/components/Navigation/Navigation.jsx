@@ -19,7 +19,7 @@ const Navigation = () => {
 
     return (
 
-        <Navbar collapseOnSelect expand="lg" className='navbarBg mb-3' sticky="top" >
+        <Navbar collapseOnSelect expand="lg" className='navbarBg mb-3' sticky="top"  >
             <Container>
                 <Navbar.Brand href="/" className='mx-0'>PLACES-APP</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -52,7 +52,7 @@ const Navigation = () => {
                         {
                             user &&
                             <Nav.Link as="span">
-                                <Link to="/groups/match">Groups Match</Link>
+                                <Link to="/groups/match"> Connect Groups </Link>
                             </Nav.Link>
                         }
 

@@ -1,6 +1,5 @@
 .home-title {
     font-size: clamp(3.05em, 3.54vw + 1.5em, 8em);
-    margin-bottom: .5em;
     text-align: center;
 }
 
@@ -18,11 +17,17 @@
 }
 
 .marquee {
-    height: 6.25em;
+    height: 3em;
+    margin-bottom: 2em;
+    margin-top: 1em;
     max-width: 100%;
     overflow-x: hidden;
     position: relative;
     width: 100vw;
+}
+
+.marquee h3 {
+    margin: 0;
 }
 
 .marquee_track {

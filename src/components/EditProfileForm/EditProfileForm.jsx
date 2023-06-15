@@ -50,11 +50,11 @@ const EditProfileForm = () => {
         usersService
             .editUser(id, editData)
             .then(({ data }) => {
-                navigate(`/profile/${user._id}`)
+                navigate(`/profile/${id}`)
             })
             .catch(err => {
                 setErrors(err.response.data.errorMessages)
-                if (err.response.data.errorMessages) { navigate(`/profile/${user._id}`) }
+                if (err.response.data.errorMessages) { navigate(`/profile/${id}`) }
             })
     }
 

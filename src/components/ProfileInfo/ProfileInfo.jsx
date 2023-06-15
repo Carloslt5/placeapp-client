@@ -60,7 +60,7 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
                 <div className="d-flex gap-1 p-3 justify-content-end">
 
                     {
-                        user._id !== _id && <Button className='btnMatch' onClick={matchHandler}> Match </Button>
+                        user._id !== _id && <Button className='btnMatch' onClick={matchHandler}> Connect </Button>
                     }
 
                     {
@@ -88,7 +88,7 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
 
             <Modal show={showModal} onHide={() => setShowModal(false)} size="xl">
                 <Modal.Header closeButton>
-                    <Modal.Title>Match Info</Modal.Title>
+                    <Modal.Title>Connect Info</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <MatchInfo commonPlaces={commonPlaces} />
