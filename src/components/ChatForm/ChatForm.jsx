@@ -11,7 +11,6 @@ const socket = io(process.env.REACT_APP_URL)
 
 const ChatForm = ({ getMessages, messages }) => {
 
-
     const [isConnected, setIsConnected] = useState(false)
     const [newMessage, setNewMessage] = useState('')
 
@@ -41,6 +40,7 @@ const ChatForm = ({ getMessages, messages }) => {
             .createMessage(newMessage)
             .then(({ data }) => {
                 socket.emit('chat_message', data)
+                console.log('Este es el mensaje u a escrito otro susuario', data)
                 getMessages()
             })
             .catch(err => console.log(err))
