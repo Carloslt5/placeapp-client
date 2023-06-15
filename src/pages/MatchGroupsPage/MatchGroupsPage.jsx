@@ -48,7 +48,7 @@ const MatchGroupsPage = () => {
     console.log(matchedPlaces)
 
     return (
-        <Container style={{ height: '100vh' }}>
+        <Container>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="title">
                     <Row>

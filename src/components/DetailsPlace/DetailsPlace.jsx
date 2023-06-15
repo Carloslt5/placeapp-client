@@ -83,7 +83,7 @@ const DetailsPlace = ({ _id, name, description, photoReference, type, phone, wee
                                                 <p className='m-0'>{owner.name} {owner.lastName}</p>
                                             </Col>
                                             <Col xs={3} md={2}>
-                                                <img className='rounded-circle' src={owner.avatar}></img>
+                                                <img className='rounded-circle ' src={owner.avatar}></img>
                                             </Col>
 
                                         </Row>
