@@ -88,7 +88,6 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
 
             <Modal show={showModal} onHide={() => setShowModal(false)} size="xl">
                 <Modal.Header closeButton>
-                    <Modal.Title>Connect Info</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <MatchInfo commonPlaces={commonPlaces} />

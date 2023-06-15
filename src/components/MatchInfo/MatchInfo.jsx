@@ -1,5 +1,7 @@
-import { Row, Col } from "react-bootstrap"
+import { Row, Col, Container } from "react-bootstrap"
 import './MatchInfo.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faFaceSadCry } from '@fortawesome/free-solid-svg-icons'
 import EachPlace from '../EachPlace/EachPlace'
 import Loader from '../Loader/Loader'
 
@@ -11,7 +13,12 @@ const MatchInfo = ({ commonPlaces }) => {
             {
                 !commonPlaces.length
                     ?
-                    <h1>NO HAY MATCH 😩</h1>
+                    <Container className="d-flex flex-column justify-content-center align-items-center gap-3 py-3">
+                        <h1> OOOOH!</h1>
+                        <h3> You don't share favorite places with this person</h3>
+                        <FontAwesomeIcon className="icon-cry mt-4" icon={faFaceSadCry} />
+
+                    </Container>
                     :
                     !commonPlaces
                         ?
