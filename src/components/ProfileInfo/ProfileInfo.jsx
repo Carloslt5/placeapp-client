@@ -52,7 +52,6 @@ const ProfileInfo = ({ _id, name, lastName, email, avatar, role }) => {
                     <Card.Title><strong>{name} {lastName}</strong></Card.Title>
                     <hr />
                     <article>
-                        <Card.Text><strong>Role: </strong> {role}</Card.Text>
                         <Card.Text><strong>Email: </strong> {email}</Card.Text>
                     </article>
                 </Card.Body>
