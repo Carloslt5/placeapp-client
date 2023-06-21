@@ -32,16 +32,19 @@ const HomePage = () => {
                 <div class="marquee">
                     <div class="marquee_track">
                         <div class="marquee_content">
-                            <h3>
+                            <h4>
                                 PLACEAPP <span class="outline">PLACEAPP </span>
                                 PLACEAPP <span class="outline">PLACEAPP </span>
                                 PLACEAPP <span class="outline">PLACEAPP </span>
                                 PLACEAPP <span class="outline">PLACEAPP </span>
                                 PLACEAPP <span class="outline">PLACEAPP </span>
+
                                 PLACEAPP <span class="outline">PLACEAPP </span>
                                 PLACEAPP <span class="outline">PLACEAPP </span>
                                 PLACEAPP <span class="outline">PLACEAPP </span>
-                            </h3>
+                                PLACEAPP <span class="outline">PLACEAPP </span>
+                                PLACEAPP <span class="outline">PLACEAPP </span>
+                            </h4>
                         </div>
                     </div>
                 </div>
